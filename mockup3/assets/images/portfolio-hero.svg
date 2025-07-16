@@ -1,0 +1,14 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="portfolioPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="#333"/>
+      <rect x="10" y="10" width="35" height="35" fill="#444" opacity="0.5"/>
+      <rect x="55" y="10" width="35" height="35" fill="#444" opacity="0.5"/>
+      <rect x="10" y="55" width="35" height="35" fill="#444" opacity="0.5"/>
+      <rect x="55" y="55" width="35" height="35" fill="#444" opacity="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#portfolioPattern)"/>
+  <rect width="1920" height="1080" fill="rgba(0,0,0,0.5)"/>
+  <text x="960" y="550" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle">Our Portfolio</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mbsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C85450;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C9A961;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="60" fill="#FAFAF8" stroke="#E8E6E1" stroke-width="1" rx="8"/>
+  
+  <!-- Marina Bay Sands Icon -->
+  <g transform="translate(20, 10)">
+    <!-- Building towers -->
+    <rect x="0" y="20" width="6" height="20" fill="url(#mbsGrad)"/>
+    <rect x="8" y="15" width="6" height="25" fill="url(#mbsGrad)"/>
+    <rect x="16" y="18" width="6" height="22" fill="url(#mbsGrad)"/>
+    
+    <!-- Sky park -->
+    <ellipse cx="11" cy="12" rx="14" ry="3" fill="url(#mbsGrad)"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="50" y="25" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1A1A1A">MARINA BAY SANDS</text>
+  <text x="50" y="38" font-family="Arial, sans-serif" font-size="8" fill="#666">Luxury Hotel Client</text>
+  
+  <!-- PSPL Trust Badge -->
+  <circle cx="175" cy="15" r="8" fill="#C85450"/>
+  <text x="175" y="18" font-family="Arial, sans-serif" font-size="6" text-anchor="middle" fill="white" font-weight="bold">✓</text>
+</svg>

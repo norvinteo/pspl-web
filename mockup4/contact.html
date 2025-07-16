@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact PSPL - 24/7 Emergency marble polishing service Singapore. Get industrial-grade stone restoration now.">
+    <meta name="keywords" content="contact marble polishing, emergency stone restoration, PSPL contact, Singapore marble repair">
+    
+    <title>Contact - 24/7 Emergency Response | PSPL Singapore</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;700;900&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="industrial-brutalist-style.css">
+    <style>
+        /* Contact Specific Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xxl);
+            margin-bottom: var(--space-xxl);
+        }
+        
+        .emergency-card {
+            background-color: var(--warning-orange);
+            color: var(--off-white);
+            padding: var(--space-xxl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .emergency-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(0,0,0,0.1) 20px,
+                rgba(0,0,0,0.1) 40px
+            );
+        }
+        
+        .emergency-number {
+            font-family: var(--font-display);
+            font-size: var(--text-massive);
+            line-height: 1;
+            margin: var(--space-lg) 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .map-container {
+            background-color: var(--concrete-gray);
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            border: var(--border-thick);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .response-times {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .response-block {
+            text-align: center;
+            padding: var(--space-md);
+            background-color: rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .response-time {
+            font-family: var(--font-display);
+            font-size: var(--text-xxl);
+            line-height: 1;
+        }
+        
+        .response-label {
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            opacity: 0.9;
+            text-transform: uppercase;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .response-times {
+                grid-template-columns: 1fr;
+            }
+            
+            .emergency-number {
+                font-size: var(--text-xxl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="industrial-header">
+        <div class="header-warning-stripe"></div>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">PS</div>
+                    <span class="logo-text">POLISHING SPECIALIST PVT LTD</span>
+                </a>
+                
+                <ul class="industrial-nav">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                    <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                    <li><a href="encyclopedia.html" class="nav-link">STONE GUIDE</a></li>
+                    <li><a href="contact.html" class="nav-link active">CONTACT</a></li>
+                </ul>
+                
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="section-industrial section-concrete" style="margin-top: 78px; padding-top: var(--space-xxl);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// GET IN TOUCH</span>
+                <h1 class="section-title">DIRECT LINE</h1>
+                <p class="hero-subtitle text-center">
+                    No call centers. No runaround. Direct access to Singapore's marble specialists.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact -->
+    <section class="section-industrial" style="padding-top: 0;">
+        <div class="container">
+            <div class="emergency-card">
+                <h2>24/7 EMERGENCY HOTLINE</h2>
+                <div class="emergency-number">
+                    +65 9123 4567
+                </div>
+                <p class="text-lg mb-lg">IMMEDIATE RESPONSE GUARANTEED</p>
+                
+                <div class="response-times">
+                    <div class="response-block">
+                        <div class="response-time">2HR</div>
+                        <div class="response-label">MAX RESPONSE</div>
+                    </div>
+                    <div class="response-block">
+                        <div class="response-time">24/7</div>
+                        <div class="response-label">AVAILABILITY</div>
+                    </div>
+                    <div class="response-block">
+                        <div class="response-time">100%</div>
+                        <div class="response-label">UPFRONT PRICING</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="mb-lg">PROJECT INQUIRY FORM</h2>
+                    <form class="form-industrial" id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">YOUR NAME *</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="company">COMPANY</label>
+                            <input type="text" id="company" name="company" class="form-input">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">EMAIL *</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="phone">PHONE *</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="service">SERVICE REQUIRED</label>
+                            <select id="service" name="service" class="form-input">
+                                <option value="">// SELECT SERVICE</option>
+                                <option value="marble-polishing">MARBLE POLISHING</option>
+                                <option value="emergency">EMERGENCY RESPONSE</option>
+                                <option value="granite">GRANITE RESTORATION</option>
+                                <option value="consultancy">CONSULTANCY</option>
+                                <option value="maintenance">MAINTENANCE CONTRACT</option>
+                                <option value="other">OTHER</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="urgency">URGENCY LEVEL</label>
+                            <div class="form-radio">
+                                <input type="radio" id="emergency" name="urgency" value="emergency">
+                                <label for="emergency">EMERGENCY (24HR)</label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" id="urgent" name="urgency" value="urgent">
+                                <label for="urgent">URGENT (48HR)</label>
+                            </div>
+                            <div class="form-radio">
+                                <input type="radio" id="normal" name="urgency" value="normal" checked>
+                                <label for="normal">NORMAL (1 WEEK)</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="message">PROJECT DETAILS *</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-industrial">SEND INQUIRY →</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="mb-lg">DIRECT CONTACT</h2>
+                    
+                    <div class="industrial-card mb-lg">
+                        <h3 class="text-industrial mb-md">HEADQUARTERS</h3>
+                        <div class="mono-text text-sm">
+                            <p>// POLISHING SPECIALIST PVT LTD</p>
+                            <p>// 123 INDUSTRIAL PARK</p>
+                            <p>// SINGAPORE 123456</p>
+                        </div>
+                    </div>
+                    
+                    <div class="industrial-card mb-lg">
+                        <h3 class="text-industrial mb-md">OPERATING HOURS</h3>
+                        <table class="specs-table">
+                            <tr>
+                                <td>MONDAY-FRIDAY</td>
+                                <td>8AM - 6PM</td>
+                            </tr>
+                            <tr>
+                                <td>SATURDAY</td>
+                                <td>8AM - 2PM</td>
+                            </tr>
+                            <tr>
+                                <td>SUNDAY</td>
+                                <td>EMERGENCY ONLY</td>
+                            </tr>
+                            <tr>
+                                <td>PUBLIC HOLIDAYS</td>
+                                <td>24/7 EMERGENCY</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div class="industrial-card">
+                        <h3 class="text-industrial mb-md">CONTACT CHANNELS</h3>
+                        <div class="mono-text text-sm">
+                            <p class="mb-sm">// EMERGENCY: <a href="tel:+6591234567" class="text-warning">+65 9123 4567</a></p>
+                            <p class="mb-sm">// OFFICE: <a href="tel:+6562345678">+65 6234 5678</a></p>
+                            <p class="mb-sm">// EMAIL: <a href="mailto:info@pspl.sg">info@pspl.sg</a></p>
+                            <p class="mb-sm">// WHATSAPP: <a href="https://wa.me/6591234567">+65 9123 4567</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-industrial section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// SERVICE COVERAGE</span>
+                <h2 class="section-title">OPERATIONAL ZONES</h2>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div class="text-center">
+                        <h3 class="text-industrial mb-lg">SINGAPORE ISLAND-WIDE COVERAGE</h3>
+                        <div class="mono-text">
+                            <p>// CENTRAL: 30 MIN RESPONSE</p>
+                            <p>// EAST/WEST: 45 MIN RESPONSE</p>
+                            <p>// NORTH: 60 MIN RESPONSE</p>
+                            <p>// SENTOSA: 90 MIN RESPONSE</p>
+                            <p>// JB MALAYSIA: BY APPOINTMENT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-xl">
+                <pre class="ascii-decoration">
+    ┌───────────────────────────┐
+    │ GPS: 1.3521° N, 103.8198° E │
+    └───────────────────────────┘
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// COMMON QUESTIONS</span>
+                <h2 class="section-title">FIELD MANUAL</h2>
+            </div>
+            
+            <div class="industrial-grid grid-2">
+                <div class="industrial-card">
+                    <h3>WHAT'S YOUR RESPONSE TIME?</h3>
+                    <p>Emergency: 2 hours max. Regular service: 24-48 hours. We keep teams on standby 24/7 for urgent calls.</p>
+                </div>
+                
+                <div class="industrial-card">
+                    <h3>WHY DO YOU CHARGE DOUBLE?</h3>
+                    <p>Because we deliver triple the value. Our work lasts 5x longer than competitors. Zero callbacks. Guaranteed.</p>
+                </div>
+                
+                <div class="industrial-card">
+                    <h3>DO YOU WORK WEEKENDS?</h3>
+                    <p>Yes. Nights, weekends, holidays - whenever you need us. Many corporate clients prefer off-hours work.</p>
+                </div>
+                
+                <div class="industrial-card">
+                    <h3>PAYMENT TERMS?</h3>
+                    <p>100% upfront for residential. Net 30 for established corporate accounts. We accept all major payment methods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="section-industrial section-concrete">
+        <div class="container">
+            <div class="blueprint-container">
+                <h3 class="blueprint-title">RECENT EMERGENCY RESPONSES</h3>
+                <div class="mono-text" style="color: var(--industrial-yellow);">
+                    <p>[2024.01.15 02:47] WATER DAMAGE - RAFFLES PLACE - RESOLVED IN 4 HRS</p>
+                    <p>[2024.01.12 23:15] CHEMICAL SPILL - BIOPOLIS - NEUTRALIZED</p>
+                    <p>[2024.01.10 04:30] PRE-EVENT POLISH - MBS - COMPLETED</p>
+                    <p>[2024.01.08 18:22] WINE STAIN - SENTOSA - REMOVED</p>
+                    <p>[2024.01.05 03:45] CRACK REPAIR - ORCHARD - FIXED</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="mb-lg">DON'T WAIT FOR DAMAGE TO SPREAD</h2>
+                <p class="text-lg mb-xl">
+                    Every hour counts when marble is damaged. Call now for immediate assessment.
+                </p>
+                <div class="emergency-strip">
+                    <p class="emergency-text mb-lg">PROFESSIONAL HELP IS ONE CALL AWAY</p>
+                    <a href="tel:+6591234567" class="btn btn-industrial">CALL NOW: +65 9123 4567</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-industrial">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>QUICK CONTACT</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+6591234567">Emergency Line</a></li>
+                        <li><a href="mailto:info@pspl.sg">Email Us</a></li>
+                        <li><a href="https://wa.me/6591234567">WhatsApp</a></li>
+                        <li><a href="#">Facebook Messenger</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>SERVICES</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#marble">Marble Polishing</a></li>
+                        <li><a href="services.html#emergency">Emergency Response</a></li>
+                        <li><a href="services.html#consultancy">Consultancy</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>INFORMATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About PSPL</a></li>
+                        <li><a href="portfolio.html">Our Work</a></li>
+                        <li><a href="encyclopedia.html">Stone Guide</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>FOLLOW US</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">TikTok</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 POLISHING SPECIALIST PRIVATE LIMITED | SINGAPORE | ESTD 1989</p>
+                <pre class="ascii-decoration mt-md">
+ _____ _____ _____ __    
+|  _  |   __|  _  |  |   
+|   __|__   |   __|  |__ 
+|__|  |_____|__|  |_____|
+                </pre>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="industrial-main.js"></script>
+    <script>
+        // Additional form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Show success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'form-success';
+            successMsg.style.marginTop = 'var(--space-lg)';
+            successMsg.innerHTML = `
+                <p class="mb-sm">INQUIRY RECEIVED. EXPECT RESPONSE WITHIN:</p>
+                <p class="text-xxl mb-0">${data.urgency === 'emergency' ? '30 MINUTES' : data.urgency === 'urgent' ? '2 HOURS' : '24 HOURS'}</p>
+            `;
+            
+            this.appendChild(successMsg);
+            this.reset();
+            
+            // Remove success message after 5 seconds
+            setTimeout(() => {
+                successMsg.remove();
+            }, 5000);
+        });
+        
+        // Add urgency highlighting
+        document.querySelectorAll('input[name="urgency"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const form = document.getElementById('contactForm');
+                form.classList.remove('emergency-mode', 'urgent-mode');
+                
+                if (this.value === 'emergency') {
+                    form.classList.add('emergency-mode');
+                    form.style.borderColor = 'var(--warning-orange)';
+                } else if (this.value === 'urgent') {
+                    form.classList.add('urgent-mode');
+                    form.style.borderColor = 'var(--industrial-yellow)';
+                } else {
+                    form.style.borderColor = 'var(--deep-charcoal)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

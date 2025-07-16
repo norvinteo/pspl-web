@@ -1,0 +1,12 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="bookPattern" x="0" y="0" width="100" height="150" patternUnits="userSpaceOnUse">
+      <rect width="100" height="150" fill="#2a2a2a"/>
+      <rect x="10" y="10" width="80" height="130" fill="#3a3a3a"/>
+      <rect x="20" y="20" width="60" height="110" fill="#4a4a4a"/>
+    </pattern>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bookPattern)"/>
+  <rect width="1920" height="1080" fill="rgba(0,0,0,0.7)"/>
+  <text x="960" y="550" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle">Marble Encyclopedia</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg width="400" height="250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heritageMarble" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F3F0;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#FAFAF8;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#E8E6E1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F3F0;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="goldAccent" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#C9A961;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8940F;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Heritage marble floor with intricate pattern -->
+  <rect width="400" height="250" fill="url(#heritageMarble)"/>
+  
+  <!-- Ornate marble inlay pattern -->
+  <circle cx="200" cy="125" r="80" fill="none" stroke="url(#goldAccent)" stroke-width="3" opacity="0.8"/>
+  <circle cx="200" cy="125" r="60" fill="none" stroke="url(#goldAccent)" stroke-width="2" opacity="0.6"/>
+  <circle cx="200" cy="125" r="40" fill="none" stroke="url(#goldAccent)" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Heritage pattern details -->
+  <path d="M200,45 L220,85 L200,125 L180,85 Z" fill="url(#goldAccent)" opacity="0.3"/>
+  <path d="M200,125 L240,145 L200,185 L160,145 Z" fill="url(#goldAccent)" opacity="0.3"/>
+  <path d="M120,125 L160,105 L200,125 L160,145 Z" fill="url(#goldAccent)" opacity="0.3"/>
+  <path d="M280,125 L240,105 L200,125 L240,145 Z" fill="url(#goldAccent)" opacity="0.3"/>
+  
+  <!-- Classical marble veining -->
+  <path d="M0,30 Q100,50 200,30 T400,35" stroke="#E8E6E1" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M0,180 Q120,160 240,180 T400,175" stroke="#E8E6E1" stroke-width="1.5" fill="none" opacity="0.5"/>
+  
+  <!-- Suite furniture silhouettes -->
+  <rect x="50" y="80" width="60" height="40" fill="rgba(26,26,26,0.1)" rx="5"/>
+  <rect x="290" y="80" width="60" height="40" fill="rgba(26,26,26,0.1)" rx="5"/>
+  
+  <!-- Project info overlay -->
+  <rect x="20" y="190" width="360" height="40" fill="rgba(26,26,26,0.8)" rx="8"/>
+  <text x="30" y="210" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Raffles Hotel Presidential Suite</text>
+  <text x="30" y="225" font-family="Arial, sans-serif" font-size="10" fill="#C9A961">Heritage Carrara Marble • Historical Authenticity Preserved</text>
+  
+  <!-- Heritage badge -->
+  <circle cx="370" cy="30" r="15" fill="url(#goldAccent)"/>
+  <text x="370" y="35" font-family="Arial, sans-serif" font-size="8" text-anchor="middle" fill="white" font-weight="bold">EST<tspan x="370" dy="8">1887</tspan></text>
+  
+  <!-- PSPL watermark -->
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="12" fill="#C85450" opacity="0.7" font-weight="bold">PSPL</text>
+</svg>

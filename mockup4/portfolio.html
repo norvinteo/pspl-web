@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PSPL Portfolio - Industrial marble polishing projects. Before/after transformations from Singapore's toughest stone restoration jobs.">
+    <meta name="keywords" content="marble polishing portfolio, stone restoration gallery, before after marble, Singapore marble projects">
+    
+    <title>Portfolio - Industrial Marble Transformations | PSPL Singapore</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;700;900&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="industrial-brutalist-style.css">
+    <style>
+        /* Portfolio Specific Styles */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+            margin-bottom: var(--space-xxl);
+        }
+        
+        .filter-btn {
+            background-color: var(--concrete-gray);
+            color: var(--off-white);
+            border: 2px solid var(--concrete-gray);
+            padding: var(--space-sm) var(--space-lg);
+            font-family: var(--font-display);
+            font-size: var(--text-md);
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-transform: uppercase;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--industrial-yellow);
+            color: var(--deep-charcoal);
+            border-color: var(--industrial-yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 var(--deep-charcoal);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .portfolio-card {
+            background-color: var(--off-white);
+            border: var(--border-thick);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+        
+        .portfolio-card:hover {
+            transform: translate(-6px, -6px);
+            box-shadow: 10px 10px 0px var(--industrial-yellow);
+        }
+        
+        .portfolio-images {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .before-after-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .before-after-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .after-image {
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        }
+        
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background-color: var(--industrial-yellow);
+            cursor: ew-resize;
+            transform: translateX(-50%);
+        }
+        
+        .slider-handle::before {
+            content: '◀ ▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--industrial-yellow);
+            color: var(--deep-charcoal);
+            padding: var(--space-xs) var(--space-sm);
+            font-family: var(--font-mono);
+            font-size: var(--text-xs);
+            white-space: nowrap;
+        }
+        
+        .category-tag {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            background-color: var(--warning-orange);
+            color: var(--off-white);
+            padding: var(--space-xs) var(--space-md);
+            font-family: var(--font-display);
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            transform: rotate(-5deg);
+            z-index: 10;
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                gap: var(--space-xs);
+            }
+            
+            .filter-btn {
+                padding: var(--space-xs) var(--space-md);
+                font-size: var(--text-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="industrial-header">
+        <div class="header-warning-stripe"></div>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">PS</div>
+                    <span class="logo-text">POLISHING SPECIALIST PVT LTD</span>
+                </a>
+                
+                <ul class="industrial-nav">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                    <li><a href="portfolio.html" class="nav-link active">PORTFOLIO</a></li>
+                    <li><a href="encyclopedia.html" class="nav-link">STONE GUIDE</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+                </ul>
+                
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="section-industrial section-concrete" style="margin-top: 78px; padding-top: var(--space-xxl);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// PROJECT GALLERY</span>
+                <h1 class="section-title">INDUSTRIAL TRANSFORMATIONS</h1>
+                <p class="hero-subtitle text-center">
+                    Raw evidence of what happens when expertise meets damaged stone.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="section-industrial section-dark" style="padding: var(--space-xl) 0;">
+        <div class="container">
+            <div class="stats-industrial">
+                <div class="stat-block">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">PROJECTS COMPLETED</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-label">CORPORATE CLIENTS</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">15M</div>
+                    <div class="stat-label">SQM RESTORED</div>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">SATISFACTION</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">ALL PROJECTS</button>
+                <button class="filter-btn" data-filter="hospitality">HOSPITALITY</button>
+                <button class="filter-btn" data-filter="corporate">CORPORATE</button>
+                <button class="filter-btn" data-filter="retail">RETAIL</button>
+                <button class="filter-btn" data-filter="residential">RESIDENTIAL</button>
+                <button class="filter-btn" data-filter="emergency">EMERGENCY</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid">
+                <!-- Marina Bay Sands -->
+                <div class="portfolio-card" data-category="hospitality">
+                    <div class="category-tag rotate-more">HOSPITALITY</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=800&h=600&fit=crop" alt="Marina Bay Sands Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Marina Bay Sands After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">MARINA BAY SANDS LOBBY</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">AREA: 2,500 SQM</span>
+                            <span class="mono-text">TIME: 48 HRS</span>
+                        </div>
+                        <p>Complete restoration of main lobby Carrara marble. Water damage and heavy foot traffic had dulled the surface. Restored to 98% gloss level.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">PROCESS: Diamond Grinding > 5X Polish > Crystallization</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Raffles Place Emergency -->
+                <div class="portfolio-card" data-category="emergency corporate">
+                    <div class="category-tag rotate-more" style="background-color: var(--rust-red);">EMERGENCY</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1564540579594-0930edb6de43?w=800&h=600&fit=crop" alt="Raffles Place Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Raffles Place After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">RAFFLES PLACE WATER DAMAGE</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">TYPE: EMERGENCY</span>
+                            <span class="mono-text">RESPONSE: 90 MIN</span>
+                        </div>
+                        <p>Burst pipe flooded executive floor on Saturday night. Complete restoration before Monday operations. Zero trace of damage.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">24/7 RESPONSE TEAM DEPLOYED</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ION Orchard Retail -->
+                <div class="portfolio-card" data-category="retail">
+                    <div class="category-tag rotate-more">RETAIL</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=800&h=600&fit=crop" alt="ION Orchard Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop" alt="ION Orchard After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">ION ORCHARD BOUTIQUE</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">FINISH: MIRROR</span>
+                            <span class="mono-text">STONE: CALACATTA</span>
+                        </div>
+                        <p>Luxury boutique required absolute perfection. Achieved mirror finish on rare Calacatta Gold marble. Zero defects accepted.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">GLOSS LEVEL: 95+ GU</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- St. Regis Hotel -->
+                <div class="portfolio-card" data-category="hospitality">
+                    <div class="category-tag rotate-more">HOSPITALITY</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop" alt="St. Regis Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=600&fit=crop" alt="St. Regis After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">ST. REGIS BALLROOM</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">AREA: 1,200 SQM</span>
+                            <span class="mono-text">DOWNTIME: ZERO</span>
+                        </div>
+                        <p>Restored historic marble ballroom without disrupting hotel operations. Night work only. Removed 30 years of wear.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">HERITAGE RESTORATION PROTOCOLS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sentosa Cove Residence -->
+                <div class="portfolio-card" data-category="residential">
+                    <div class="category-tag rotate-more">RESIDENTIAL</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop" alt="Sentosa Cove Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop" alt="Sentosa Cove After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">SENTOSA COVE PENTHOUSE</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">TYPE: LUXURY</span>
+                            <span class="mono-text">STONE: EMPERADOR</span>
+                        </div>
+                        <p>Complete restoration of rare Emperador Dark marble. Salt air damage reversed. Protective nano-coating applied.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">5-YEAR PROTECTION GUARANTEED</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MBFC Tower -->
+                <div class="portfolio-card" data-category="corporate">
+                    <div class="category-tag rotate-more">CORPORATE</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop" alt="MBFC Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop" alt="MBFC After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">MBFC TOWER RECEPTION</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">FLOORS: 45</span>
+                            <span class="mono-text">SCOPE: FULL</span>
+                        </div>
+                        <p>Restored all common area marble across 45 floors. Coordinated with building management for zero business disruption.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">PROJECT DURATION: 3 MONTHS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paragon Mall -->
+                <div class="portfolio-card" data-category="retail">
+                    <div class="category-tag rotate-more">RETAIL</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&h=600&fit=crop" alt="Paragon Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1567449303212-57fe48a93f0e?w=800&h=600&fit=crop" alt="Paragon After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">PARAGON ATRIUM</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">TRAFFIC: HIGH</span>
+                            <span class="mono-text">CHALLENGE: EXTREME</span>
+                        </div>
+                        <p>Restored heavily trafficked atrium marble without mall closure. Developed custom anti-slip finish maintaining high gloss.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">SLIP RESISTANCE: R10 CERTIFIED</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chemical Spill Emergency -->
+                <div class="portfolio-card" data-category="emergency">
+                    <div class="category-tag rotate-more" style="background-color: var(--rust-red);">EMERGENCY</div>
+                    <div class="portfolio-images">
+                        <div class="before-after-container">
+                            <img src="https://images.unsplash.com/photo-1564540574859-0dfb63985953?w=800&h=600&fit=crop" alt="Chemical Damage Before" class="before-image">
+                            <img src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=800&h=600&fit=crop" alt="Chemical Damage After" class="after-image">
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">LABORATORY ACID SPILL</h3>
+                        <div class="portfolio-meta">
+                            <span class="mono-text">DAMAGE: SEVERE</span>
+                            <span class="mono-text">RESTORED: 100%</span>
+                        </div>
+                        <p>Hydrochloric acid severely etched marble floor. Complete restoration achieved through specialized neutralization and refinishing.</p>
+                        <div class="blueprint-container mt-md">
+                            <p class="mono-text text-xs">HAZMAT PROTOCOLS ACTIVATED</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="section-industrial section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// CLIENT FEEDBACK</span>
+                <h2 class="section-title">FIELD REPORTS</h2>
+            </div>
+            
+            <div class="blueprint-container" style="max-width: 800px; margin: 0 auto;">
+                <h3 class="blueprint-title">RECENT PROJECT REVIEWS</h3>
+                <div class="testimonial-industrial" style="border: none; padding: 0;">
+                    <p class="testimonial-text">
+                        "PSPL turned a disaster into a non-event. Water damage on Friday, perfect marble on Monday. 
+                        Their emergency response saved our reputation with a major client presentation."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DL</div>
+                        <div class="author-info">
+                            <div class="author-name">DAVID LIM</div>
+                            <div class="author-title">Facilities Manager, MBFC Tower 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="mb-lg">HAVE A CHALLENGING PROJECT?</h2>
+                <p class="text-lg mb-xl">
+                    The tougher the job, the more we like it. Let's discuss your marble restoration needs.
+                </p>
+                <div class="emergency-strip">
+                    <p class="emergency-text mb-lg">NO JOB TOO BIG, NO DEADLINE TOO TIGHT</p>
+                    <a href="contact.html" class="btn btn-industrial">START YOUR PROJECT →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-industrial">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>QUICK ACCESS</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="encyclopedia.html">Stone Encyclopedia</a></li>
+                        <li><a href="contact.html">Emergency Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>PROJECT TYPES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="filterProjects('hospitality')">Hospitality</a></li>
+                        <li><a href="#" onclick="filterProjects('corporate')">Corporate</a></li>
+                        <li><a href="#" onclick="filterProjects('retail')">Retail</a></li>
+                        <li><a href="#" onclick="filterProjects('emergency')">Emergency</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>SECTORS</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#hospitality">Hospitality</a></li>
+                        <li><a href="about.html#corporate">Corporate</a></li>
+                        <li><a href="about.html#retail">Retail</a></li>
+                        <li><a href="about.html#residential">Residential</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>CONNECT</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+6591234567">Emergency: +65 9123 4567</a></li>
+                        <li><a href="mailto:info@pspl.sg">info@pspl.sg</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 POLISHING SPECIALIST PRIVATE LIMITED | SINGAPORE | ESTD 1989</p>
+                <pre class="ascii-decoration mt-md">
+ _____ _____ _____ __    
+|  _  |   __|  _  |  |   
+|   __|__   |   __|  |__ 
+|__|  |_____|__|  |_____|
+                </pre>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="industrial-main.js"></script>
+    <script>
+        // Portfolio Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    portfolioCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.9)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Before/After Slider Functionality
+            const sliders = document.querySelectorAll('.before-after-container');
+            
+            sliders.forEach(slider => {
+                const handle = slider.querySelector('.slider-handle');
+                const afterImage = slider.querySelector('.after-image');
+                let isDown = false;
+                
+                handle.addEventListener('mousedown', () => isDown = true);
+                document.addEventListener('mouseup', () => isDown = false);
+                
+                slider.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    
+                    const rect = slider.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const percentage = (x / rect.width) * 100;
+                    
+                    if (percentage >= 0 && percentage <= 100) {
+                        handle.style.left = percentage + '%';
+                        afterImage.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+                    }
+                });
+                
+                // Touch support
+                handle.addEventListener('touchstart', () => isDown = true);
+                document.addEventListener('touchend', () => isDown = false);
+                
+                slider.addEventListener('touchmove', (e) => {
+                    if (!isDown) return;
+                    
+                    const rect = slider.getBoundingClientRect();
+                    const x = e.touches[0].clientX - rect.left;
+                    const percentage = (x / rect.width) * 100;
+                    
+                    if (percentage >= 0 && percentage <= 100) {
+                        handle.style.left = percentage + '%';
+                        afterImage.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
+                    }
+                });
+            });
+        });
+        
+        // Filter function for footer links
+        function filterProjects(category) {
+            const filterBtn = document.querySelector(`[data-filter="${category}"]`);
+            if (filterBtn) filterBtn.click();
+            window.scrollTo({ top: 600, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

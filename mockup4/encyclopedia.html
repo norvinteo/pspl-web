@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stone Encyclopedia by PSPL - Complete guide to marble, granite, and natural stone. Technical specifications and care instructions.">
+    <meta name="keywords" content="marble types, stone encyclopedia, granite guide, natural stone database, marble specifications">
+    
+    <title>Stone Encyclopedia - Industrial Natural Stone Database | PSPL Singapore</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@400;500;700;900&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="industrial-brutalist-style.css">
+    <style>
+        /* Encyclopedia Specific Styles */
+        .stone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxl);
+        }
+        
+        .stone-card {
+            background-color: var(--off-white);
+            border: var(--border-thick);
+            overflow: hidden;
+            transition: var(--transition-base);
+            cursor: pointer;
+        }
+        
+        .stone-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 8px 8px 0px var(--industrial-yellow);
+        }
+        
+        .stone-image {
+            height: 250px;
+            background-color: var(--concrete-gray);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stone-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .stone-card:hover .stone-image img {
+            transform: scale(1.1);
+        }
+        
+        .stone-grade {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background-color: var(--deep-charcoal);
+            color: var(--industrial-yellow);
+            padding: var(--space-xs) var(--space-md);
+            font-family: var(--font-display);
+            font-size: var(--text-sm);
+            letter-spacing: 0.1em;
+        }
+        
+        .stone-content {
+            padding: var(--space-lg);
+        }
+        
+        .specs-table {
+            width: 100%;
+            margin-top: var(--space-md);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+        }
+        
+        .specs-table td {
+            padding: var(--space-xs) 0;
+            border-bottom: 1px dashed var(--concrete-gray);
+        }
+        
+        .specs-table td:first-child {
+            color: var(--steel-blue);
+            width: 40%;
+        }
+        
+        .specs-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+        }
+        
+        .care-tips {
+            background-color: var(--deep-charcoal);
+            color: var(--off-white);
+            padding: var(--space-md);
+            margin-top: var(--space-lg);
+            border-left: 4px solid var(--industrial-yellow);
+        }
+        
+        .care-tips h5 {
+            color: var(--industrial-yellow);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .care-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .care-tips li::before {
+            content: "// ";
+            color: var(--industrial-yellow);
+        }
+        
+        .search-bar {
+            background-color: var(--deep-charcoal);
+            border: 3px solid var(--industrial-yellow);
+            padding: var(--space-md) var(--space-lg);
+            font-family: var(--font-mono);
+            font-size: var(--text-md);
+            color: var(--off-white);
+            width: 100%;
+            margin-bottom: var(--space-xl);
+            transition: var(--transition-fast);
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 183, 0, 0.3);
+        }
+        
+        .search-bar::placeholder {
+            color: var(--steel-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .stone-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="industrial-header">
+        <div class="header-warning-stripe"></div>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="index.html" class="logo">
+                    <div class="logo-mark">PS</div>
+                    <span class="logo-text">POLISHING SPECIALIST PVT LTD</span>
+                </a>
+                
+                <ul class="industrial-nav">
+                    <li><a href="index.html" class="nav-link">HOME</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                    <li><a href="services.html" class="nav-link">SERVICES</a></li>
+                    <li><a href="portfolio.html" class="nav-link">PORTFOLIO</a></li>
+                    <li><a href="encyclopedia.html" class="nav-link active">STONE GUIDE</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+                </ul>
+                
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="section-industrial section-concrete" style="margin-top: 78px; padding-top: var(--space-xxl);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// TECHNICAL DATABASE</span>
+                <h1 class="section-title">STONE ENCYCLOPEDIA</h1>
+                <p class="hero-subtitle text-center">
+                    Industrial-grade knowledge base. Know your stone, know your solution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="section-industrial" style="padding-top: var(--space-xl);">
+        <div class="container">
+            <input type="text" class="search-bar" placeholder="// SEARCH STONE DATABASE..." id="stoneSearch">
+            
+            <div class="text-center mb-xl">
+                <pre class="ascii-decoration">
+┌─────────────────────────────────────┐
+│ DATABASE: 50+ STONE TYPES           │
+│ LAST UPDATED: 2024.01.15           │
+│ STATUS: ACTIVE                      │
+└─────────────────────────────────────┘
+                </pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Marbles Section -->
+    <section class="section-industrial" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// CATEGORY: MARBLE</span>
+                <h2 class="section-title">PREMIUM MARBLE GRADES</h2>
+            </div>
+            
+            <div class="stone-grid">
+                <!-- Carrara Marble -->
+                <div class="stone-card" data-stone="carrara marble">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop" alt="Carrara Marble">
+                        <div class="stone-grade">GRADE A</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>CARRARA MARBLE</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// ITALY'S FINEST</p>
+                        <p>The gold standard of white marble. Quarried from Tuscany's mountains for over 2000 years.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>3-4 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.4%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>LOW</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Daily dust mopping</li>
+                                <li>pH neutral cleaners only</li>
+                                <li>Annual professional polish</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Calacatta Gold -->
+                <div class="stone-card" data-stone="calacatta gold">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=600&fit=crop" alt="Calacatta Gold">
+                        <div class="stone-grade">GRADE A+</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>CALACATTA GOLD</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// ULTRA LUXURY</p>
+                        <p>Rarest of Italian marbles. Bold gold veining on pure white base. Status symbol stone.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>3-4 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>VERY LOW</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Handle with extreme care</li>
+                                <li>Immediate spill cleanup</li>
+                                <li>Quarterly professional maintenance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emperador Dark -->
+                <div class="stone-card" data-stone="emperador dark">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&h=600&fit=crop" alt="Emperador Dark">
+                        <div class="stone-grade">GRADE A</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>EMPERADOR DARK</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// SPANISH ROYALTY</p>
+                        <p>Rich chocolate browns with striking white veins. Adds instant luxury to any space.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>3-4 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.6%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>MODERATE</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Regular sealing required</li>
+                                <li>Avoid acidic substances</li>
+                                <li>Professional polish bi-annually</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Statuario -->
+                <div class="stone-card" data-stone="statuario">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Statuario Marble">
+                        <div class="stone-grade">GRADE A+</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>STATUARIO MARBLE</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// SCULPTOR'S CHOICE</p>
+                        <p>Michelangelo's preferred marble. Dramatic grey veining on pristine white background.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>3 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.4%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>LOW</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Museum-grade care required</li>
+                                <li>Professional maintenance only</li>
+                                <li>Climate control recommended</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Granite Section -->
+    <section class="section-industrial section-dark">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// CATEGORY: GRANITE</span>
+                <h2 class="section-title">INDUSTRIAL GRANITE</h2>
+            </div>
+            
+            <div class="stone-grid">
+                <!-- Black Galaxy -->
+                <div class="stone-card" data-stone="black galaxy granite">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=800&h=600&fit=crop" alt="Black Galaxy Granite">
+                        <div class="stone-grade">PREMIUM</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>BLACK GALAXY</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// INDIAN POWERHOUSE</p>
+                        <p>Black base with golden specks resembling stars. Extremely durable and prestigious.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>6-7 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.1%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>EXCELLENT</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Minimal maintenance required</li>
+                                <li>Annual sealing sufficient</li>
+                                <li>Resistant to most damage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Baltic Brown -->
+                <div class="stone-card" data-stone="baltic brown granite">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Baltic Brown Granite">
+                        <div class="stone-grade">COMMERCIAL</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>BALTIC BROWN</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// FINNISH STRENGTH</p>
+                        <p>Brown base with black and grey minerals. Perfect for high-traffic commercial areas.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>6-7 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.2%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>HIGH</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Industrial-grade durability</li>
+                                <li>Simple maintenance routine</li>
+                                <li>Ideal for heavy use</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Natural Stones -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// CATEGORY: SPECIALTY</span>
+                <h2 class="section-title">SPECIALTY STONES</h2>
+            </div>
+            
+            <div class="stone-grid">
+                <!-- Travertine -->
+                <div class="stone-card" data-stone="travertine">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1564540579594-0930edb6de43?w=800&h=600&fit=crop" alt="Travertine Stone">
+                        <div class="stone-grade">CLASSIC</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>TRAVERTINE</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// ROMAN LEGACY</p>
+                        <p>Ancient limestone with natural holes. Used in the Colosseum. Timeless appeal.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>3-4 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>2-5%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>LOW</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Fill holes before polishing</li>
+                                <li>Regular sealing critical</li>
+                                <li>Gentle cleaning only</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Terrazzo -->
+                <div class="stone-card" data-stone="terrazzo">
+                    <div class="stone-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Terrazzo Floor">
+                        <div class="stone-grade">ENGINEERED</div>
+                    </div>
+                    <div class="stone-content">
+                        <h3>TERRAZZO</h3>
+                        <p class="mono-text text-sm text-steel mb-md">// COMPOSITE CHAMPION</p>
+                        <p>Marble chips in cement or resin matrix. Infinite design possibilities. Extremely durable.</p>
+                        
+                        <table class="specs-table">
+                            <tr>
+                                <td>HARDNESS</td>
+                                <td>7 MOHS</td>
+                            </tr>
+                            <tr>
+                                <td>POROSITY</td>
+                                <td>0.1%</td>
+                            </tr>
+                            <tr>
+                                <td>ACID RESIST</td>
+                                <td>MODERATE</td>
+                            </tr>
+                            <tr>
+                                <td>PRICE RANGE</td>
+                                <td>$$-$$$</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="care-tips">
+                            <h5>CARE PROTOCOL</h5>
+                            <ul>
+                                <li>Diamond polishing required</li>
+                                <li>Crack repair essential</li>
+                                <li>Long-lasting with care</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Guide -->
+    <section class="section-industrial section-concrete">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge mono-text">// TECHNICAL GUIDE</span>
+                <h2 class="section-title">RESTORATION MATRIX</h2>
+            </div>
+            
+            <div class="blueprint-container">
+                <h3 class="blueprint-title">DAMAGE ASSESSMENT PROTOCOL</h3>
+                <div class="industrial-grid grid-2">
+                    <div>
+                        <h4 class="text-industrial mb-md">SURFACE DAMAGE</h4>
+                        <table class="specs-table">
+                            <tr>
+                                <td>ETCHING</td>
+                                <td>HONING + POLISH</td>
+                            </tr>
+                            <tr>
+                                <td>SCRATCHES</td>
+                                <td>DIAMOND GRINDING</td>
+                            </tr>
+                            <tr>
+                                <td>STAINS</td>
+                                <td>POULTICE TREATMENT</td>
+                            </tr>
+                            <tr>
+                                <td>DULLNESS</td>
+                                <td>CRYSTALLIZATION</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="text-industrial mb-md">STRUCTURAL DAMAGE</h4>
+                        <table class="specs-table">
+                            <tr>
+                                <td>CRACKS</td>
+                                <td>RESIN INJECTION</td>
+                            </tr>
+                            <tr>
+                                <td>CHIPS</td>
+                                <td>COLOR MATCH FILL</td>
+                            </tr>
+                            <tr>
+                                <td>LIPPAGE</td>
+                                <td>GRINDING + LEVEL</td>
+                            </tr>
+                            <tr>
+                                <td>HOLES</td>
+                                <td>EPOXY REPAIR</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Section -->
+    <div class="section-warning">
+        <div class="container">
+            <p class="emergency-text text-center mb-0">
+                ⚠️ WRONG TREATMENT = PERMANENT DAMAGE. CONSULT PSPL EXPERTS FIRST ⚠️
+            </p>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="section-industrial">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="mb-lg">NEED STONE EXPERTISE?</h2>
+                <p class="text-lg mb-xl">
+                    Our technical team provides free stone identification and restoration consultation.
+                </p>
+                <div class="construction-cta">
+                    <a href="contact.html" class="btn btn-industrial">GET EXPERT ADVICE →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-industrial">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>STONE TYPES</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="searchStone('marble')">Marble</a></li>
+                        <li><a href="#" onclick="searchStone('granite')">Granite</a></li>
+                        <li><a href="#" onclick="searchStone('travertine')">Travertine</a></li>
+                        <li><a href="#" onclick="searchStone('terrazzo')">Terrazzo</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>QUICK ACCESS</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="about.html">About PSPL</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>TECHNICAL</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#consultancy">Stone Analysis</a></li>
+                        <li><a href="services.html#consultancy">Defect Reports</a></li>
+                        <li><a href="services.html">Restoration Guide</a></li>
+                        <li><a href="contact.html">Expert Consultation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>CONNECT</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+6591234567">Emergency: +65 9123 4567</a></li>
+                        <li><a href="mailto:info@pspl.sg">info@pspl.sg</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 POLISHING SPECIALIST PRIVATE LIMITED | SINGAPORE | ESTD 1989</p>
+                <pre class="ascii-decoration mt-md">
+ _____ _____ _____ __    
+|  _  |   __|  _  |  |   
+|   __|__   |   __|  |__ 
+|__|  |_____|__|  |_____|
+                </pre>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="industrial-main.js"></script>
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('stoneSearch');
+        const stoneCards = document.querySelectorAll('.stone-card');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            stoneCards.forEach(card => {
+                const stoneName = card.getAttribute('data-stone').toLowerCase();
+                const content = card.textContent.toLowerCase();
+                
+                if (stoneName.includes(searchTerm) || content.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+        
+        // Function for footer links
+        function searchStone(term) {
+            searchInput.value = term;
+            searchInput.dispatchEvent(new Event('input'));
+            window.scrollTo({ top: 600, behavior: 'smooth' });
+        }
+        
+        // Add click to expand functionality
+        stoneCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>

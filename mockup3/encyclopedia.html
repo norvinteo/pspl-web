@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marble Encyclopedia - PSPL Resources</title>
+    <link rel="stylesheet" href="assets/css/apple-style.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/pspl-logo.jpg">
+    <style>
+        /* Encyclopedia Styles */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+        }
+        
+        .resource-card {
+            background: var(--color-white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 4px 16px var(--color-shadow);
+            transition: all var(--transition-base);
+            cursor: pointer;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--color-shadow-heavy);
+        }
+        
+        .resource-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .resource-content {
+            padding: var(--space-6);
+        }
+        
+        .resource-tag {
+            display: inline-block;
+            padding: var(--space-1) var(--space-3);
+            background: var(--color-coral);
+            color: var(--color-white);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-xs);
+            font-weight: var(--font-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-3);
+        }
+        
+        .resource-title {
+            font-size: var(--text-xl);
+            font-weight: var(--font-semibold);
+            margin-bottom: var(--space-2);
+        }
+        
+        .resource-excerpt {
+            color: var(--color-gray-600);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto var(--space-12);
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: var(--space-4) var(--space-6);
+            padding-right: 120px;
+            font-size: var(--text-lg);
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-xl);
+            background: var(--color-white);
+            transition: all var(--transition-fast);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-coral);
+            box-shadow: 0 0 0 3px rgba(200, 84, 80, 0.1);
+        }
+        
+        .search-button {
+            position: absolute;
+            right: var(--space-2);
+            top: 50%;
+            transform: translateY(-50%);
+            padding: var(--space-3) var(--space-6);
+            background: var(--color-coral);
+            color: var(--color-white);
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: var(--font-medium);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .search-button:hover {
+            background: var(--color-coral-dark);
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2);
+            margin-bottom: var(--space-12);
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: var(--space-3) var(--space-6);
+            background: transparent;
+            border: 2px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-base);
+            font-weight: var(--font-medium);
+            color: var(--color-gray-700);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .category-tab:hover {
+            border-color: var(--color-coral);
+            color: var(--color-coral);
+        }
+        
+        .category-tab.active {
+            background: var(--color-coral);
+            border-color: var(--color-coral);
+            color: var(--color-white);
+        }
+        
+        /* Featured Resource */
+        .featured-resource {
+            background: linear-gradient(135deg, var(--color-coral), var(--color-coral-dark));
+            color: var(--color-white);
+            padding: var(--space-16);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--space-16);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured-resource::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .featured-title {
+            font-size: var(--text-4xl);
+            font-weight: var(--font-bold);
+            margin-bottom: var(--space-4);
+        }
+        
+        .featured-description {
+            font-size: var(--text-xl);
+            opacity: 0.9;
+            margin-bottom: var(--space-8);
+        }
+        
+        /* Download Section */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+        }
+        
+        .download-item {
+            background: var(--color-white);
+            padding: var(--space-6);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--color-gray-200);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+        
+        .download-item:hover {
+            border-color: var(--color-coral);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--color-shadow);
+        }
+        
+        .download-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-gray-100);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-4);
+            font-size: var(--text-2xl);
+        }
+        
+        .download-title {
+            font-size: var(--text-lg);
+            font-weight: var(--font-semibold);
+            margin-bottom: var(--space-2);
+        }
+        
+        .download-size {
+            color: var(--color-gray-500);
+            font-size: var(--text-sm);
+            margin-bottom: var(--space-4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="index.html">
+                <img src="assets/images/pspl-logo.jpg" alt="PSPL Logo" class="nav-logo">
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="encyclopedia.html" class="nav-link">Resources</a></li>
+                    <li><a href="contact.html" class="nav-cta">Get Quote</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <div class="mobile-menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 50vh;">
+        <div class="hero-background">
+            <img src="https://images.pexels.com/photos/2079223/pexels-photo-2079223.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&dpr=1" alt="Marble Encyclopedia" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Marble Encyclopedia</h1>
+            <p class="hero-subtitle">Your comprehensive guide to marble care, types, and maintenance</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="section">
+        <div class="container">
+            <div class="search-container scroll-fade-up">
+                <input type="text" class="search-input" placeholder="Search marble types, care guides, or techniques...">
+                <button class="search-button">Search</button>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="category-tabs scroll-fade-up">
+                <button class="category-tab active" data-category="all">All Resources</button>
+                <button class="category-tab" data-category="types">Marble Types</button>
+                <button class="category-tab" data-category="care">Care Guides</button>
+                <button class="category-tab" data-category="technical">Technical</button>
+                <button class="category-tab" data-category="case-studies">Case Studies</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Resource -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="featured-resource scroll-fade-up">
+                <div class="featured-content">
+                    <span class="resource-tag" style="background: var(--color-white); color: var(--color-coral);">Featured Guide</span>
+                    <h2 class="featured-title">Complete Guide to Marble Maintenance</h2>
+                    <p class="featured-description">Everything facility managers need to know about maintaining marble surfaces in commercial properties. From daily cleaning to annual restoration schedules.</p>
+                    <a href="#" class="btn btn-secondary btn-large" style="background: var(--color-white); color: var(--color-coral);">Download PDF Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Grid -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="resource-grid">
+                <div class="resource-card scroll-fade-up" data-category="types">
+                    <img src="https://images.pexels.com/photos/2775197/pexels-photo-2775197.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Carrara Marble" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Marble Types</span>
+                        <h3 class="resource-title">Understanding Carrara Marble</h3>
+                        <p class="resource-excerpt">Learn about Italy's most famous marble, its characteristics, best uses, and specific care requirements for commercial settings.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-card scroll-fade-up" data-category="care">
+                    <img src="https://images.pexels.com/photos/48889/cleaning-washing-cleanup-the-ilo-48889.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Daily Maintenance" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Care Guide</span>
+                        <h3 class="resource-title">Daily Marble Maintenance</h3>
+                        <p class="resource-excerpt">Essential daily cleaning protocols for high-traffic marble surfaces in hotels and office buildings.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-card scroll-fade-up" data-category="technical">
+                    <img src="https://images.pexels.com/photos/5217883/pexels-photo-5217883.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Restoration Process" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Technical</span>
+                        <h3 class="resource-title">Diamond Polishing Explained</h3>
+                        <p class="resource-excerpt">Technical overview of the diamond polishing process and how it restores marble to mirror-like finish.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-card scroll-fade-up" data-category="case-studies">
+                    <img src="https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Hotel Case Study" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Case Study</span>
+                        <h3 class="resource-title">5-Star Hotel Restoration</h3>
+                        <p class="resource-excerpt">How we restored 20,000 sqm of marble in a luxury hotel without disrupting operations.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-card scroll-fade-up" data-category="types">
+                    <img src="https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Calacatta Marble" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Marble Types</span>
+                        <h3 class="resource-title">Calacatta vs Carrara</h3>
+                        <p class="resource-excerpt">Understanding the differences between these premium Italian marbles and their care requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="resource-card scroll-fade-up" data-category="care">
+                    <img src="https://images.pexels.com/photos/6197118/pexels-photo-6197118.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&dpr=1" alt="Stain Removal" class="resource-image">
+                    <div class="resource-content">
+                        <span class="resource-tag">Care Guide</span>
+                        <h3 class="resource-title">Emergency Stain Removal</h3>
+                        <p class="resource-excerpt">Quick response guide for common marble stains including wine, coffee, and acidic substances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Resources -->
+    <section class="section" style="background-color: var(--color-gray-100);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title scroll-fade-up">Downloadable Resources</h2>
+                <p class="section-subtitle scroll-fade-up">Free guides and templates for facility managers</p>
+            </div>
+            
+            <div class="download-grid">
+                <div class="download-item scroll-fade-up">
+                    <div class="download-icon">📄</div>
+                    <h3 class="download-title">Maintenance Schedule Template</h3>
+                    <p class="download-size">PDF • 2.1 MB</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+                
+                <div class="download-item scroll-fade-up">
+                    <div class="download-icon">📊</div>
+                    <h3 class="download-title">ROI Calculator</h3>
+                    <p class="download-size">Excel • 1.5 MB</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+                
+                <div class="download-item scroll-fade-up">
+                    <div class="download-icon">📋</div>
+                    <h3 class="download-title">Inspection Checklist</h3>
+                    <p class="download-size">PDF • 890 KB</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+                
+                <div class="download-item scroll-fade-up">
+                    <div class="download-icon">📚</div>
+                    <h3 class="download-title">Complete Care Guide</h3>
+                    <p class="download-size">PDF • 5.4 MB</p>
+                    <a href="#" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title scroll-fade-up">Common Questions</h2>
+                <p class="section-subtitle scroll-fade-up">Expert answers to your marble care questions</p>
+            </div>
+            
+            <div class="grid grid-2" style="gap: var(--space-8);">
+                <div class="scroll-fade-up">
+                    <h4 style="margin-bottom: var(--space-3);">How often should marble be professionally polished?</h4>
+                    <p class="text-caption">High-traffic commercial areas typically need professional polishing every 6-12 months, while residential spaces may only need it annually.</p>
+                </div>
+                
+                <div class="scroll-fade-up">
+                    <h4 style="margin-bottom: var(--space-3);">Can all stains be removed from marble?</h4>
+                    <p class="text-caption">Most stains can be removed with proper techniques. However, acidic etching may require professional restoration to fully repair.</p>
+                </div>
+                
+                <div class="scroll-fade-up">
+                    <h4 style="margin-bottom: var(--space-3);">What's the difference between honing and polishing?</h4>
+                    <p class="text-caption">Honing creates a matte finish and removes minor scratches, while polishing creates a high-gloss, reflective surface.</p>
+                </div>
+                
+                <div class="scroll-fade-up">
+                    <h4 style="margin-bottom: var(--space-3);">Is sealing necessary for all marble?</h4>
+                    <p class="text-caption">Yes, sealing protects marble from stains and moisture. Commercial areas should be resealed every 6-12 months.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section" style="background-color: var(--color-coral); color: var(--color-white);">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: var(--color-white);">Stay Updated</h2>
+            <p class="section-subtitle" style="color: var(--color-white); opacity: 0.9; margin-bottom: var(--space-8);">Get monthly marble care tips and industry insights</p>
+            
+            <form style="max-width: 500px; margin: 0 auto; display: flex; gap: var(--space-4);">
+                <input type="email" placeholder="Enter your email" style="flex: 1; padding: var(--space-4); border: none; border-radius: var(--radius-lg); font-size: var(--text-base);">
+                <button type="submit" class="btn btn-secondary" style="background: var(--color-white); color: var(--color-coral); border: none;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="assets/images/pspl-logo.jpg" alt="PSPL Logo" style="height: 60px; margin-bottom: var(--space-4);">
+                    <p>Singapore's premier marble specialists since 1989</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#corporate" class="footer-link">Corporate Programs</a></li>
+                        <li><a href="services.html#emergency" class="footer-link">Emergency Response</a></li>
+                        <li><a href="services.html#restoration" class="footer-link">Marble Restoration</a></li>
+                        <li><a href="services.html#residential" class="footer-link">Residential Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+                        <li><a href="encyclopedia.html" class="footer-link">Marble Encyclopedia</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+6591234567" class="footer-link">24/7: +65 9123 4567</a></li>
+                        <li><a href="mailto:corporate@pspl.sg" class="footer-link">corporate@pspl.sg</a></li>
+                        <li><span class="footer-link">BizSafe Star Certified</span></li>
+                        <li><span class="footer-link">ISO 9001:2015</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Polishing Specialist Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/smooth-scroll.js"></script>
+    <script>
+        // Category filtering
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const resourceCards = document.querySelectorAll('.resource-card');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Filter resources
+                const category = tab.dataset.category;
+                resourceCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        const searchButton = document.querySelector('.search-button');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            console.log('Searching for:', searchTerm);
+            
+            // Filter resources based on search
+            resourceCards.forEach(card => {
+                const title = card.querySelector('.resource-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.resource-excerpt').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>

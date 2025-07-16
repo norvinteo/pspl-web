@@ -1,0 +1,266 @@
+/* ===================================
+   PSPL COMMON BASE STYLES
+   Shared utilities and variables across all mockups
+   =================================== */
+
+/* ===================================
+   SHARED CSS CUSTOM PROPERTIES
+   =================================== */
+
+:root {
+  /* Core Brand Colors */
+  --pspl-coral: #C85450;
+  --pspl-white: #FAFAF8;
+  --pspl-black: #1A1A1A;
+  
+  /* Common Spacing Scale (8px based) */
+  --s-1: 0.25rem;    /* 4px */
+  --s-2: 0.5rem;     /* 8px */
+  --s-3: 0.75rem;    /* 12px */
+  --s-4: 1rem;       /* 16px */
+  --s-5: 1.25rem;    /* 20px */
+  --s-6: 1.5rem;     /* 24px */
+  --s-8: 2rem;       /* 32px */
+  --s-10: 2.5rem;    /* 40px */
+  --s-12: 3rem;      /* 48px */
+  --s-16: 4rem;      /* 64px */
+  --s-20: 5rem;      /* 80px */
+  --s-24: 6rem;      /* 96px */
+  
+  /* Common Typography Scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  
+  /* Common Transitions */
+  --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+/* Desktop adjustments */
+@media (min-width: 768px) {
+  :root {
+    --text-3xl: 2.25rem;
+    --text-4xl: 2.875rem;
+    --text-5xl: 3.75rem;
+    --text-6xl: 4.5rem;
+  }
+}
+
+/* ===================================
+   RESET & BASE (DRY)
+   =================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================
+   COMMON UTILITY CLASSES
+   =================================== */
+
+/* Layout */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--s-4);
+}
+
+/* Text Alignment */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+/* Display */
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+/* Flexbox utilities */
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-col { flex-direction: column; }
+.gap-4 { gap: var(--s-4); }
+.gap-6 { gap: var(--s-6); }
+.gap-8 { gap: var(--s-8); }
+
+/* Spacing - Using CSS Logical Properties */
+.m-0 { margin: 0; }
+.p-0 { padding: 0; }
+
+/* Margin utilities with logical properties */
+.mb-2 { margin-block-end: var(--s-2); }
+.mb-3 { margin-block-end: var(--s-3); }
+.mb-4 { margin-block-end: var(--s-4); }
+.mb-6 { margin-block-end: var(--s-6); }
+.mb-8 { margin-block-end: var(--s-8); }
+
+.mt-2 { margin-block-start: var(--s-2); }
+.mt-4 { margin-block-start: var(--s-4); }
+.mt-6 { margin-block-start: var(--s-6); }
+.mt-8 { margin-block-start: var(--s-8); }
+
+/* Padding utilities with logical properties */
+.p-4 { padding: var(--s-4); }
+.p-6 { padding: var(--s-6); }
+.p-8 { padding: var(--s-8); }
+
+.px-4 { padding-inline: var(--s-4); }
+.px-6 { padding-inline: var(--s-6); }
+.py-4 { padding-block: var(--s-4); }
+.py-6 { padding-block: var(--s-6); }
+
+/* ===================================
+   COMMON ANIMATIONS
+   =================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Animation utilities */
+.animate-fadeIn { animation: fadeIn var(--transition-slow) ease-out; }
+.animate-fadeInUp { animation: fadeInUp var(--transition-slow) ease-out; }
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+
+/* ===================================
+   RESPONSIVE GRID SYSTEM
+   =================================== */
+
+.grid {
+  display: grid;
+  gap: var(--s-6);
+}
+
+/* Auto-fit grids */
+.grid-auto-2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.grid-auto-3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.grid-auto-4 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+/* Fixed grids with responsive behavior */
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ===================================
+   ACCESSIBILITY UTILITIES
+   =================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--pspl-coral);
+  outline-offset: 2px;
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+/* Prevent layout shift for images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* GPU acceleration for transforms */
+.will-transform {
+  will-change: transform;
+}
+
+/* Optimize font loading */
+.font-display-swap {
+  font-display: swap;
+}
