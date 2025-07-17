@@ -124,8 +124,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     
     function animateCounter(element) {
+        const originalText = element.textContent;
         const target = parseInt(element.getAttribute('data-target'));
         const duration = 2;
+        
+        // Handle elements that have text after numbers (like "35+" or "100%")
+        const hasTextSuffix = originalText.match(/\d+(.+)$/);
+        const suffix = hasTextSuffix ? hasTextSuffix[1] : '';
         
         gsap.fromTo(element, {
             textContent: 0
@@ -137,9 +142,9 @@ document.addEventListener('DOMContentLoaded', function() {
             onUpdate: function() {
                 const value = Math.ceil(this.targets()[0].textContent);
                 if (target >= 1000) {
-                    element.textContent = value.toLocaleString();
+                    element.textContent = value.toLocaleString() + suffix;
                 } else {
-                    element.textContent = value;
+                    element.textContent = value + suffix;
                 }
             }
         });

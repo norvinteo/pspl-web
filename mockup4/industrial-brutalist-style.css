@@ -1627,6 +1627,16 @@ strong, b {
     font-weight: 600;
 }
 
+/* Fix mono-text in portfolio cards - remove dark background */
+.portfolio-card .mono-text,
+.portfolio-meta .mono-text,
+.portfolio-content .mono-text {
+    background-color: transparent !important;
+    color: var(--deep-charcoal) !important;
+    padding: 0;
+    font-weight: 600;
+}
+
 /* Response block enhanced contrast */
 .response-block {
     background-color: rgba(28, 28, 28, 0.95) !important;

@@ -1024,3 +1024,193 @@ p {
     font-size: var(--text-luxury-4xl) !important;
   }
 }
+
+/* ===================================
+   CRITICAL TEXT VISIBILITY FIXES
+   =================================== */
+
+/* Define missing color variables */
+:root {
+  --luxury-charcoal: #2C2C2C;
+  --luxury-white: #FEFEFE;
+}
+
+/* Ensure all main content is visible */
+main {
+    color: var(--color-charcoal-mist) !important;
+}
+
+/* Fix service sections */
+.luxury-service-hero,
+.service-tier,
+.luxury-service-section,
+.luxury-service {
+    color: var(--color-charcoal-mist) !important;
+}
+
+.luxury-service-hero h1,
+.luxury-service-hero h2,
+.luxury-service-hero p,
+.service-tier h3,
+.service-tier h4,
+.service-tier-price,
+.service-tier-amount,
+.service-tier-period,
+.service-tier-description,
+.service-tier-list,
+.service-tier-list li,
+.luxury-service-section h2,
+.luxury-service-section h3,
+.luxury-service-section p,
+.luxury-service-section li,
+.luxury-service h2,
+.luxury-service h3,
+.luxury-service p {
+    color: var(--color-charcoal-mist) !important;
+}
+
+/* Fix about page content */
+.luxury-about-hero,
+.timeline-section,
+.leadership-section,
+.values-grid,
+.luxury-timeline,
+.luxury-team {
+    color: var(--color-charcoal-mist) !important;
+}
+
+.timeline-item h3,
+.timeline-item p,
+.timeline-content h3,
+.timeline-content p,
+.team-member h3,
+.team-member h4,
+.team-member p,
+.value-card h3,
+.value-card p,
+.luxury-timeline-item h3,
+.luxury-timeline-item p,
+.luxury-team-member h3,
+.luxury-team-member h4,
+.luxury-team-member p {
+    color: var(--color-charcoal-mist) !important;
+}
+
+/* Fix portfolio content */
+.portfolio-hero,
+.portfolio-filters,
+.portfolio-grid,
+.portfolio-card,
+.luxury-portfolio-card {
+    color: var(--color-charcoal-mist) !important;
+}
+
+.portfolio-card h3,
+.portfolio-card h4,
+.portfolio-card-category,
+.portfolio-card-value,
+.portfolio-card-description,
+.portfolio-card p,
+.luxury-portfolio-card h3,
+.luxury-portfolio-card h4,
+.luxury-portfolio-card p,
+.luxury-portfolio-card__title,
+.luxury-portfolio-card__description,
+.luxury-portfolio-card__category,
+.luxury-portfolio-card__value {
+    color: var(--color-charcoal-mist) !important;
+}
+
+/* Fix encyclopedia content */
+.encyclopedia-hero,
+.marble-grid,
+.marble-card,
+.guide-section,
+.luxury-marble-card,
+.luxury-guide-card {
+    color: var(--color-charcoal-mist) !important;
+}
+
+.marble-card h3,
+.marble-card h4,
+.marble-card-origin,
+.marble-characteristic,
+.guide-card h3,
+.guide-card h4,
+.guide-card p,
+.luxury-marble-card h3,
+.luxury-marble-card h4,
+.luxury-marble-card p,
+.luxury-guide-card h3,
+.luxury-guide-card h4,
+.luxury-guide-card p {
+    color: var(--color-charcoal-mist) !important;
+}
+
+/* Dark background sections need light text */
+.luxury-section--dark *,
+.luxury-section--obsidian *,
+.section-midnight *,
+.luxury-footer *,
+.luxury-footer__section * {
+    color: var(--color-pearl-white) !important;
+}
+
+/* Special overrides for specific elements */
+.luxury-section--dark .luxury-button,
+.luxury-section--dark .luxury-btn,
+.luxury-section--dark .stat-label,
+.luxury-section--dark .stat-number,
+.luxury-section--obsidian .luxury-button,
+.luxury-section--obsidian .luxury-btn {
+    color: var(--color-pearl-white) !important;
+}
+
+/* Form inputs */
+.luxury-input,
+.luxury-textarea,
+.luxury-select,
+.luxury-form-input,
+.luxury-form-textarea {
+    color: var(--color-charcoal-mist) !important;
+    background-color: var(--color-pearl-white) !important;
+}
+
+/* Ensure all headings are visible */
+h1, h2, h3, h4, h5, h6 {
+    color: inherit !important;
+}
+
+/* Fix any transparent or missing backgrounds */
+.service-tier,
+.portfolio-card,
+.marble-card,
+.guide-card,
+.value-card,
+.luxury-card {
+    background-color: var(--color-pearl-white) !important;
+}
+
+/* Ensure list items are visible */
+ul li, ol li {
+    color: inherit !important;
+}
+
+/* Fix luxury buttons */
+.luxury-button,
+.luxury-btn {
+    opacity: 1 !important;
+}
+
+/* Emergency hotfix for all text elements */
+p, span, div, section, article, aside, li, td, th {
+    opacity: 1 !important;
+}
+
+/* Ensure content containers are visible */
+.luxury-content,
+.luxury-container,
+.luxury-section__content {
+    opacity: 1 !important;
+    display: block !important;
+}

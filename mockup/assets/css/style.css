@@ -1504,6 +1504,197 @@ p {
 }
 
 /* ===================================
+   TEXT VISIBILITY FIXES FOR COLORED SECTIONS
+   =================================== */
+
+/* Emergency section */
+.bg-emergency {
+  color: white;
+}
+
+.bg-emergency h1,
+.bg-emergency h2,
+.bg-emergency h3,
+.bg-emergency h4,
+.bg-emergency h5,
+.bg-emergency h6 {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.bg-emergency p,
+.bg-emergency .lead,
+.bg-emergency li,
+.bg-emergency span {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+.bg-emergency a:not(.btn) {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.bg-emergency a:not(.btn):hover {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+/* Coral section */
+.bg-coral {
+  color: white;
+}
+
+.bg-coral h1,
+.bg-coral h2,
+.bg-coral h3,
+.bg-coral h4,
+.bg-coral h5,
+.bg-coral h6 {
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.bg-coral p,
+.bg-coral .lead,
+.bg-coral li,
+.bg-coral span {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+/* Corporate charcoal section */
+.bg-corporate-charcoal {
+  color: white;
+}
+
+.bg-corporate-charcoal h1,
+.bg-corporate-charcoal h2,
+.bg-corporate-charcoal h3,
+.bg-corporate-charcoal h4,
+.bg-corporate-charcoal h5,
+.bg-corporate-charcoal h6 {
+  color: white !important;
+}
+
+.bg-corporate-charcoal p,
+.bg-corporate-charcoal .lead,
+.bg-corporate-charcoal li,
+.bg-corporate-charcoal span {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+.bg-corporate-charcoal a:not(.btn) {
+  color: var(--color-luxury-gold) !important;
+}
+
+.bg-corporate-charcoal a:not(.btn):hover {
+  color: white !important;
+}
+
+/* Trust blue section */
+.bg-trust-blue {
+  color: white;
+}
+
+.bg-trust-blue h1,
+.bg-trust-blue h2,
+.bg-trust-blue h3,
+.bg-trust-blue h4,
+.bg-trust-blue h5,
+.bg-trust-blue h6 {
+  color: white !important;
+}
+
+.bg-trust-blue p,
+.bg-trust-blue .lead,
+.bg-trust-blue li,
+.bg-trust-blue span {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+/* Luxury gold section */
+.bg-luxury-gold {
+  color: var(--color-corporate-charcoal);
+}
+
+.bg-luxury-gold h1,
+.bg-luxury-gold h2,
+.bg-luxury-gold h3,
+.bg-luxury-gold h4,
+.bg-luxury-gold h5,
+.bg-luxury-gold h6 {
+  color: var(--color-corporate-charcoal) !important;
+}
+
+.bg-luxury-gold p,
+.bg-luxury-gold .lead,
+.bg-luxury-gold li,
+.bg-luxury-gold span {
+  color: var(--color-corporate-charcoal) !important;
+}
+
+.bg-luxury-gold a:not(.btn) {
+  color: var(--color-corporate-charcoal) !important;
+  text-decoration: underline;
+}
+
+/* Card components within colored sections */
+.bg-emergency .card,
+.bg-coral .card,
+.bg-corporate-charcoal .card,
+.bg-trust-blue .card {
+  background: white;
+  color: var(--color-corporate-charcoal);
+}
+
+.bg-emergency .card h3,
+.bg-coral .card h3,
+.bg-corporate-charcoal .card h3,
+.bg-trust-blue .card h3 {
+  color: var(--color-corporate-charcoal) !important;
+}
+
+.bg-emergency .card p,
+.bg-coral .card p,
+.bg-corporate-charcoal .card p,
+.bg-trust-blue .card p {
+  color: var(--color-stone-grey) !important;
+}
+
+/* Statistics within colored sections */
+.bg-emergency .stat__number,
+.bg-coral .stat__number,
+.bg-corporate-charcoal .stat__number,
+.bg-trust-blue .stat__number {
+  color: white !important;
+}
+
+.bg-emergency .stat__label,
+.bg-coral .stat__label,
+.bg-corporate-charcoal .stat__label,
+.bg-trust-blue .stat__label {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Footer text visibility */
+.footer {
+  color: rgba(255,255,255,0.9);
+}
+
+.footer h3,
+.footer h4 {
+  color: white !important;
+}
+
+.footer p,
+.footer li,
+.footer a {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+.footer a:hover {
+  color: white !important;
+}
+
+/* ===================================
    ANIMATION CLASSES (GSAP READY)
    =================================== */
 
