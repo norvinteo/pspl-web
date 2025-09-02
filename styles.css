@@ -892,26 +892,41 @@ img.loaded {
         opacity: 0.9 !important;
     }
     
-    /* Timeline mobile layout - improved */
+    /* Timeline mobile layout - fixed with flexbox */
     .timeline-line {
-        left: 23px !important;
+        left: 8px !important;
     }
     
     .timeline-item {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
         position: relative !important;
-        padding-left: 50px !important;
+        padding-left: 0 !important;
         margin-bottom: 2rem !important;
-        display: block !important;
     }
     
     .timeline-dot {
-        position: absolute !important;
-        left: 15px !important;
-        top: 0 !important;
+        position: relative !important;
+        flex-shrink: 0;
+        order: -1 !important; /* Move dot to beginning */
+        left: 0 !important;
+        top: 8px !important;
+        margin-right: 25px !important;
+        margin-left: 0 !important;
         transform: none !important;
         width: 16px;
         height: 16px;
         border-width: 2px;
+    }
+    
+    .timeline-item > div:first-child {
+        order: 1 !important;
+        flex: 1;
+    }
+    
+    .timeline-item > div:last-child {
+        display: none !important; /* Hide empty div on mobile */
     }
     
     /* Mobile buttons optimization */
