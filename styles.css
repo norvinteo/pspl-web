@@ -846,8 +846,23 @@ img.loaded {
     filter: blur(0);
 }
 
+/* Desktop Timeline Fixes */
+@media (min-width: 768px) {
+    .timeline-item {
+        position: relative;
+    }
+    
+    .timeline-dot {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        top: 50% !important;
+        margin-top: -10px;
+    }
+}
+
 /* Responsive Improvements */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     :root {
         --space-xs: 0.25rem;
         --space-sm: 0.5rem;
@@ -877,21 +892,22 @@ img.loaded {
         opacity: 0.9 !important;
     }
     
-    /* Timeline mobile layout */
+    /* Timeline mobile layout - improved */
     .timeline-line {
-        left: 15px !important;
+        left: 23px !important;
     }
     
     .timeline-item {
         position: relative !important;
-        padding-left: 40px !important;
+        padding-left: 50px !important;
         margin-bottom: 2rem !important;
+        display: block !important;
     }
     
     .timeline-dot {
         position: absolute !important;
-        left: 6px !important;
-        top: 5px !important;
+        left: 15px !important;
+        top: 0 !important;
         transform: none !important;
         width: 16px;
         height: 16px;

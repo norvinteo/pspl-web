@@ -237,20 +237,45 @@ document.addEventListener('DOMContentLoaded', async () => {
     const timelineItems = document.querySelectorAll('.timeline-item');
     console.log(`Found ${timelineItems.length} timeline items`);
     timelineItems.forEach((item, i) => {
-        // On mobile, all items come from the right. On desktop, alternate left/right
-        const fromX = isMobile ? '50px' : (i % 2 === 0 ? '-100px' : '100px');
-        hideElement(item, `translateX(${fromX})`);
-        inView(item, () => {
-            console.log(`Animating timeline item ${i}`);
-            animate(item, {
-                opacity: [0, 1],
-                transform: [`translateX(${fromX})`, 'translateX(0)']
-            }, {
-                duration: getAnimationDuration(0.8),
-                delay: getAnimationDelay(i * 0.1),
-                easing: [0.22, 0.61, 0.36, 1]
+        if (isMobile) {
+            // Mobile: animate from the right
+            hideElement(item, 'translateX(50px)');
+            inView(item, () => {
+                console.log(`Animating mobile timeline item ${i}`);
+                animate(item, {
+                    opacity: [0, 1],
+                    transform: ['translateX(50px)', 'translateX(0)']
+                }, {
+                    duration: getAnimationDuration(0.6),
+                    delay: getAnimationDelay(i * 0.08),
+                    easing: [0.22, 0.61, 0.36, 1]
+                });
+            }, { margin: "-50px" });
+        } else {
+            // Desktop: animate content within the item
+            const contentDivs = item.querySelectorAll('div:not(.timeline-dot)');
+            const isEven = i % 2 === 0;
+            
+            // Hide the content div that has text
+            contentDivs.forEach(div => {
+                if (div.textContent.trim()) {
+                    const fromX = isEven ? '-100px' : '100px';
+                    hideElement(div, `translateX(${fromX})`);
+                    
+                    inView(item, () => {
+                        console.log(`Animating desktop timeline item ${i}`);
+                        animate(div, {
+                            opacity: [0, 1],
+                            transform: [`translateX(${fromX})`, 'translateX(0)']
+                        }, {
+                            duration: 0.8,
+                            delay: i * 0.1,
+                            easing: [0.22, 0.61, 0.36, 1]
+                        });
+                    }, { margin: "-100px" });
+                }
             });
-        }, { margin: "-100px" });
+        }
     });
     
     // Portfolio Items
