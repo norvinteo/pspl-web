@@ -1,0 +1,35 @@
+# Directories to ignore
+not-used/
+images-backup-webp/
+images-original/
+
+# Test and development files
+*.test.html
+*.test.js
+test-*.html
+test-*.js
+*-test.html
+*-test.js
+
+# Old versions
+index-old.html
+index-backup.html
+*.backup.html
+*.old.html
+
+# Mac system files
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+# Node modules (if any)
+node_modules/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

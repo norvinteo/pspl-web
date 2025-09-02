@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSPL - Singapore's Premier Stone & Parquet Specialists | Since 1989</title>
+    <meta name="description" content="Singapore's premier natural stone and parquet restoration specialists. Premium quality, exceptional value, guaranteed results. Two generations of mastery, one unwavering standard.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pspl-red': '#C24040',
+                        'pspl-gold': '#D4A574',
+                        'pspl-dark': '#1a1a1a',
+                        'pspl-cream': '#FAF8F5'
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Motion One Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/motion@10.18.0/dist/motion.min.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Test inline script first -->
+    <script>
+        console.log('Inline script in HEAD running');
+        console.log('Document state in HEAD:', document.readyState);
+    </script>
+    
+    <!-- Custom Scripts moved to end of body -->
+</head>
+<body class="bg-pspl-cream text-pspl-dark">
+    
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="skip-nav">Skip to main content</a>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-300 no-print" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="flex items-center space-x-2" aria-label="PSPL Home">
+                    <img src="logo-white.svg" alt="PSPL" class="h-10 transition-all duration-300" id="navLogo">
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">HOME</a>
+                    <a href="#mission" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">MISSION</a>
+                    <a href="#story" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">STORY</a>
+                    <a href="#brand-pillars" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">FOUNDATION</a>
+                    <a href="#difference" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">DIFFERENCE</a>
+                    <a href="#expertise" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">EXPERTISE</a>
+                    <a href="#portfolio" class="nav-link text-white text-sm font-medium tracking-wide hover:text-pspl-gold smooth-transition">PORTFOLIO</a>
+                    <a href="#contact" class="premium-button bg-pspl-red text-white px-8 py-3 rounded-full text-sm font-medium tracking-wide">
+                        CONTACT US
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white" id="mobileMenuBtn" aria-label="Toggle mobile menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="fixed inset-0 bg-pspl-dark bg-opacity-95 z-40 hidden mobile-menu" id="mobileMenu">
+        <button class="absolute top-4 right-4 text-white" onclick="document.getElementById('mobileMenu').classList.add('hidden'); document.body.classList.remove('overflow-hidden');">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-white text-2xl font-display mobile-menu-link">Home</a>
+            <a href="#mission" class="text-white text-2xl font-display mobile-menu-link">Mission</a>
+            <a href="#story" class="text-white text-2xl font-display mobile-menu-link">Story</a>
+            <a href="#brand-pillars" class="text-white text-2xl font-display mobile-menu-link">Foundation</a>
+            <a href="#difference" class="text-white text-2xl font-display mobile-menu-link">Difference</a>
+            <a href="#expertise" class="text-white text-2xl font-display mobile-menu-link">Expertise</a>
+            <a href="#portfolio" class="text-white text-2xl font-display mobile-menu-link">Portfolio</a>
+            <a href="#contact" class="text-white text-2xl font-display mobile-menu-link">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Hero Section -->
+        <section id="home" class="h-screen relative flex items-center justify-center overflow-hidden">
+            <!-- Background Image with Enhanced Animation -->
+            <div class="hero-bg">
+                <img src="images/Past Commercial Projects/Capital Tower.webp" alt="Premium marble surface" loading="eager">
+            </div>
+            
+            <!-- Enhanced Gradient Overlay -->
+            <div class="absolute inset-0 hero-overlay"></div>
+            
+            <!-- Animated Particles (Optional) -->
+            <div class="absolute inset-0 pointer-events-none">
+                <div class="particle-container"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <!-- Main Title with Animation -->
+                    <div class="mb-16">
+                        <h1 class="dynamic-hero-title font-display font-bold text-white" id="heroTitle">
+                            Where Heritage<br>Meets Precision
+                        </h1>
+                    </div>
+                    
+                    <!-- Subtitle with Animation -->
+                    <div class="mb-10">
+                        <p class="dynamic-hero-subtitle text-pspl-gold font-light" id="heroSubtitle">
+                            Singapore's Premium Stone Specialists Since 1989
+                        </p>
+                    </div>
+                    
+                    <!-- Value Proposition -->
+                    <div class="mb-16">
+                        <p class="text-sm md:text-base text-gray-300 tracking-wider" id="heroValue">
+                            PREMIUM PRICING • EXCEPTIONAL VALUE • GUARANTEED EXCELLENCE
+                        </p>
+                    </div>
+                    
+                    <!-- Enhanced CTAs -->
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4" id="heroButtons">
+                        <a href="#portfolio" class="premium-button cta-primary bg-pspl-gold text-pspl-dark px-10 py-4 rounded-full font-semibold tracking-wide hover:bg-opacity-90 transition-all">
+                            SEE OUR WORK
+                        </a>
+                        <a href="https://wa.me/6598765432?text=Hi%20PSPL,%20I'd%20like%20to%20get%20a%20premium%20consultation%20for%20my%20project." class="premium-button glass-dark text-white px-10 py-4 rounded-full font-semibold tracking-wide hover:bg-white hover:text-pspl-dark transition-all">
+                            GET CONSULTATION
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i data-lucide="chevron-down" class="w-6 h-6 text-white opacity-50"></i>
+            </div>
+        </section>
+        
+        <!-- Stats Bar with Enhanced Animation -->
+        <section class="py-12 md:py-16 bg-pspl-dark">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 md:gap-12 text-center">
+                    <div class="reveal-fade">
+                        <div class="dynamic-stat-number font-bold text-pspl-gold counter" data-target="35">0</div>
+                        <div class="text-sm text-white/70 tracking-widest mt-2">YEARS OF MASTERY</div>
+                    </div>
+                    <div class="reveal-fade">
+                        <div class="dynamic-stat-number font-bold text-pspl-gold"><span class="counter" data-target="10000">0</span>+</div>
+                        <div class="text-sm text-white/70 tracking-widest mt-2">FLAWLESS PROJECTS</div>
+                    </div>
+                    <div class="reveal-fade">
+                        <div class="dynamic-stat-number font-bold text-pspl-gold"><span class="counter" data-target="200">0</span>%</div>
+                        <div class="text-sm text-white/70 tracking-widest mt-2">COMMITMENT</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mission & Vision Section with Enhanced Cards -->
+        <section id="mission" class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-white to-pspl-cream">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">Our Purpose</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 mb-16">
+                        <!-- Mission Card -->
+                        <div class="card reveal-scale">
+                            <div class="w-16 h-16 bg-pspl-red rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-lucide="target" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-center mb-4 text-pspl-dark">Our Mission</h3>
+                            <p class="text-gray-700 text-center leading-relaxed">
+                                Setting Singapore's gold standard for stone and wood restoration.
+                            </p>
+                        </div>
+                        
+                        <!-- Vision Card -->
+                        <div class="card reveal-scale">
+                            <div class="w-16 h-16 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-lucide="eye" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-center mb-4 text-pspl-dark">Our Vision</h3>
+                            <p class="text-gray-700 text-center leading-relaxed">
+                                Singapore's first choice when quality matters most.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Core Values with Animation -->
+                    <div class="bg-pspl-dark text-white p-12 rounded-lg reveal-fade">
+                        <h3 class="text-3xl font-display font-bold text-center mb-8">Core Values</h3>
+                        <div class="grid md:grid-cols-5 gap-6">
+                            <div class="text-center reveal-scale">
+                                <div class="w-12 h-12 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
+                                    <span class="text-white font-bold">M</span>
+                                </div>
+                                <h4 class="font-bold mb-2 text-pspl-gold">Mastery</h4>
+                                <p class="text-sm text-gray-300">Decades of skill in every stroke</p>
+                            </div>
+                            <div class="text-center reveal-scale">
+                                <div class="w-12 h-12 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
+                                    <span class="text-white font-bold">I</span>
+                                </div>
+                                <h4 class="font-bold mb-2 text-pspl-gold">Integrity</h4>
+                                <p class="text-sm text-gray-300">Responsiveness in service</p>
+                            </div>
+                            <div class="text-center reveal-scale">
+                                <div class="w-12 h-12 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
+                                    <span class="text-white font-bold">I</span>
+                                </div>
+                                <h4 class="font-bold mb-2 text-pspl-gold">Innovation</h4>
+                                <p class="text-sm text-gray-300">Ancient craft, modern methods</p>
+                            </div>
+                            <div class="text-center reveal-scale">
+                                <div class="w-12 h-12 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
+                                    <span class="text-white font-bold">E</span>
+                                </div>
+                                <h4 class="font-bold mb-2 text-pspl-gold">Education</h4>
+                                <p class="text-sm text-gray-300">Sharing knowledge, elevating industry</p>
+                            </div>
+                            <div class="text-center reveal-scale">
+                                <div class="w-12 h-12 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-3 hover:scale-110 transition-transform">
+                                    <span class="text-white font-bold">P</span>
+                                </div>
+                                <h4 class="font-bold mb-2 text-pspl-gold">Pride</h4>
+                                <p class="text-sm text-gray-300">In our work, word, and legacy</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA after Mission -->
+                    <div class="text-center mt-12">
+                        <a href="#story" class="text-pspl-red font-semibold hover:text-pspl-gold transition-colors">
+                            Discover Our Heritage →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Story Section with Enhanced Timeline -->
+        <section id="story" class="py-16 md:py-20 lg:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">The PSPL Legacy</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                            Two generations. One unwavering standard.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div class="reveal-fade">
+                            <h3 class="text-2xl font-display font-bold mb-4 text-pspl-red">Three Decades of Mastery</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                For over three decades, PSPL has evolved from Jin's Brother Renovation Contractor into Singapore's premium stone restoration specialist. Two generations. One standard: perfection.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Today, Aaron Ang leads with both traditional craftsmanship and modern innovation.
+                            </p>
+                        </div>
+                        <div class="reveal-fade">
+                            <img data-src="images/Mount Pleasant Drive (British Colonial Bungalow)/475133154_1031571885446862_1037691665932825306_n.webp" alt="PSPL Craftsmanship" class="lazy w-full h-96 object-cover rounded-lg shadow-xl">
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Timeline -->
+                    <div class="mt-20">
+                        <h3 class="text-2xl font-display font-bold text-center mb-12">Our Journey</h3>
+                        <div class="relative">
+                            <div class="timeline-line"></div>
+                            
+                            <div class="space-y-12">
+                                <!-- 1989 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">1989</h4>
+                                        <p class="font-semibold text-gray-700">The Beginning</p>
+                                        <p class="text-gray-600 text-sm mt-2">Founded as Jin's Brother Renovation Contractor by our patriarch. Started with residential HDB projects, building reputation through word-of-mouth and exceptional craftsmanship.</p>
+                                    </div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8"></div>
+                                </div>
+                                
+                                <!-- 1995 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8"></div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">1995</h4>
+                                        <p class="font-semibold text-gray-700">Specialization Begins</p>
+                                        <p class="text-gray-600 text-sm mt-2">Shifted focus to marble and stone restoration. First major conservation project at a heritage shophouse sparked our passion for preserving Singapore's architectural legacy.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 2000 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">2000</h4>
+                                        <p class="font-semibold text-gray-700">Commercial Expansion</p>
+                                        <p class="text-gray-600 text-sm mt-2">Entered commercial sector with first corporate office project. Established partnerships with major contractors and architects.</p>
+                                    </div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8"></div>
+                                </div>
+                                
+                                <!-- 2005 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8"></div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">2005</h4>
+                                        <p class="font-semibold text-gray-700">Expertise Recognition</p>
+                                        <p class="text-gray-600 text-sm mt-2">Became trusted consultants for law firms and property developers. Our expertise in stone defect analysis set new industry standards.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 2010 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">2010</h4>
+                                        <p class="font-semibold text-gray-700">Next Generation</p>
+                                        <p class="text-gray-600 text-sm mt-2">Aaron Ang joins the family business, bringing fresh perspective while honoring traditional craftsmanship. Introduced digital documentation and modern project management.</p>
+                                    </div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8"></div>
+                                </div>
+                                
+                                <!-- 2015 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8"></div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">2015</h4>
+                                        <p class="font-semibold text-gray-700">Landmark Projects</p>
+                                        <p class="text-gray-600 text-sm mt-2">Completed restoration of An-Nahdhah Mosque and multiple Grade A office buildings. Established as Singapore's premium restoration specialists with fixed-price guarantees.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 2020 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">2020</h4>
+                                        <p class="font-semibold text-gray-700">Pandemic Resilience</p>
+                                        <p class="text-gray-600 text-sm mt-2">Three senior craftsmen with 30+ years each retired gracefully. Despite challenges, maintained all projects and client relationships. Zero retrenchments, 100% commitment.</p>
+                                    </div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8"></div>
+                                </div>
+                                
+                                <!-- 2024 -->
+                                <div class="flex items-center timeline-item">
+                                    <div class="w-1/2 text-right pr-8"></div>
+                                    <div class="timeline-dot"></div>
+                                    <div class="w-1/2 pl-8">
+                                        <h4 class="text-xl font-bold text-pspl-red">2024</h4>
+                                        <p class="font-semibold text-gray-700">New Chapter</p>
+                                        <p class="text-gray-600 text-sm mt-2">Incorporated as Polishing Specialist Private Limited. 35 years of excellence, 10,000+ projects completed, ready for the next generation of stone mastery.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Brand Pillars Section -->
+        <section id="brand-pillars" class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-pspl-dark via-pspl-dark/95 to-pspl-red/80 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">Our Foundation</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                            Three pillars that define our excellence
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Heritage Pillar -->
+                        <div class="bg-white/10 backdrop-blur-lg rounded-lg p-8 hover:bg-white/20 transition-all reveal-scale">
+                            <div class="w-16 h-16 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-lucide="landmark" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-center mb-4 text-pspl-gold">The Heritage Pillar</h3>
+                            <p class="text-lg font-semibold text-center mb-4">"Est. 1989"</p>
+                            <p class="text-center text-gray-300 mb-4">Two Generations of Stone & Wood Mastery</p>
+                            <p class="text-sm text-gray-400 text-center">
+                                35+ years of expertise. Every technique refined over decades.
+                            </p>
+                        </div>
+                        
+                        <!-- Expertise Pillar -->
+                        <div class="bg-white/10 backdrop-blur-lg rounded-lg p-8 hover:bg-white/20 transition-all reveal-scale">
+                            <div class="w-16 h-16 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-lucide="award" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-center mb-4 text-pspl-gold">The Expertise Pillar</h3>
+                            <p class="text-lg font-semibold text-center mb-4">"Beyond Polishing"</p>
+                            <p class="text-center text-gray-300 mb-4">Specialists, Not Just Service Providers</p>
+                            <p class="text-sm text-gray-400 text-center">
+                                Inspect. Diagnose. Restore. Trusted by conservation buildings and law firms for expert consultation.
+                            </p>
+                        </div>
+                        
+                        <!-- Trust Pillar -->
+                        <div class="bg-white/10 backdrop-blur-lg rounded-lg p-8 hover:bg-white/20 transition-all reveal-scale">
+                            <div class="w-16 h-16 bg-pspl-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold text-center mb-4 text-pspl-gold">The Trust Pillar</h3>
+                            <p class="text-lg font-semibold text-center mb-4">"Lifetime Warranty"</p>
+                            <p class="text-center text-gray-300 mb-4">Your Investment Protected Forever</p>
+                            <p class="text-sm text-gray-400 text-center">
+                                Fixed pricing. Written guarantees. Zero callbacks in 2023. Trusted by Singapore's elite.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The PSPL Difference Section -->
+        <section id="difference" class="py-16 md:py-20 lg:py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">The PSPL Difference</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                        <p class="text-3xl md:text-4xl lg:text-5xl text-pspl-dark font-display font-bold max-w-3xl mx-auto mb-8 tracking-tight relative">
+                            <span class="relative z-10">
+                                <span class="inline-block">"We don't compete on price.</span>
+                                <span class="inline-block">We compete on legacy."</span>
+                            </span>
+                            <span class="absolute inset-0 blur-xl opacity-20 text-pspl-gold" aria-hidden="true">
+                                <span class="inline-block">"We don't compete on price.</span>
+                                <span class="inline-block">We compete on legacy."</span>
+                            </span>
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            Understanding why discerning clients choose excellence over economy
+                        </p>
+                    </div>
+                    
+                    <!-- The PSPL Method - Comparison Table -->
+                    <div class="mb-16">
+                        <h3 class="text-2xl font-display font-bold text-center mb-12 text-pspl-red">The PSPL Method</h3>
+                        
+                        <!-- Desktop Table -->
+                        <div class="hidden md:block overflow-hidden rounded-lg shadow-xl">
+                            <table class="w-full table-fixed">
+                                <thead>
+                                    <tr class="bg-gradient-to-r from-pspl-dark to-pspl-red text-white">
+                                        <th class="w-1/3 pl-6 pr-4 py-4 text-left font-display text-lg">Aspect</th>
+                                        <th class="w-1/3 p-4 text-center font-display text-lg">Industry Standard</th>
+                                        <th class="w-1/3 p-4 text-center font-display text-lg bg-pspl-gold bg-opacity-20">The PSPL Way</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white">
+                                    <!-- Business Philosophy -->
+                                    <tr class="border-b hover:bg-gray-50 transition-colors">
+                                        <td class="w-1/3 pl-6 pr-4 py-4 font-semibold">
+                                            <div class="flex items-center">
+                                                <i data-lucide="trending-up" class="w-6 h-6 text-pspl-gold mr-3 flex-shrink-0"></i>
+                                                <span>Business Philosophy</span>
+                                            </div>
+                                        </td>
+                                        <td class="w-1/3 p-4 text-center text-gray-500">"Lowest Quote Wins"</td>
+                                        <td class="w-1/3 p-4 text-center bg-pspl-gold bg-opacity-5">
+                                            <span class="font-bold text-pspl-dark">Investment in Excellence</span>
+                                            <br>
+                                            <span class="text-xs text-gray-600">Average ROI: 300% in property value</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Project Approach -->
+                                    <tr class="border-b hover:bg-gray-50 transition-colors">
+                                        <td class="w-1/3 pl-6 pr-4 py-4 font-semibold">
+                                            <div class="flex items-center">
+                                                <i data-lucide="clock" class="w-6 h-6 text-pspl-gold mr-3 flex-shrink-0"></i>
+                                                <span>Project Approach</span>
+                                            </div>
+                                        </td>
+                                        <td class="w-1/3 p-4 text-center text-gray-500">"Quick Turnaround"</td>
+                                        <td class="w-1/3 p-4 text-center bg-pspl-gold bg-opacity-5">
+                                            <span class="font-bold text-pspl-dark">Meticulous Craftsmanship</span>
+                                            <br>
+                                            <span class="text-xs text-gray-600">Zero callbacks in 2023</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Quality Standard -->
+                                    <tr class="border-b hover:bg-gray-50 transition-colors">
+                                        <td class="w-1/3 pl-6 pr-4 py-4 font-semibold">
+                                            <div class="flex items-center">
+                                                <i data-lucide="badge-check" class="w-6 h-6 text-pspl-gold mr-3 flex-shrink-0"></i>
+                                                <span>Quality Standard</span>
+                                            </div>
+                                        </td>
+                                        <td class="w-1/3 p-4 text-center text-gray-500">"Good Enough"</td>
+                                        <td class="w-1/3 p-4 text-center bg-pspl-gold bg-opacity-5">
+                                            <span class="font-bold text-pspl-dark">Museum-Grade Perfection</span>
+                                            <br>
+                                            <span class="text-xs text-gray-600">An-Nahdhah Mosque restoration standard</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Expertise Level -->
+                                    <tr class="border-b hover:bg-gray-50 transition-colors">
+                                        <td class="w-1/3 pl-6 pr-4 py-4 font-semibold">
+                                            <div class="flex items-center">
+                                                <i data-lucide="test-tube" class="w-6 h-6 text-pspl-gold mr-3 flex-shrink-0"></i>
+                                                <span>Expertise Level</span>
+                                            </div>
+                                        </td>
+                                        <td class="w-1/3 p-4 text-center text-gray-500">"General Contractors"</td>
+                                        <td class="w-1/3 p-4 text-center bg-pspl-gold bg-opacity-5">
+                                            <span class="font-bold text-pspl-dark">Specialist Craftsmen</span>
+                                            <br>
+                                            <span class="text-xs text-gray-600">35 years, one craft, perfected</span>
+                                        </td>
+                                    </tr>
+                                    
+                                    <!-- Client Relationship -->
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="w-1/3 pl-6 pr-4 py-4 font-semibold">
+                                            <div class="flex items-center">
+                                                <i data-lucide="users" class="w-6 h-6 text-pspl-gold mr-3 flex-shrink-0"></i>
+                                                <span>Client Relationship</span>
+                                            </div>
+                                        </td>
+                                        <td class="w-1/3 p-4 text-center text-gray-500">"One-Time Service"</td>
+                                        <td class="w-1/3 p-4 text-center bg-pspl-gold bg-opacity-5">
+                                            <span class="font-bold text-pspl-dark">Lifetime Partnership</span>
+                                            <br>
+                                            <span class="text-xs text-gray-600">80% clients return or refer</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Mobile Cards -->
+                        <div class="md:hidden space-y-4">
+                            <!-- Business Philosophy -->
+                            <div class="bg-white rounded-lg shadow-lg p-4">
+                                <div class="flex items-center mb-3">
+                                    <i data-lucide="trending-up" class="w-6 h-6 text-pspl-gold mr-2"></i>
+                                    <h4 class="font-semibold">Business Philosophy</h4>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <p class="text-xs text-gray-500 mb-1">Industry Standard</p>
+                                        <p class="text-sm text-gray-400">"Lowest Quote Wins"</p>
+                                    </div>
+                                    <div class="bg-pspl-gold bg-opacity-10 p-2 rounded">
+                                        <p class="text-xs text-pspl-gold mb-1">The PSPL Way</p>
+                                        <p class="text-sm font-bold">Investment in Excellence</p>
+                                        <p class="text-xs text-gray-600 mt-1">ROI: 300% property value</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- The PSPL Guarantee -->
+                    <div class="bg-gradient-to-r from-pspl-red to-pspl-dark text-white rounded-lg p-12 reveal-scale">
+                        <h3 class="text-2xl font-display font-bold text-center mb-8 text-pspl-gold">The PSPL Guarantee</h3>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl font-bold text-pspl-gold">35+</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 text-pspl-gold">Years of Excellence</h4>
+                                <p class="text-sm">Two generations of proven expertise</p>
+                                <p class="text-xs mt-2 italic">"Heritage quality for modern spaces" - Law Firm Partner</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl font-bold text-pspl-gold">100%</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 text-pspl-gold">Owner Supervision</h4>
+                                <p class="text-sm">Aaron Ang personally oversees every project</p>
+                                <p class="text-xs mt-2 italic">"Unmatched attention to detail" - Heritage Owner</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-20 h-20 bg-white/20 backdrop-blur rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-3xl font-bold text-pspl-gold">0</span>
+                                </div>
+                                <h4 class="text-xl font-bold mb-2 text-pspl-gold">Callbacks in 2023</h4>
+                                <p class="text-sm">European materials, traditional techniques</p>
+                                <p class="text-xs mt-2 italic">"Perfect execution every time" - Corporate Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Expertise Section -->
+        <section id="expertise" class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-white to-pspl-cream">
+            <div class="container mx-auto px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">Our Expertise</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                            Comprehensive stone and wood restoration services
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Service Cards with Enhanced Animations -->
+                        <div class="card reveal-scale">
+                            <div class="service-icon">
+                                <i data-lucide="star" class="w-8 h-8 text-pspl-gold"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Marble & Natural Stone</h3>
+                            <ul class="text-gray-600 space-y-2 text-sm">
+                                <li>• Polishing & Restoration</li>
+                                <li>• Stain Removal</li>
+                                <li>• Crack Repair</li>
+                                <li>• Sealing & Protection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card reveal-scale">
+                            <div class="service-icon">
+                                <i data-lucide="shield" class="w-8 h-8 text-pspl-gold"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Parquet & Wood</h3>
+                            <ul class="text-gray-600 space-y-2 text-sm">
+                                <li>• Sanding & Refinishing</li>
+                                <li>• Gap Filling</li>
+                                <li>• Water Damage Repair</li>
+                                <li>• Varnishing & Coating</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card reveal-scale">
+                            <div class="service-icon">
+                                <i data-lucide="shield-check" class="w-8 h-8 text-pspl-gold"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Consultation Services</h3>
+                            <ul class="text-gray-600 space-y-2 text-sm">
+                                <li>• Stone Defect Analysis</li>
+                                <li>• Expert Witness Services</li>
+                                <li>• Restoration Planning</li>
+                                <li>• Maintenance Programs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA after Expertise -->
+                    <div class="text-center mt-12">
+                        <a href="#portfolio" class="premium-button bg-pspl-gold text-pspl-dark px-10 py-4 md:px-12 md:py-5 rounded-full font-semibold hover:bg-opacity-90 transition-all mx-auto">
+                            SEE OUR WORK IN ACTION
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Portfolio Section with Enhanced Grid -->
+        <section id="portfolio" class="py-16 md:py-20 lg:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">Our Portfolio</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                            Every surface tells a story of earth that formed it, craftsmen who shaped it, and families who live with it
+                        </p>
+                    </div>
+                    
+                    <!-- Featured Complete Projects Organized by Specialty -->
+                    <div class="featured-projects mb-16">
+                        <div id="featuredProjectsBySpecialty">
+                            <!-- Featured projects organized by specialty will be dynamically loaded -->
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- CTA after Portfolio -->
+                    <div class="text-center mt-24 md:mt-32">
+                        <div class="w-16 h-px bg-gray-300 mx-auto mb-12"></div>
+                        <p class="text-lg text-gray-700 mb-8">Ready to transform your space?</p>
+                        <a href="https://wa.me/6598765432?text=Hi%20PSPL,%20I'm%20ready%20to%20transform%20my%20space%20and%20would%20like%20to%20discuss%20my%20project." class="premium-button cta-primary bg-green-500 hover:bg-green-600 text-white px-10 py-4 md:px-12 md:py-5 rounded-full font-semibold transition-all mx-auto">
+                            WHATSAPP US NOW
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-16 md:py-20 lg:py-24 bg-gradient-to-br from-pspl-cream to-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">The PSPL Standard</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                        <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                            See why Singapore trusts us with their precious surfaces
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Testimonial Cards with Enhanced Style -->
+                        <div class="testimonial-card reveal-scale">
+                            <div class="flex mb-4">
+                                <!-- 5 Stars -->
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                            </div>
+                            <p class="text-gray-700 mb-4 italic">
+                                "PSPL transformed our heritage shophouse floors beyond our wildest expectations. The attention to detail and craftsmanship is unmatched."
+                            </p>
+                            <p class="font-semibold">- Heritage Property Owner</p>
+                        </div>
+                        
+                        <div class="testimonial-card reveal-scale">
+                            <div class="flex mb-4">
+                                <!-- 5 Stars -->
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                            </div>
+                            <p class="text-gray-700 mb-4 italic">
+                                "Worth every penny. The premium price reflects premium quality. Our lobby floors look stunning months after the restoration."
+                            </p>
+                            <p class="font-semibold">- Corporate Client</p>
+                        </div>
+                        
+                        <div class="testimonial-card reveal-scale">
+                            <div class="flex mb-4">
+                                <!-- 5 Stars -->
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 text-pspl-gold fill-current"></i>
+                            </div>
+                            <p class="text-gray-700 mb-4 italic">
+                                "Aaron's expertise in stone defects helped resolve our dispute efficiently. Their consultancy service is invaluable."
+                            </p>
+                            <p class="font-semibold">- Law Firm Partner</p>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-12">
+                        <div class="inline-flex items-center gap-4 mb-4">
+                            <div class="flex items-center">
+                                <i data-lucide="star" class="w-6 h-6 text-pspl-gold fill-current"></i>
+                                <span class="text-2xl font-bold text-pspl-dark ml-2">4.9</span>
+                                <span class="text-gray-600 ml-2">out of 5 stars</span>
+                            </div>
+                            <span class="text-gray-400">|</span>
+                            <span class="text-gray-600">Based on 127 Google Reviews</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section with Enhanced Service Cards -->
+        <section id="contact" class="py-16 md:py-20 lg:py-24 bg-pspl-dark text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="dynamic-section-title font-display font-bold mb-4 reveal-text">Get In Touch</h2>
+                        <div class="w-24 h-1 bg-pspl-gold mx-auto mb-8"></div>
+                    </div>
+                    
+                    <!-- Service Cards Grid -->
+                    <div class="mb-12 reveal-fade">
+                        <h3 class="text-2xl font-display font-bold mb-2 text-center">Select Your Service</h3>
+                        <p class="text-gray-300 text-center mb-8">Click below for instant WhatsApp consultation</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                            <!-- Service Cards with Enhanced Animations -->
+                            <a href="https://wa.me/6598765432?text=Hi%20PSPL,%20I%20need%20marble%20restoration%20services%20for%20my%20property." 
+                               class="service-card group">
+                                <div class="service-icon group-hover:scale-110 group-hover:rotate-3">
+                                    <i data-lucide="star" class="w-8 h-8 text-pspl-gold"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Marble Restoration</h4>
+                                <p class="text-sm text-gray-400 mb-4">Professional restoration for all natural stone surfaces</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs text-pspl-gold font-semibold">Most Popular</span>
+                                    <i data-lucide="log-in" class="w-5 h-5 text-pspl-gold group-hover:text-pspl-red transition-colors"></i>
+                                </div>
+                            </a>
+                            
+                            <a href="https://wa.me/6598765432?text=Hi%20PSPL,%20I%20need%20parquet%20flooring%20services%20for%20my%20property." 
+                               class="service-card group">
+                                <div class="service-icon group-hover:scale-110 group-hover:rotate-3">
+                                    <i data-lucide="shield" class="w-8 h-8 text-pspl-gold"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Parquet Services</h4>
+                                <p class="text-sm text-gray-400 mb-4">Expert flooring restoration and maintenance</p>
+                                <div class="flex items-center justify-end">
+                                    <i data-lucide="log-in" class="w-5 h-5 text-pspl-gold group-hover:text-pspl-red transition-colors"></i>
+                                </div>
+                            </a>
+                            
+                            <a href="https://wa.me/6598765432?text=Hi%20PSPL,%20I%20have%20a%20commercial%20project%20that%20requires%20your%20expertise." 
+                               class="service-card group">
+                                <div class="service-icon group-hover:scale-110 group-hover:rotate-3">
+                                    <i data-lucide="building-2" class="w-8 h-8 text-pspl-gold"></i>
+                                </div>
+                                <h4 class="text-xl font-bold text-white mb-2">Commercial Projects</h4>
+                                <p class="text-sm text-gray-400 mb-4">Large-scale projects with strict timelines</p>
+                                <div class="flex items-center justify-end">
+                                    <i data-lucide="log-in" class="w-5 h-5 text-pspl-gold group-hover:text-pspl-red transition-colors"></i>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                            <p class="text-sm text-gray-400 mb-2">
+                                <span class="inline-flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                    Response within 30 minutes during business hours
+                                </span>
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                Available Mon-Sat: 9AM-6PM | Immediate response guaranteed
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media & Business Info Bar -->
+                    <div class="border-t border-white/10 pt-8">
+                        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                            <!-- Social Links -->
+                            <div class="flex items-center gap-6">
+                                <span class="text-sm text-gray-400">Follow our journey:</span>
+                                <div class="flex gap-4">
+                                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pspl-gold/20 transition-colors" aria-label="Facebook">
+                                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-pspl-gold/20 transition-colors" aria-label="Instagram">
+                                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Business Info -->
+                            <div class="text-center md:text-right">
+                                <p class="text-sm text-gray-400">
+                                    <span class="font-semibold text-white">PSPL</span> • UEN: 202400039Z • Est. 1989
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-pspl-dark border-t border-white/10 py-8 no-print">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0">
+                    <img src="logo-white.svg" alt="PSPL" class="h-8">
+                </div>
+                <div class="text-center md:text-right text-gray-400 text-sm">
+                    <p>&copy; 2024 Polishing Specialist Private Limited. All rights reserved.</p>
+                    <p class="mt-2">Singapore's Premium Stone & Wood Specialists</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Load clean optimized script -->
+    <script src="script-clean.js"></script>
+    
+    <!-- Verify script loaded -->
+    <script>
+        console.log('=== FINAL CHECK ===');
+        console.log('Document ready state:', document.readyState);
+        setTimeout(function() {
+            if (typeof initializeWebsite === 'function') {
+                console.log('✓ Script loaded successfully');
+            } else {
+                console.log('✗ Script failed to load!');
+                console.log('Attempting manual initialization...');
+            }
+        }, 100);
+    </script>
+    
+</body>
+</html>
