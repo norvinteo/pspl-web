@@ -237,7 +237,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const timelineItems = document.querySelectorAll('.timeline-item');
     console.log(`Found ${timelineItems.length} timeline items`);
     timelineItems.forEach((item, i) => {
-        const fromX = i % 2 === 0 ? '-100px' : '100px';
+        // On mobile, all items come from the right. On desktop, alternate left/right
+        const fromX = isMobile ? '50px' : (i % 2 === 0 ? '-100px' : '100px');
         hideElement(item, `translateX(${fromX})`);
         inView(item, () => {
             console.log(`Animating timeline item ${i}`);
@@ -245,8 +246,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 opacity: [0, 1],
                 transform: [`translateX(${fromX})`, 'translateX(0)']
             }, {
-                duration: 0.8,
-                delay: i * 0.1,
+                duration: getAnimationDuration(0.8),
+                delay: getAnimationDelay(i * 0.1),
                 easing: [0.22, 0.61, 0.36, 1]
             });
         }, { margin: "-100px" });
