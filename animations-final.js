@@ -55,6 +55,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Remove the hide style to allow animations to control opacity
     hideStyle.remove();
     
+    // Mobile and accessibility detection
+    const isMobile = window.innerWidth <= 768;
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Adjust animation settings for mobile and reduced motion
+    const getAnimationDuration = (desktopDuration) => {
+        if (isReducedMotion) return 0.01;
+        return isMobile ? Math.min(desktopDuration * 0.6, 0.4) : desktopDuration;
+    };
+    
+    const getAnimationDelay = (desktopDelay) => {
+        if (isReducedMotion) return 0;
+        if (typeof desktopDelay === 'function') {
+            return isMobile ? stagger(0.02) : desktopDelay;
+        }
+        return isMobile ? desktopDelay * 0.5 : desktopDelay;
+    };
+    
     // Helper to set initial state
     function hideElement(el, transform = 'translateY(30px)') {
         el.style.opacity = '0';
@@ -94,12 +112,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         animate(spans, {
             opacity: [0, 1],
             transform: [
-                'translateY(20px) scale(0.95)',
-                'translateY(0) scale(1)'
+                isMobile ? 'translateY(10px)' : 'translateY(20px) scale(0.95)',
+                isMobile ? 'translateY(0)' : 'translateY(0) scale(1)'
             ]
         }, {
-            duration: 0.8,
-            delay: stagger(0.05),
+            duration: getAnimationDuration(0.8),
+            delay: getAnimationDelay(stagger(0.05)),
             easing: [0.22, 0.61, 0.36, 1]
         });
     }
@@ -118,14 +136,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     const heroButtons = document.querySelectorAll('.hero-section .premium-button');
     heroButtons.forEach((btn, i) => {
-        hideElement(btn, 'translateY(30px) scale(0.8)');
+        const transform = isMobile ? 'translateY(15px)' : 'translateY(30px) scale(0.8)';
+        hideElement(btn, transform);
         animate(btn, {
             opacity: [0, 1],
-            transform: ['translateY(30px) scale(0.8)', 'translateY(0) scale(1)']
+            transform: [transform, isMobile ? 'translateY(0)' : 'translateY(0) scale(1)']
         }, {
-            duration: 0.5,
-            delay: 0.8 + (i * 0.1),
-            easing: [0.68, -0.55, 0.265, 1.55]
+            duration: getAnimationDuration(0.5),
+            delay: getAnimationDelay(0.8 + (i * 0.1)),
+            easing: isMobile ? [0.22, 0.61, 0.36, 1] : [0.68, -0.55, 0.265, 1.55]
         });
     });
     
