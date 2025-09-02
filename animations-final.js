@@ -72,23 +72,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     // ====================
     const heroTitle = document.querySelector('#heroTitle');
     if (heroTitle) {
-        const text = heroTitle.textContent.trim();
-        const words = text.split(/\s+/);
-        heroTitle.innerHTML = words.map(word => 
-            `<span style="display: inline-block; margin-right: 0.3em; opacity: 0">${word}</span>`
-        ).join('');
+        // Preserve the original HTML structure including <br> tags
+        const html = heroTitle.innerHTML;
+        // Split by <br> to handle line breaks
+        const lines = html.split(/<br\s*\/?>/i);
+        
+        // Process each line separately
+        const processedLines = lines.map(line => {
+            const words = line.trim().split(/\s+/);
+            return words.map((word, index) => {
+                // Add space after each word except the last one in the line
+                const spacing = index < words.length - 1 ? ' ' : '';
+                return `<span style="display: inline-block; opacity: 0">${word}${spacing}</span>`;
+            }).join('');
+        });
+        
+        // Rejoin with <br> tags
+        heroTitle.innerHTML = processedLines.join('<br>');
         
         const spans = heroTitle.querySelectorAll('span');
         animate(spans, {
             opacity: [0, 1],
             transform: [
-                'translateY(50px) scale(0.5) rotate(20deg)',
-                'translateY(0) scale(1) rotate(0deg)'
+                'translateY(20px) scale(0.95)',
+                'translateY(0) scale(1)'
             ]
         }, {
-            duration: 0.6,
-            delay: stagger(0.1),
-            easing: [0.68, -0.55, 0.265, 1.55]
+            duration: 0.8,
+            delay: stagger(0.05),
+            easing: [0.22, 0.61, 0.36, 1]
         });
     }
     
