@@ -144,11 +144,14 @@ h1, h2, h3, h4, h5, h6 {
 .dynamic-hero-title {
     font-size: clamp(2.5rem, 4.5vw, 4rem);
     line-height: 1.15;
+    letter-spacing: 0.02em;
+    word-spacing: 0.1em;
 }
 
 .dynamic-hero-subtitle {
     font-size: clamp(1.125rem, 2.25vw, 1.75rem);
     line-height: 1.4;
+    letter-spacing: 0.01em;
 }
 
 .dynamic-section-title {
@@ -324,12 +327,9 @@ nav.scrolled {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: heroZoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes heroZoom {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
+    /* Removed heroZoom animation for performance */
+    transform: scale(1.05);
+    transition: transform 10s ease-out;
 }
 
 .hero-overlay {
@@ -341,30 +341,22 @@ nav.scrolled {
     );
 }
 
-/* Hero Text Animations - disabled to allow JS animations */
-/* .hero-title {
-    animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.5s;
-    opacity: 0;
+/* Hero Reveal Animation */
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.hero-subtitle {
-    animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.7s;
+.hero-reveal {
+    animation: heroReveal 0.8s ease-out forwards;
     opacity: 0;
 }
-
-.hero-value {
-    animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.9s;
-    opacity: 0;
-}
-
-.hero-buttons {
-    animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 1.1s;
-    opacity: 0;
-} */
 
 @keyframes fadeInUp {
     from {
@@ -429,22 +421,15 @@ nav.scrolled {
     box-shadow: var(--shadow-md);
 }
 
-/* CTA Pulse Animation */
+/* CTA Button - Static shadow for performance */
 .cta-primary {
-    animation: ctaPulse 2s ease-in-out infinite;
-}
-
-@keyframes ctaPulse {
-    0%, 100% {
-        box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
-    }
-    50% {
-        box-shadow: 0 4px 30px rgba(212, 165, 116, 0.5);
-    }
+    box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4);
+    transition: all var(--transition-base);
 }
 
 .cta-primary:hover {
-    animation: none;
+    box-shadow: 0 4px 30px rgba(212, 165, 116, 0.6);
+    transform: translateY(-2px);
 }
 
 /* Card Enhancements */
@@ -524,18 +509,8 @@ nav.scrolled {
     background: var(--pspl-gold);
     border-radius: 50%;
     opacity: 0;
-    animation: timelinePulse 2s ease-in-out infinite;
-}
-
-@keyframes timelinePulse {
-    0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(2);
-    }
+    /* Removed animation for performance */
+    pointer-events: none;
 }
 
 .timeline-item:hover .timeline-dot {
@@ -792,42 +767,45 @@ nav.scrolled {
     padding: 12px 20px;
     border-radius: var(--radius-full);
     box-shadow: var(--shadow-xl);
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 165, 116, 0.3);
-    animation: floatBadge 6s ease-in-out infinite;
+    /* Removed animation for performance */
+    transform: translateZ(0);
 }
 
-@keyframes floatBadge {
-    0%, 100% { transform: translateY(0) translateX(0); }
-    25% { transform: translateY(-5px) translateX(-2px); }
-    75% { transform: translateY(5px) translateX(2px); }
-}
-
-/* Mobile Menu */
+/* Mobile Menu - Optimized for performance */
 .mobile-menu {
     background: rgba(26, 26, 26, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* Removed expensive backdrop-filter */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Pre-render menu off-screen for better performance */
+#mobileMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+}
+
+#mobileMenu:not(.hidden) {
+    transform: translateX(0);
 }
 
 .mobile-menu-link {
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: slideInRight 0.5s ease-out forwards;
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.2s ease-out;
 }
 
-.mobile-menu-link:nth-child(1) { animation-delay: 0.1s; }
-.mobile-menu-link:nth-child(2) { animation-delay: 0.2s; }
-.mobile-menu-link:nth-child(3) { animation-delay: 0.3s; }
-.mobile-menu-link:nth-child(4) { animation-delay: 0.4s; }
-.mobile-menu-link:nth-child(5) { animation-delay: 0.5s; }
-.mobile-menu-link:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes slideInRight {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Clean up will-change after transition */
+#mobileMenu.hidden {
+    will-change: auto;
 }
 
 /* Counter Animation */
@@ -925,9 +903,6 @@ img.loaded {
         flex: 1;
     }
     
-    .timeline-item > div:last-child {
-        display: none !important; /* Hide empty div on mobile */
-    }
     
     /* Mobile buttons optimization */
     .premium-button {
@@ -974,6 +949,190 @@ img.loaded {
     
     .h-80 {
         height: 14rem !important;
+    }
+}
+
+/* Portfolio Modal Mobile Styles */
+@media (max-width: 767px) {
+    /* Modal outer container - allow scroll on mobile */
+    #portfolioModal {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 50 !important;
+        overflow: hidden !important; /* The modal backdrop shouldn't scroll */
+    }
+    
+    /* Modal container adjustments - fixed full screen */
+    #portfolioModal .modal-panel {
+        margin: 0;
+        max-width: 100%;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for mobile */
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+    }
+    
+    /* Image container - fixed at top */
+    #portfolioModal .modal-image-container {
+        height: 30vh;
+        height: 30dvh; /* Dynamic viewport height */
+        max-height: 300px;
+        min-height: 200px;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 10;
+    }
+    
+    /* Touch-friendly navigation buttons */
+    #portfolioModal .modal-nav-btn {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Dots indicator enhancement - smaller for iPhone */
+    #modalImageDots button {
+        width: 8px !important;
+        height: 8px !important;
+        min-width: 8px !important;
+        min-height: 8px !important;
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Main flex container adjustment */
+    #portfolioModal .flex.flex-col.lg\:flex-row {
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    /* Image section container - fixed height */
+    #portfolioModal .lg\:w-2\/3 {
+        flex: 0 0 auto;
+        height: 30vh;
+        height: 30dvh;
+        max-height: 300px;
+        min-height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    /* Content section container - THE scrollable area */
+    #portfolioModal .lg\:w-1\/3 {
+        flex: 1 1 auto;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        min-height: 0; /* Critical for flexbox scrolling */
+        position: relative;
+        padding: 1.5rem;
+        padding-bottom: 160px; /* Space for fixed WhatsApp CTA */
+    }
+    
+    /* Close button - ensure it stays fixed */
+    #closeModal {
+        position: fixed !important;
+        top: 1rem;
+        right: 1rem;
+        z-index: 30;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Add scrollbar styling to content area */
+    #portfolioModal .lg\:w-1\/3::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    #portfolioModal .lg\:w-1\/3::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    
+    #portfolioModal .lg\:w-1\/3::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 2px;
+    }
+    
+    /* Typography adjustments */
+    #modalTitle {
+        font-size: 1.5rem !important;
+        line-height: 1.3;
+        padding-right: 2rem; /* Space for close button */
+    }
+    
+    #modalDescription {
+        font-size: 0.925rem;
+        line-height: 1.6;
+    }
+    
+    /* Fixed WhatsApp button on mobile */
+    #portfolioModal .whatsapp-cta-section {
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
+        padding: 1rem;
+        margin: 0 !important;
+        border-radius: 0;
+        z-index: 20;
+        border-top: 1px solid #e5e7eb;
+        transform: translateZ(0); /* Force layer for smooth rendering */
+    }
+    
+    /* Project navigation buttons */
+    #prevProject, #nextProject {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Better spacing for project info */
+    #portfolioModal .space-y-3 > div {
+        padding: 0.5rem 0;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    #portfolioModal button {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    #portfolioModal .modal-nav-btn:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 812px) and (orientation: landscape) {
+    #portfolioModal .modal-image-container {
+        max-height: 50vh !important;
+    }
+    
+    #portfolioModal .modal-panel {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }
 
@@ -1055,6 +1214,85 @@ img.loaded {
 
 .will-change-opacity {
     will-change: opacity;
+}
+
+/* GPU Acceleration for animated elements - Simplified */
+.portfolio-item,
+.timeline-item,
+.testimonial-card,
+.service-card,
+.card {
+    /* Use transform3d for better GPU usage */
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Remove perspective as it can cause issues */
+    contain: layout style paint;
+}
+
+/* Optimize hero background parallax */
+.hero-bg {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* Reduce paint areas with containment */
+.portfolio-item,
+.testimonial-card,
+.card {
+    contain: layout style paint;
+}
+
+/* Smooth scrolling optimization */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--pspl-gold) var(--pspl-dark);
+    /* Prevent scroll jank on mobile */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Disable expensive effects on mobile for performance */
+@media (max-width: 768px) {
+    /* Simplify transforms for mobile */
+    .portfolio-item,
+    .timeline-item,
+    .testimonial-card,
+    .card {
+        transform: none !important;
+        transition: opacity 0.3s ease-out !important;
+    }
+    
+    /* Disable hover effects on mobile */
+    .portfolio-item:hover,
+    .card:hover,
+    .service-card:hover,
+    .testimonial-card:hover {
+        transform: none !important;
+    }
+    
+    /* Simplify shadows for performance */
+    * {
+        box-shadow: none !important;
+    }
+    
+    .card,
+    .testimonial-card,
+    .modal-panel {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Smooth Transitions */

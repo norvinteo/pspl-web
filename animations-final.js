@@ -1,29 +1,13 @@
-// PSPL Website - Final Fixed Animations
+// PSPL Website - Optimized Animations with Batching
 console.log('animations-final.js loading...');
 
-// IMMEDIATELY hide elements that should animate in (before page renders)
+// Only hide critical above-fold elements to reduce initial processing
 const hideSelectors = [
     '.timeline-item',
     '.portfolio-item',
     '.testimonial-card',
-    '.purpose-card',
-    '.service-card',
-    '.pillar-card',
-    '.promise-card',
-    '.stat-item',
-    '.stat-wrapper',
-    '.filter-btn',
-    '.specialty-header',
-    '.core-value-item',
-    '.reveal-fade',
-    '.image-reveal',
-    '.reveal-image',
-    '.fleet-card',
-    '.section-divider',
-    '.mobile-menu-link',
-    'footer',
-    'h2:not(#heroTitle)',
-    '.card:not(.purpose-card):not(.service-card):not(.pillar-card):not(.testimonial-card):not(.promise-card)'
+    '.card',
+    'h2:not(#heroTitle)'
 ];
 
 // Create style tag to hide elements immediately
@@ -59,24 +43,69 @@ document.addEventListener('DOMContentLoaded', async () => {
     const isMobile = window.innerWidth <= 768;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
+    // Skip all animations if reduced motion is preferred
+    if (isReducedMotion) {
+        hideStyle.remove();
+        document.querySelectorAll('*').forEach(el => {
+            el.style.opacity = '';
+            el.style.transform = '';
+        });
+        return;
+    }
+    
+    // Aggressive throttle for better performance
+    const throttle = (func, delay) => {
+        let timeoutId;
+        let lastExecTime = 0;
+        return function (...args) {
+            const currentTime = Date.now();
+            if (currentTime - lastExecTime > delay) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => {
+                    func.apply(this, args);
+                    lastExecTime = currentTime;
+                }, 16); // Next frame
+            }
+        };
+    };
+    
     // Adjust animation settings for mobile and reduced motion
     const getAnimationDuration = (desktopDuration) => {
         if (isReducedMotion) return 0.01;
-        return isMobile ? Math.min(desktopDuration * 0.6, 0.4) : desktopDuration;
+        return isMobile ? Math.min(desktopDuration * 0.5, 0.3) : desktopDuration;
     };
     
     const getAnimationDelay = (desktopDelay) => {
         if (isReducedMotion) return 0;
         if (typeof desktopDelay === 'function') {
-            return isMobile ? stagger(0.02) : desktopDelay;
+            return isMobile ? stagger(0.01) : desktopDelay;
         }
-        return isMobile ? desktopDelay * 0.5 : desktopDelay;
+        return isMobile ? desktopDelay * 0.3 : desktopDelay;
     };
     
-    // Helper to set initial state
-    function hideElement(el, transform = 'translateY(30px)') {
+    // Helper to set initial state - simplified
+    function hideElement(el, transform = 'translateY(20px)') {
         el.style.opacity = '0';
         el.style.transform = transform;
+    }
+    
+    // Batch animations for better performance
+    const animationBatch = [];
+    let batchTimeout = null;
+    
+    function batchAnimate(element, options) {
+        animationBatch.push({ element, options });
+        
+        if (!batchTimeout) {
+            batchTimeout = requestAnimationFrame(() => {
+                // Process batch
+                animationBatch.forEach(({ element, options }) => {
+                    animate(element, options.props, options.config);
+                });
+                animationBatch.length = 0;
+                batchTimeout = null;
+            });
+        }
     }
     
     // Helper to check viewport
@@ -86,101 +115,70 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     // ====================
-    // 1. HERO SECTION (immediate animations)
+    // 1. HERO SECTION (immediate animations - simplified reveal)
     // ====================
     const heroTitle = document.querySelector('#heroTitle');
-    if (heroTitle) {
-        // Preserve the original HTML structure including <br> tags
-        const html = heroTitle.innerHTML;
-        // Split by <br> to handle line breaks
-        const lines = html.split(/<br\s*\/?>/i);
-        
-        // Process each line separately
-        const processedLines = lines.map(line => {
-            const words = line.trim().split(/\s+/);
-            return words.map((word, index) => {
-                // Add space after each word except the last one in the line
-                const spacing = index < words.length - 1 ? ' ' : '';
-                return `<span style="display: inline-block; opacity: 0">${word}${spacing}</span>`;
-            }).join('');
-        });
-        
-        // Rejoin with <br> tags
-        heroTitle.innerHTML = processedLines.join('<br>');
-        
-        const spans = heroTitle.querySelectorAll('span');
-        animate(spans, {
-            opacity: [0, 1],
-            transform: [
-                isMobile ? 'translateY(10px)' : 'translateY(20px) scale(0.95)',
-                isMobile ? 'translateY(0)' : 'translateY(0) scale(1)'
-            ]
-        }, {
-            duration: getAnimationDuration(0.8),
-            delay: getAnimationDelay(stagger(0.05)),
-            easing: [0.22, 0.61, 0.36, 1]
-        });
-    }
-    
     const heroSubtitle = document.querySelector('#heroSubtitle');
-    if (heroSubtitle) {
-        hideElement(heroSubtitle, 'translateX(-50px)');
-        animate(heroSubtitle, {
-            opacity: [0, 1],
-            transform: ['translateX(-50px)', 'translateX(0)']
-        }, {
-            duration: 0.8,
-            delay: 0.5
-        });
+    const heroValue = document.querySelector('#heroValue');
+    const heroButtons = document.querySelector('#heroButtons');
+    
+    // Simple reveal animation for hero elements
+    if (heroTitle) {
+        hideElement(heroTitle, 'translateY(40px)');
+        animate(heroTitle, 
+            { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
+            { duration: 0.8, easing: 'ease-out' }
+        );
     }
     
-    const heroButtons = document.querySelectorAll('.hero-section .premium-button');
-    heroButtons.forEach((btn, i) => {
-        const transform = isMobile ? 'translateY(15px)' : 'translateY(30px) scale(0.8)';
-        hideElement(btn, transform);
-        animate(btn, {
-            opacity: [0, 1],
-            transform: [transform, isMobile ? 'translateY(0)' : 'translateY(0) scale(1)']
-        }, {
-            duration: getAnimationDuration(0.5),
-            delay: getAnimationDelay(0.8 + (i * 0.1)),
-            easing: isMobile ? [0.22, 0.61, 0.36, 1] : [0.68, -0.55, 0.265, 1.55]
-        });
-    });
+    if (heroSubtitle) {
+        hideElement(heroSubtitle, 'translateY(40px)');
+        animate(heroSubtitle,
+            { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
+            { duration: 0.8, delay: 0.2, easing: 'ease-out' }
+        );
+    }
+    
+    if (heroValue) {
+        hideElement(heroValue, 'translateY(30px)');
+        animate(heroValue,
+            { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+            { duration: 0.8, delay: 0.3, easing: 'ease-out' }
+        );
+    }
+    
+    if (heroButtons) {
+        hideElement(heroButtons, 'translateY(30px)');
+        animate(heroButtons,
+            { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+            { duration: 0.8, delay: 0.4, easing: 'ease-out' }
+        );
+    }
+    
     
     // ====================
     // 2. SCROLL-TRIGGERED ANIMATIONS
     // ====================
     
-    // Core Values - Staggered Animation
+    // Core Values - Simple fade
     const coreValueItems = document.querySelectorAll('.core-value-item');
-    coreValueItems.forEach((item, i) => {
-        hideElement(item, 'translateY(40px) scale(0.8)');
+    coreValueItems.forEach(item => {
+        hideElement(item, 'translateY(20px)');
         inView(item, () => {
-            animate(item, {
-                opacity: [0, 1],
-                transform: ['translateY(40px) scale(0.8)', 'translateY(0) scale(1)']
-            }, {
-                duration: 0.6,
-                delay: i * 0.15,
-                easing: [0.68, -0.55, 0.265, 1.55]
-            });
+            item.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
         }, { margin: "-100px" });
     });
     
-    // Statistics Wrappers
+    // Statistics Wrappers - Simple fade
     const statWrappers = document.querySelectorAll('.stat-wrapper');
-    statWrappers.forEach((wrapper, i) => {
-        hideElement(wrapper, 'translateY(30px)');
+    statWrappers.forEach((wrapper) => {
+        hideElement(wrapper, 'none');
         inView(wrapper, () => {
-            animate(wrapper, {
-                opacity: [0, 1],
-                transform: ['translateY(30px)', 'translateY(0)']
-            }, {
-                duration: 0.5,
-                delay: i * 0.15,
-                easing: [0.22, 0.61, 0.36, 1]
-            });
+            wrapper.style.transition = 'opacity 0.4s ease-out';
+            wrapper.style.opacity = '1';
+            wrapper.style.transform = 'none';
         }, { margin: "-100px" });
     });
     
@@ -217,104 +215,61 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
     
-    // All Cards (including promise cards)
-    const allCards = document.querySelectorAll('.purpose-card, .service-card, .pillar-card, .promise-card');
+    // All Cards - Simple CSS transition
+    const allCards = document.querySelectorAll('.purpose-card, .service-card, .pillar-card, .promise-card, .card');
     allCards.forEach((card, i) => {
-        hideElement(card, 'translateY(50px) scale(0.95)');
-        inView(card, () => {
-            animate(card, {
-                opacity: [0, 1],
-                transform: ['translateY(50px) scale(0.95)', 'translateY(0) scale(1)']
-            }, {
-                duration: 0.6,
-                delay: (i % 3) * 0.15,
-                easing: [0.22, 0.61, 0.36, 1]
-            });
-        }, { margin: "-100px" });
+        hideElement(card, 'translateY(20px)');
+        inView(card, throttle(() => {
+            setTimeout(() => {
+                card.style.transition = 'opacity 0.4s ease-out, transform 0.4s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, (i % 3) * 50);
+        }, 200), { margin: "-100px" });
     });
     
-    // Timeline Items
+    // Timeline Items - Simplified fade-in only
     const timelineItems = document.querySelectorAll('.timeline-item');
-    console.log(`Found ${timelineItems.length} timeline items`);
     timelineItems.forEach((item, i) => {
-        if (isMobile) {
-            // Mobile: animate from the right
-            hideElement(item, 'translateX(50px)');
-            inView(item, () => {
-                console.log(`Animating mobile timeline item ${i}`);
-                animate(item, {
-                    opacity: [0, 1],
-                    transform: ['translateX(50px)', 'translateX(0)']
-                }, {
-                    duration: getAnimationDuration(0.6),
-                    delay: getAnimationDelay(i * 0.08),
-                    easing: [0.22, 0.61, 0.36, 1]
-                });
-            }, { margin: "-50px" });
-        } else {
-            // Desktop: animate content within the item
-            const contentDivs = item.querySelectorAll('div:not(.timeline-dot)');
-            const isEven = i % 2 === 0;
-            
-            // Hide the content div that has text
-            contentDivs.forEach(div => {
-                if (div.textContent.trim()) {
-                    const fromX = isEven ? '-100px' : '100px';
-                    hideElement(div, `translateX(${fromX})`);
-                    
-                    inView(item, () => {
-                        console.log(`Animating desktop timeline item ${i}`);
-                        animate(div, {
-                            opacity: [0, 1],
-                            transform: [`translateX(${fromX})`, 'translateX(0)']
-                        }, {
-                            duration: 0.8,
-                            delay: i * 0.1,
-                            easing: [0.22, 0.61, 0.36, 1]
-                        });
-                    }, { margin: "-100px" });
+        hideElement(item, 'translateY(20px)');
+        inView(item, throttle(() => {
+            item.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 150), { margin: "-50px" });
+    });
+    
+    // Portfolio Items - Simplified for performance
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    if (portfolioItems.length > 0) {
+        // Use single observer for all portfolio items
+        const observePortfolio = throttle(() => {
+            portfolioItems.forEach((item, i) => {
+                if (item.style.opacity === '0') {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'none';
+                        item.style.transition = 'opacity 0.4s ease-out';
+                    }, i * 50);
                 }
             });
-        }
-    });
+        }, 200);
+        
+        portfolioItems.forEach(item => {
+            hideElement(item, 'translateY(20px)');
+            inView(item, observePortfolio, { margin: "-100px" });
+        });
+    }
     
-    // Portfolio Items
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    console.log(`Found ${portfolioItems.length} portfolio items`);
-    portfolioItems.forEach((item, i) => {
-        hideElement(item, 'scale(0.8) rotate(5deg)');
-        inView(item, () => {
-            console.log(`Animating portfolio item ${i}`);
-            animate(item, {
-                opacity: [0, 1],
-                transform: ['scale(0.8) rotate(5deg)', 'scale(1) rotate(0)']
-            }, {
-                duration: 0.5,
-                delay: (i % 3) * 0.1,
-                easing: [0.68, -0.55, 0.265, 1.55]
-            });
-        }, { margin: "-100px" });
-    });
-    
-    // Testimonial Cards
+    // Testimonial Cards - CSS only
     const testimonialCards = document.querySelectorAll('.testimonial-card');
-    console.log(`Found ${testimonialCards.length} testimonial cards`);
     testimonialCards.forEach((card, i) => {
-        hideElement(card, 'perspective(1000px) rotateX(-10deg) translateY(30px)');
-        inView(card, () => {
-            console.log(`Animating testimonial ${i}`);
-            animate(card, {
-                opacity: [0, 1],
-                transform: [
-                    'perspective(1000px) rotateX(-10deg) translateY(30px)',
-                    'perspective(1000px) rotateX(0) translateY(0)'
-                ]
-            }, {
-                duration: 0.8,
-                delay: i * 0.2,
-                easing: [0.22, 0.61, 0.36, 1]
-            });
-        }, { margin: "-100px" });
+        hideElement(card, 'translateY(20px)');
+        inView(card, throttle(() => {
+            card.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 200), { margin: "-100px" });
     });
     
     // Section Headings
@@ -332,20 +287,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, { margin: "-100px" });
     });
     
-    // Regular Cards
-    const regularCards = document.querySelectorAll('.card:not(.purpose-card):not(.service-card):not(.pillar-card):not(.testimonial-card):not(.promise-card)');
-    regularCards.forEach((card, i) => {
-        hideElement(card, 'translateY(30px)');
-        inView(card, () => {
-            animate(card, {
-                opacity: [0, 1],
-                transform: ['translateY(30px)', 'translateY(0)']
-            }, {
-                duration: 0.5,
-                delay: (i % 3) * 0.1
-            });
-        }, { margin: "-100px" });
-    });
+    // Regular cards handled with allCards above
     
     // Filter Buttons
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -395,18 +337,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, { margin: "-100px" });
     });
     
-    // Hero Badge
+    // Hero Badge - Simple fade
     const heroBadge = document.querySelector('.hero-section .floating-badge');
     if (heroBadge) {
-        hideElement(heroBadge, 'scale(0) rotate(-180deg)');
-        animate(heroBadge, {
-            opacity: [0, 1],
-            transform: ['scale(0) rotate(-180deg)', 'scale(1) rotate(0)']
-        }, {
-            duration: 0.8,
-            delay: 1.2,
-            easing: [0.68, -0.55, 0.265, 1.55]
-        });
+        heroBadge.style.opacity = '0';
+        setTimeout(() => {
+            heroBadge.style.transition = 'opacity 0.6s ease-out';
+            heroBadge.style.opacity = '1';
+        }, 800);
     }
     
     // Reveal Fade Elements
@@ -471,18 +409,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, { margin: "-100px" });
     });
     
-    // Navigation Bar Animation
+    // Navigation Bar - Immediate visibility
     const navbar = document.querySelector('#navbar');
     if (navbar) {
-        hideElement(navbar, 'translateY(-100%)');
-        animate(navbar, {
-            opacity: [0, 1],
-            transform: ['translateY(-100%)', 'translateY(0)']
-        }, {
-            duration: 0.6,
-            delay: 0.2,
-            easing: [0.22, 0.61, 0.36, 1]
-        });
+        navbar.style.opacity = '1';
+        navbar.style.transform = 'none';
     }
     
     // Footer Animation
@@ -500,82 +431,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, { margin: "-100px" });
     }
     
-    // Mobile Menu Links
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-    mobileMenuLinks.forEach((link, i) => {
-        link.addEventListener('click', () => {
-            // Animation handled by menu toggle
-        });
-        // Add staggered animation when menu opens
-        const mobileMenu = document.querySelector('#mobileMenu');
-        if (mobileMenu) {
-            const observer = new MutationObserver((mutations) => {
-                mutations.forEach((mutation) => {
-                    if (mutation.target.classList && !mutation.target.classList.contains('hidden')) {
-                        hideElement(link, 'translateX(-50px)');
-                        animate(link, {
-                            opacity: [0, 1],
-                            transform: ['translateX(-50px)', 'translateX(0)']
-                        }, {
-                            duration: 0.4,
-                            delay: i * 0.05,
-                            easing: [0.22, 0.61, 0.36, 1]
-                        });
-                    }
-                });
-            });
-            observer.observe(mobileMenu, { attributes: true, attributeFilter: ['class'] });
-        }
-    });
+    // Mobile Menu - No animation needed, handled by CSS
+    // Removed mobile menu animations to prevent jitter
     
     // ====================
-    // 3. PARALLAX EFFECT
+    // 3. PARALLAX EFFECT - COMPLETELY DISABLED FOR PERFORMANCE
     // ====================
-    const heroSection = document.querySelector('.hero-section');
-    if (heroSection) {
-        scroll(animate(heroSection, {
-            transform: ['translateY(0)', 'translateY(-80px)']
-        }), {
-            target: heroSection,
-            offset: ['start start', 'end start']
-        });
-    }
+    // Parallax effects cause significant jitter, especially with many other animations
+    // const heroBg = document.querySelector('.hero-bg');
+    // Parallax disabled for performance
     
     // ====================
-    // 4. HOVER ANIMATIONS
+    // 4. HOVER ANIMATIONS - DISABLED FOR PERFORMANCE
     // ====================
-    const allButtons = document.querySelectorAll('.premium-button');
-    allButtons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            animate(button, {
-                transform: 'scale(1.05) translateY(-2px)',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
-            }, { duration: 0.2 });
-        });
-        
-        button.addEventListener('mouseleave', () => {
-            animate(button, {
-                transform: 'scale(1) translateY(0)',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
-            }, { duration: 0.2 });
-        });
-    });
-    
-    [...allCards, ...portfolioItems].forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            animate(card, {
-                transform: 'translateY(-5px)',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)'
-            }, { duration: 0.3 });
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            animate(card, {
-                transform: 'translateY(0)',
-                boxShadow: ''
-            }, { duration: 0.3 });
-        });
-    });
+    // Hover animations cause jitter during scroll
+    // CSS :hover states are sufficient and more performant
     
     console.log('All animations initialized successfully!');
 });

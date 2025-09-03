@@ -126,20 +126,33 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarObserver.observe(heroSection);
     }
     
-    // Simple fade-in animation for elements on scroll
+    // Simple fade-in animation for elements on scroll with performance optimization
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    // Batch observer callbacks for better performance
+    let pendingEntries = [];
+    let rafId = null;
+    
+    const processEntries = () => {
+        pendingEntries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
                 observer.unobserve(entry.target);
             }
         });
+        pendingEntries = [];
+        rafId = null;
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        pendingEntries.push(...entries);
+        if (!rafId) {
+            rafId = requestAnimationFrame(processEntries);
+        }
     }, observerOptions);
     
     // Observe reveal elements
@@ -601,6 +614,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             modal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
+            
+            // Reset scroll position for modal content on mobile
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                const contentSection = modal.querySelector('.lg\\:w-1\\/3');
+                if (contentSection) {
+                    contentSection.scrollTop = 0;
+                }
+            }
+            
+            // Prevent background scroll on iOS
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                document.body.style.position = 'fixed';
+                document.body.style.width = '100%';
+                document.body.style.top = `-${window.scrollY}px`;
+            }
         }
     };
     
@@ -619,8 +648,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (let i = 0; i < count; i++) {
             const dot = document.createElement('button');
-            dot.className = 'w-2 h-2 rounded-full transition-all';
+            dot.className = 'w-2 h-2 rounded-full transition-all modal-dot-btn';
             dot.onclick = () => goToImage(i);
+            dot.setAttribute('aria-label', `Go to image ${i + 1}`);
             dotsContainer.appendChild(dot);
         }
         updateActiveDot();
@@ -630,9 +660,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const dots = document.querySelectorAll('#modalImageDots button');
         dots.forEach((dot, index) => {
             if (index === currentImageIndex) {
-                dot.className = 'w-2 h-2 bg-white rounded-full transition-all';
+                dot.className = 'w-2 h-2 bg-white rounded-full transition-all modal-dot-btn';
             } else {
-                dot.className = 'w-2 h-2 bg-white/50 rounded-full transition-all hover:bg-white/70';
+                dot.className = 'w-2 h-2 bg-white/50 rounded-full transition-all hover:bg-white/70 modal-dot-btn';
             }
         });
     }
@@ -683,6 +713,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.closeModal = function() {
         modal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
+        
+        // Restore scroll position on iOS
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            const scrollY = document.body.style.top;
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
     };
     
     window.navigateProject = function(direction) {
@@ -692,6 +731,57 @@ document.addEventListener('DOMContentLoaded', function() {
             openModal(newIndex);
         }
     };
+    
+    // Add swipe gesture support for mobile with improved touch handling
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    let isScrolling = null;
+    
+    const modalImageContainer = document.getElementById('modalImageContainer');
+    if (modalImageContainer) {
+        modalImageContainer.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isScrolling = null;
+        }, { passive: true });
+        
+        modalImageContainer.addEventListener('touchmove', function(e) {
+            if (isScrolling === null) {
+                const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+                const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+                isScrolling = diffY > diffX;
+            }
+        }, { passive: true });
+        
+        modalImageContainer.addEventListener('touchend', function(e) {
+            if (!isScrolling) {
+                touchEndX = e.changedTouches[0].screenX;
+                touchEndY = e.changedTouches[0].screenY;
+                handleSwipeGesture();
+            }
+        }, { passive: true });
+    }
+    
+    function handleSwipeGesture() {
+        const swipeThreshold = 50; // Minimum distance for swipe
+        const verticalThreshold = 100; // Maximum vertical movement allowed
+        
+        const horizontalDiff = touchEndX - touchStartX;
+        const verticalDiff = Math.abs(touchEndY - touchStartY);
+        
+        // Only process horizontal swipes
+        if (Math.abs(horizontalDiff) > swipeThreshold && verticalDiff < verticalThreshold) {
+            if (horizontalDiff > 0) {
+                // Swipe right - show previous image
+                changeModalImage(-1);
+            } else {
+                // Swipe left - show next image
+                changeModalImage(1);
+            }
+        }
+    }
     
     window.openProjectWhatsApp = function() {
         const project = projectData[currentProjectIndex];
