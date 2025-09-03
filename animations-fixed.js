@@ -43,14 +43,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Initializing fixed animations...');
     const { animate, scroll, inView, stagger } = await waitForMotion();
     
-    // Remove hideStyle after a longer delay to ensure all inView observers are set up
-    // But not too early or elements become visible before animations can start
+    // Set inline opacity: 0 on elements that will animate, then remove hideStyle
+    // This ensures elements stay hidden until their animations trigger
     setTimeout(() => {
+        // Set initial state on elements that will animate
+        const animatedElements = document.querySelectorAll(hideSelectors.join(','));
+        animatedElements.forEach(el => {
+            // Only set opacity if not already animating
+            if (!el.style.opacity && !el.hasAttribute('data-animating')) {
+                el.style.opacity = '0';
+            }
+        });
+        
+        // Now safe to remove hideStyle
         if (hideStyle && hideStyle.parentNode) {
             hideStyle.remove();
-            console.log('Hide style removed - animations ready');
+            console.log('Hide style removed - inline opacity set');
         }
-    }, 2000); // Longer delay to let all inView observers register first
+    }, 2000); // Delay to let all inView observers register first
     
     // Mobile and accessibility detection
     const isMobile = window.innerWidth <= 768;
@@ -58,8 +68,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Skip all animations if reduced motion is preferred
     if (isReducedMotion) {
-        // Don't remove hideStyle - let elements show naturally
-        // hideStyle.remove();
+        // Must remove hideStyle or elements stay hidden
+        if (hideStyle && hideStyle.parentNode) {
+            hideStyle.remove();
+        }
         document.querySelectorAll('*').forEach(el => {
             el.style.opacity = '';
             el.style.transform = '';
@@ -147,6 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const coreValueItems = document.querySelectorAll('.core-value-item');
     coreValueItems.forEach((item, i) => {
         inView(item, () => {
+            item.setAttribute('data-animating', 'true');
             animate(item, {
                 opacity: [0, 1],
                 transform: ['translateY(30px)', 'translateY(0)']
@@ -162,6 +175,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const allCards = document.querySelectorAll('.purpose-card, .service-card, .pillar-card, .promise-card, .card');
     allCards.forEach((card, i) => {
         inView(card, () => {
+            card.setAttribute('data-animating', 'true');
             animate(card, {
                 opacity: [0, 1],
                 transform: ['translateY(30px)', 'translateY(0)']
