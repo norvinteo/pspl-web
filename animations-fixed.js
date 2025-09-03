@@ -1,29 +1,6 @@
 // PSPL Website - Fixed Animations with Proper Reveal Effects
 console.log('animations-fixed.js loading...');
 
-// Hide elements initially for reveal animations
-const hideSelectors = [
-    '.timeline-item',
-    '.portfolio-item',
-    '.testimonial-card',
-    '.card',
-    '.purpose-card',
-    '.service-card',
-    '.pillar-card',
-    '.promise-card',
-    '.core-value-item',
-    '.stat-wrapper',
-    '.fleet-card',
-    'h2:not(#heroTitle)'
-];
-
-// Create style tag to hide elements immediately
-const hideStyle = document.createElement('style');
-hideStyle.textContent = hideSelectors.map(sel => 
-    `${sel} { opacity: 0; }`
-).join('\n');
-document.head.appendChild(hideStyle);
-
 // Wait for Motion library
 function waitForMotion() {
     return new Promise((resolve) => {
@@ -41,26 +18,10 @@ function waitForMotion() {
 // Initialize animations when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Initializing fixed animations...');
-    const { animate, scroll, inView, stagger } = await waitForMotion();
-    
-    // Set inline opacity: 0 on elements that will animate, then remove hideStyle
-    // This ensures elements stay hidden until their animations trigger
-    setTimeout(() => {
-        // Set initial state on elements that will animate
-        const animatedElements = document.querySelectorAll(hideSelectors.join(','));
-        animatedElements.forEach(el => {
-            // Only set opacity if not already animating
-            if (!el.style.opacity && !el.hasAttribute('data-animating')) {
-                el.style.opacity = '0';
-            }
-        });
-        
-        // Now safe to remove hideStyle
-        if (hideStyle && hideStyle.parentNode) {
-            hideStyle.remove();
-            console.log('Hide style removed - inline opacity set');
-        }
-    }, 2000); // Delay to let all inView observers register first
+    const Motion = await waitForMotion();
+    console.log('Motion object:', Motion);
+    console.log('Motion.inView:', Motion.inView);
+    const { animate, scroll, inView, stagger } = Motion;
     
     // Mobile and accessibility detection
     const isMobile = window.innerWidth <= 768;
@@ -68,14 +29,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Skip all animations if reduced motion is preferred
     if (isReducedMotion) {
-        // Must remove hideStyle or elements stay hidden
-        if (hideStyle && hideStyle.parentNode) {
-            hideStyle.remove();
-        }
-        document.querySelectorAll('*').forEach(el => {
-            el.style.opacity = '';
-            el.style.transform = '';
-        });
         console.log('Animations disabled - reduced motion preferred');
         return;
     }
@@ -144,7 +97,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Section Headings - Animate on scroll
     const sectionHeadings = document.querySelectorAll('h2:not(#heroTitle)');
     sectionHeadings.forEach(heading => {
+        // Hide initially
+        heading.style.opacity = '0';
+        heading.style.transform = 'translateY(30px)';
+        
         inView(heading, () => {
+            heading.setAttribute('data-animating', 'true');
+            
             animate(heading, {
                 opacity: [0, 1],
                 transform: ['translateY(30px)', 'translateY(0)']
@@ -152,14 +111,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 duration: 0.6,
                 easing: [0.22, 0.61, 0.36, 1]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Core Values
     const coreValueItems = document.querySelectorAll('.core-value-item');
     coreValueItems.forEach((item, i) => {
+        // Hide initially
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        
         inView(item, () => {
             item.setAttribute('data-animating', 'true');
+            
             animate(item, {
                 opacity: [0, 1],
                 transform: ['translateY(30px)', 'translateY(0)']
@@ -168,14 +132,29 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: i * 0.1,
                 easing: 'ease-out'
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
-    // All Cards
-    const allCards = document.querySelectorAll('.purpose-card, .service-card, .pillar-card, .promise-card, .card');
+    // Cards - avoiding duplicates by being specific
+    // Purpose cards already have .card class, so skip them in .card selector
+    const purposeCards = document.querySelectorAll('.purpose-card');
+    const serviceCards = document.querySelectorAll('.service-card');
+    const pillarCards = document.querySelectorAll('.pillar-card');
+    const promiseCards = document.querySelectorAll('.promise-card');
+    const otherCards = document.querySelectorAll('.card:not(.purpose-card)');
+    
+    // Combine all unique cards
+    const allCards = [...purposeCards, ...serviceCards, ...pillarCards, ...promiseCards, ...otherCards];
+    
     allCards.forEach((card, i) => {
+        // Hide initially
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
         inView(card, () => {
             card.setAttribute('data-animating', 'true');
+            
+            // Now animate
             animate(card, {
                 opacity: [0, 1],
                 transform: ['translateY(30px)', 'translateY(0)']
@@ -184,16 +163,29 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: (i % 3) * 0.1,
                 easing: 'ease-out'
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Timeline Items - Alternating animations for desktop
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach((item, i) => {
+        // Hide initially based on device
+        if (isMobile) {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+        } else {
+            const isEven = i % 2 === 0;
+            const startTransform = isEven ? 'translateX(-50px)' : 'translateX(50px)';
+            item.style.opacity = '0';
+            item.style.transform = startTransform;
+        }
+        
         inView(item, () => {
+            item.setAttribute('data-animating', 'true');
+            
             // Check if mobile
             if (isMobile) {
-                // Mobile: all items come from left (current behavior)
+                // Mobile: all items come from left
                 animate(item, {
                     opacity: [0, 1],
                     transform: ['translateX(-30px)', 'translateX(0)']
@@ -216,13 +208,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                     easing: [0.22, 0.61, 0.36, 1]
                 });
             }
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Portfolio Items
     const portfolioItems = document.querySelectorAll('.portfolio-item');
     portfolioItems.forEach((item, i) => {
+        // Hide initially
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.95)';
+        
         inView(item, () => {
+            item.setAttribute('data-animating', 'true');
+            
             animate(item, {
                 opacity: [0, 1],
                 transform: ['scale(0.95)', 'scale(1)']
@@ -231,13 +229,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: (i % 3) * 0.1,
                 easing: 'ease-out'
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Testimonial Cards
     const testimonialCards = document.querySelectorAll('.testimonial-card');
     testimonialCards.forEach((card, i) => {
+        // Hide initially
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        
         inView(card, () => {
+            card.setAttribute('data-animating', 'true');
+            
             animate(card, {
                 opacity: [0, 1],
                 transform: ['translateY(30px)', 'translateY(0)']
@@ -246,7 +250,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: i * 0.15,
                 easing: [0.22, 0.61, 0.36, 1]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Filter Buttons
@@ -260,13 +264,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 duration: 0.4,
                 delay: i * 0.05
             });
-        }, { margin: "0px", amount: 0.5 });
+        }, { margin: "0px" });
     });
     
     // Statistics
     const statWrappers = document.querySelectorAll('.stat-wrapper');
     statWrappers.forEach((wrapper, i) => {
+        // Hide initially
+        wrapper.style.opacity = '0';
+        wrapper.style.transform = 'scale(0.9)';
+        
         inView(wrapper, () => {
+            wrapper.setAttribute('data-animating', 'true');
+            
             animate(wrapper, {
                 opacity: [0, 1],
                 transform: ['scale(0.9)', 'scale(1)']
@@ -275,7 +285,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: i * 0.1,
                 easing: [0.68, -0.55, 0.265, 1.55]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Reveal Fade Elements
@@ -290,7 +300,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: i * 0.05,
                 easing: [0.22, 0.61, 0.36, 1]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Image Reveal Elements
@@ -304,13 +314,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 duration: 0.8,
                 easing: [0.22, 0.61, 0.36, 1]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // Fleet Cards (Operational Excellence)
     const fleetCards = document.querySelectorAll('.fleet-card');
     fleetCards.forEach((card, i) => {
+        // Hide initially
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(40px) scale(0.9)';
+        
         inView(card, () => {
+            card.setAttribute('data-animating', 'true');
+            
             animate(card, {
                 opacity: [0, 1],
                 transform: ['translateY(40px) scale(0.9)', 'translateY(0) scale(1)']
@@ -319,7 +335,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: i * 0.15,
                 easing: [0.68, -0.55, 0.265, 1.55]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     });
     
     // CTA Buttons
@@ -334,7 +350,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 delay: i * 0.1,
                 easing: [0.68, -0.55, 0.265, 1.55]
             });
-        }, { margin: "0px", amount: 0.5 });
+        }, { margin: "0px" });
     });
     
     // Footer Animation
@@ -348,7 +364,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 duration: 0.8,
                 easing: [0.22, 0.61, 0.36, 1]
             });
-        }, { margin: "0px", amount: 0.1 });
+        }, { margin: "0px" });
     }
     
     // ====================
@@ -358,4 +374,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Keeping it disabled for smoother performance
     
     console.log('All animations initialized successfully!');
+    
+    // Force IntersectionObservers to check by causing a layout change
+    setTimeout(() => {
+        // Force reflow
+        document.body.style.display = 'none';
+        document.body.offsetHeight; // Force reflow
+        document.body.style.display = '';
+        console.log('Forced layout recalculation');
+    }, 100);
 });
