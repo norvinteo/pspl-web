@@ -43,11 +43,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Initializing fixed animations...');
     const { animate, scroll, inView, stagger } = await waitForMotion();
     
-    // Don't remove hideStyle - let animations handle visibility individually
-    // This was causing desktop animations to fail by making elements visible too early
-    // setTimeout(() => {
-    //     hideStyle.remove();
-    // }, 100);
+    // Remove hideStyle after Motion library is loaded and animations are registered
+    // This ensures elements are hidden during initial load but visible for animations
+    setTimeout(() => {
+        if (hideStyle && hideStyle.parentNode) {
+            hideStyle.remove();
+            console.log('Hide style removed - animations ready');
+        }
+    }, 500); // Delay to ensure all animations are registered
     
     // Mobile and accessibility detection
     const isMobile = window.innerWidth <= 768;
