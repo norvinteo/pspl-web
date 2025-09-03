@@ -48,12 +48,9 @@
     <script src="script-minimal.js" defer></script>
     
     <!-- Motion Dev Animations (Final) -->
-    <script src="animations-final.js" type="module" defer></script>
+    <script src="animations-fixed.js" type="module" defer></script>
 </head>
 <body class="bg-pspl-cream text-pspl-dark">
-    
-    <!-- Skip Navigation -->
-    <a href="#main-content" class="skip-nav">Skip to main content</a>
     
     <!-- Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
@@ -592,7 +589,7 @@
                         <!-- Mobile Cards -->
                         <div class="md:hidden space-y-4">
                             <!-- Business Philosophy -->
-                            <div class="bg-white rounded-lg shadow-lg p-4">
+                            <div class="white-card">
                                 <div class="flex items-center mb-3">
                                     <svg class="w-6 h-6 text-pspl-gold mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
@@ -811,7 +808,7 @@
                             <p class="text-lg text-gray-700 leading-relaxed mb-6">
                                 Every stone and parquet receives the attention of artisans who've spent decades under PSPL's stringent mentorship, perfecting their craft. Our craftsmen don't just polish; they understand its nature, its language, and its unique characteristics.
                             </p>
-                            <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <div class="white-card">
                                 <p class="text-gray-700 italic mb-4">
                                     "Proud moment of sharing, that our 3 most senior workers stood by our parent company for each over 30 years, 1 company, 1 craft and gracefully retired during Covid 19 in good health."
                                 </p>
@@ -833,18 +830,18 @@
                         </p>
                         <div class="grid md:grid-cols-3 gap-6">
                             <!-- Fleet -->
-                            <div class="bg-white p-6 rounded-lg shadow-lg fleet-card">
-                                <img src="images/Vehicles/Lorry.webp" alt="PSPL Fleet - Lorry" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <div class="fleet-card">
+                                <img src="images/Vehicles/Lorry.webp" alt="PSPL Fleet - Lorry" class="w-full h-48 object-cover">
                                 <h4 class="font-bold text-lg mb-2">Heavy Equipment Transport</h4>
                                 <p class="text-sm text-gray-600">Our lorry fleet carries industrial-grade machinery for large commercial projects</p>
                             </div>
-                            <div class="bg-white p-6 rounded-lg shadow-lg fleet-card">
-                                <img src="images/Vehicles/Van.webp" alt="PSPL Fleet - Van" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <div class="fleet-card">
+                                <img src="images/Vehicles/Van.webp" alt="PSPL Fleet - Van" class="w-full h-48 object-cover">
                                 <h4 class="font-bold text-lg mb-2">Rapid Response Unit</h4>
                                 <p class="text-sm text-gray-600">Dedicated vans for residential projects and emergency restoration services</p>
                             </div>
-                            <div class="bg-white p-6 rounded-lg shadow-lg fleet-card">
-                                <img src="images/Past Commercial Projects/MBFC Tower 3.webp" alt="PSPL Team Leadership" class="w-full h-48 object-cover rounded-lg mb-4">
+                            <div class="fleet-card">
+                                <img src="images/Past Commercial Projects/MBFC Tower 3.webp" alt="PSPL Team Leadership" class="w-full h-48 object-cover">
                                 <h4 class="font-bold text-lg mb-2">Expert Supervision</h4>
                                 <p class="text-sm text-gray-600">Aaron Ang personally oversees every project, ensuring quality standards</p>
                             </div>
@@ -1252,11 +1249,11 @@
                                 <svg class="w-6 h-6 text-pspl-gold fill-current" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                             </svg>
-                                <span class="text-2xl font-bold text-pspl-dark ml-2">4.9</span>
+                                <span class="text-2xl font-bold text-pspl-dark ml-2">4.8</span>
                                 <span class="text-gray-600 ml-2">out of 5 stars</span>
                             </div>
                             <span class="text-gray-400">|</span>
-                            <span class="text-gray-600 hover:text-pspl-gold transition-colors">Based on 127 Google Reviews</span>
+                            <span class="text-gray-600 hover:text-pspl-gold transition-colors">See all reviews</span>
                         </a>
                     </div>
                 </div>
@@ -1392,16 +1389,16 @@
     
     <!-- Portfolio Modal -->
     <div id="portfolioModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
-        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <div class="flex items-center justify-center min-h-screen px-4 text-center">
             <!-- Background overlay -->
             <div class="fixed inset-0 transition-opacity bg-black bg-opacity-75" onclick="closeModal()"></div>
             
             <!-- Modal panel -->
-            <div class="inline-block w-full max-w-6xl my-8 md:my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-lg modal-panel">
+            <div class="inline-block w-full max-w-6xl overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-lg modal-panel">
                 <div class="flex flex-col lg:flex-row">
                     <!-- Image Section -->
-                    <div class="lg:w-2/3 bg-gray-100 relative">
-                        <div class="relative h-full modal-image-container" style="max-height: 40vh; min-height: 300px;">
+                    <div class="lg:w-2/3 bg-gray-900 relative">
+                        <div class="relative h-full modal-image-container">
                             <!-- Main Image Container -->
                             <div id="modalImageContainer" class="h-full">
                                 <img id="modalImage" src="" alt="" class="w-full h-full object-cover">
@@ -1434,28 +1431,30 @@
                     </div>
                     
                     <!-- Details Section -->
-                    <div class="lg:w-1/3 p-6 md:p-8 bg-white relative">
+                    <div class="lg:w-1/3 bg-white relative flex flex-col overflow-hidden">
                         <!-- Close button - Mobile optimized -->
-                        <button onclick="closeModal()" class="absolute top-4 right-4 z-10 text-gray-500 hover:text-gray-700 p-2 -m-2 md:p-0 md:m-0">
+                        <button onclick="closeModal()" class="absolute top-4 right-4 z-20 text-gray-500 hover:text-gray-700 p-2 -m-2 md:p-0 md:m-0">
                             <svg class="w-8 h-8 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                         </button>
                         
-                        <!-- Project Details -->
-                        <div class="mb-6">
-                            <h3 id="modalTitle" class="text-2xl font-bold text-pspl-dark mb-2"></h3>
+                        <!-- Header Section - Fixed -->
+                        <div class="modal-header px-4 md:px-6 pt-4 md:pt-6 pb-3">
+                            <h3 id="modalTitle" class="text-2xl font-bold text-pspl-dark mb-2 pr-8"></h3>
                             <p id="modalCategory" class="text-pspl-gold text-sm font-semibold uppercase tracking-wide mb-4"></p>
-                            <div class="w-16 h-1 bg-pspl-gold mb-6"></div>
+                            <div class="w-16 h-1 bg-pspl-gold"></div>
                         </div>
                         
-                        <!-- Project Description -->
-                        <div class="mb-8">
-                            <h4 class="text-lg font-semibold mb-3">Project Details</h4>
-                            <p id="modalDescription" class="text-gray-600 leading-relaxed mb-4"></p>
-                            
-                            <!-- Project Info -->
-                            <div class="space-y-3 mb-6">
+                        <!-- Scrollable Content Section -->
+                        <div class="modal-body flex-1 overflow-y-auto px-4 md:px-6 py-3">
+                            <!-- Project Description -->
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold mb-3">Project Details</h4>
+                                <p id="modalDescription" class="text-gray-600 leading-relaxed mb-6"></p>
+                                
+                                <!-- Service Info -->
+                                <div class="space-y-4">
                                 <div class="flex items-start">
                                     <svg class="w-5 h-5 text-pspl-gold mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -1486,33 +1485,21 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                         
-                        <!-- CTA Section -->
-                        <div class="whatsapp-cta-section border-t pt-6">
+                        <!-- Footer Section - Fixed -->
+                        <div class="modal-footer mt-auto">
+                            <!-- CTA Section -->
+                            <div class="whatsapp-cta-section border-t px-4 md:px-6 pt-3 pb-3">
                             <p class="text-sm text-gray-600 mb-4">Interested in similar restoration for your property?</p>
-                            <button onclick="openProjectWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-full transition-all flex items-center justify-center">
+                            <button onclick="openProjectWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2.5 px-4 rounded-full transition-all flex items-center justify-center">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                                 </svg>
                                 WhatsApp Us Now
                             </button>
-                            <p class="text-xs text-gray-500 mt-3 text-center">Response within 30 minutes</p>
-                        </div>
-                        
-                        <!-- Navigation -->
-                        <div class="flex justify-between mt-6 pt-6 border-t">
-                            <button id="prevProject" onclick="navigateProject(-1)" class="text-gray-600 hover:text-pspl-gold transition-colors flex items-center">
-                                <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                                Previous
-                            </button>
-                            <button id="nextProject" onclick="navigateProject(1)" class="text-gray-600 hover:text-pspl-gold transition-colors flex items-center">
-                                Next
-                                <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
+                            <p class="text-xs text-gray-500 mt-2 text-center">Response within 30 minutes</p>
+                            </div>
                         </div>
                     </div>
                 </div>
