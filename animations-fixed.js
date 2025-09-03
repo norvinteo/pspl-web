@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Initializing fixed animations...');
     const { animate, scroll, inView, stagger } = await waitForMotion();
     
-    // Remove hideStyle after Motion library is loaded and animations are registered
-    // This ensures elements are hidden during initial load but visible for animations
+    // Remove hideStyle after a longer delay to ensure all inView observers are set up
+    // But not too early or elements become visible before animations can start
     setTimeout(() => {
         if (hideStyle && hideStyle.parentNode) {
             hideStyle.remove();
             console.log('Hide style removed - animations ready');
         }
-    }, 500); // Delay to ensure all animations are registered
+    }, 2000); // Longer delay to let all inView observers register first
     
     // Mobile and accessibility detection
     const isMobile = window.innerWidth <= 768;
