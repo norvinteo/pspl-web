@@ -57,7 +57,8 @@ async function processAnimationQueue() {
     if (isAnimating || animationQueue.length === 0) return;
     
     isAnimating = true;
-    const { animate } = window.Motion;
+    const Motion = window.Motion;
+    const animate = Motion.animate || Motion.default?.animate || Motion;
     
     while (animationQueue.length > 0) {
         const batch = animationQueue.splice(0, 5); // Process 5 at a time
@@ -88,10 +89,18 @@ async function processAnimationQueue() {
                     animProps.transform = ['translateY(30px)', 'translateY(0)'];
                 }
                 
-                animate(element, animProps, {
-                    duration: 0.6,
-                    easing: 'ease-out'
-                });
+                try {
+                    if (typeof animate === 'function') {
+                        animate(element, animProps, {
+                            duration: 0.6,
+                            easing: 'ease-out'
+                        });
+                    } else {
+                        console.error('animate is not a function:', animate);
+                    }
+                } catch (e) {
+                    console.error('Animation error:', e);
+                }
             }, delay + (index * 100));
         });
         
@@ -193,7 +202,12 @@ function animateCounter(counter, target) {
 // Initialize when ready
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Initializing reliable scroll animations...');
-    const { animate } = await waitForMotion();
+    const Motion = await waitForMotion();
+    console.log('Motion object:', Motion);
+    console.log('Motion properties:', Object.keys(Motion || {}));
+    
+    // Check if animate exists
+    const animate = Motion.animate || Motion.default?.animate || Motion;
     
     // Check for reduced motion
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -255,32 +269,36 @@ document.addEventListener('DOMContentLoaded', async () => {
         buttons: document.querySelector('#heroButtons')
     };
     
-    if (heroElements.title) {
-        animate(heroElements.title, 
-            { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
-            { duration: 0.8, easing: 'ease-out' }
-        );
-    }
-    
-    if (heroElements.subtitle) {
-        animate(heroElements.subtitle,
-            { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
-            { duration: 0.8, delay: 0.2, easing: 'ease-out' }
-        );
-    }
-    
-    if (heroElements.value) {
-        animate(heroElements.value,
-            { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
-            { duration: 0.8, delay: 0.3, easing: 'ease-out' }
-        );
-    }
-    
-    if (heroElements.buttons) {
-        animate(heroElements.buttons,
-            { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
-            { duration: 0.8, delay: 0.4, easing: 'ease-out' }
-        );
+    if (typeof animate === 'function') {
+        if (heroElements.title) {
+            animate(heroElements.title, 
+                { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
+                { duration: 0.8, easing: 'ease-out' }
+            );
+        }
+        
+        if (heroElements.subtitle) {
+            animate(heroElements.subtitle,
+                { opacity: [0, 1], transform: ['translateY(40px)', 'translateY(0)'] },
+                { duration: 0.8, delay: 0.2, easing: 'ease-out' }
+            );
+        }
+        
+        if (heroElements.value) {
+            animate(heroElements.value,
+                { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+                { duration: 0.8, delay: 0.3, easing: 'ease-out' }
+            );
+        }
+        
+        if (heroElements.buttons) {
+            animate(heroElements.buttons,
+                { opacity: [0, 1], transform: ['translateY(30px)', 'translateY(0)'] },
+                { duration: 0.8, delay: 0.4, easing: 'ease-out' }
+            );
+        }
+    } else {
+        console.error('animate function not available for hero animations');
     }
     
     // Setup counters
