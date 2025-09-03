@@ -456,8 +456,8 @@ nav.scrolled {
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .card:hover::before {
@@ -673,7 +673,7 @@ nav.scrolled {
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) !important;
     background: rgba(212, 165, 116, 0.1);
     border-color: rgba(212, 165, 116, 0.3);
     box-shadow: 0 10px 40px rgba(212, 165, 116, 0.2);
@@ -710,6 +710,20 @@ nav.scrolled {
     position: relative;
 }
 
+/* Core Value Items */
+.core-value-item {
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.core-value-item:hover {
+    transform: translateY(-5px) !important;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
 .testimonial-card::before {
     content: '"';
     position: absolute;
@@ -722,14 +736,13 @@ nav.scrolled {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Standardized Card Shadows - Based on Service Cards */
 /* Base shadow for all white background cards */
 .white-card,
-.fleet-card,
 .purpose-card,
 .pillar-card,
 .promise-card,
@@ -744,13 +757,11 @@ nav.scrolled {
 
 /* Hover state for all white cards */
 .white-card:hover,
-.fleet-card:hover,
 .purpose-card:hover,
 .pillar-card:hover,
-.promise-card:hover,
-.featured-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.2);
+.promise-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* White card specific */
@@ -761,6 +772,18 @@ nav.scrolled {
 /* Fleet card specific styling */
 .fleet-card {
     padding: 0;
+    background: var(--pspl-white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.fleet-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .fleet-card img {
@@ -778,6 +801,19 @@ nav.scrolled {
 .fleet-card p {
     padding: 0 1.5rem 1.5rem 1.5rem;
     margin: 0;
+}
+
+/* Stat Wrapper */
+.stat-wrapper {
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.stat-wrapper:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Scroll to Top Button */
@@ -1581,16 +1617,16 @@ html {
     .card:hover,
     .service-card:hover,
     .testimonial-card:hover {
-        transform: none !important;
+        transform: none;
     }
     
     /* Keep standardized shadows on mobile for all cards */
     .white-card,
-    .fleet-card,
     .purpose-card,
     .pillar-card,
     .promise-card,
     .featured-card,
+    .fleet-card,
     .service-card,
     .testimonial-card,
     .card {
@@ -1626,8 +1662,8 @@ html {
 }
 
 .featured-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 40px rgba(212, 165, 116, 0.2);
 }
 
 /* Carousel Styles */

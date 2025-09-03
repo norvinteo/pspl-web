@@ -20,7 +20,7 @@ const hideSelectors = [
 // Create style tag to hide elements immediately
 const hideStyle = document.createElement('style');
 hideStyle.textContent = hideSelectors.map(sel => 
-    `${sel} { opacity: 0 !important; }`
+    `${sel} { opacity: 0; }`
 ).join('\n');
 document.head.appendChild(hideStyle);
 
@@ -43,10 +43,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Initializing fixed animations...');
     const { animate, scroll, inView, stagger } = await waitForMotion();
     
-    // Remove the hide style after a brief delay to allow animations to initialize
-    setTimeout(() => {
-        hideStyle.remove();
-    }, 100);
+    // Don't remove hideStyle - let animations handle visibility individually
+    // This was causing desktop animations to fail by making elements visible too early
+    // setTimeout(() => {
+    //     hideStyle.remove();
+    // }, 100);
     
     // Mobile and accessibility detection
     const isMobile = window.innerWidth <= 768;
@@ -54,7 +55,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Skip all animations if reduced motion is preferred
     if (isReducedMotion) {
-        hideStyle.remove();
+        // Don't remove hideStyle - let elements show naturally
+        // hideStyle.remove();
         document.querySelectorAll('*').forEach(el => {
             el.style.opacity = '';
             el.style.transform = '';
@@ -168,18 +170,35 @@ document.addEventListener('DOMContentLoaded', async () => {
         }, { margin: "0px", amount: 0.1 });
     });
     
-    // Timeline Items
+    // Timeline Items - Alternating animations for desktop
     const timelineItems = document.querySelectorAll('.timeline-item');
     timelineItems.forEach((item, i) => {
         inView(item, () => {
-            animate(item, {
-                opacity: [0, 1],
-                transform: ['translateX(-30px)', 'translateX(0)']
-            }, {
-                duration: 0.6,
-                delay: i * 0.1,
-                easing: [0.22, 0.61, 0.36, 1]
-            });
+            // Check if mobile
+            if (isMobile) {
+                // Mobile: all items come from left (current behavior)
+                animate(item, {
+                    opacity: [0, 1],
+                    transform: ['translateX(-30px)', 'translateX(0)']
+                }, {
+                    duration: 0.6,
+                    delay: i * 0.1,
+                    easing: [0.22, 0.61, 0.36, 1]
+                });
+            } else {
+                // Desktop: alternate sides
+                const isEven = i % 2 === 0;
+                const startTransform = isEven ? 'translateX(-50px)' : 'translateX(50px)';
+                
+                animate(item, {
+                    opacity: [0, 1],
+                    transform: [startTransform, 'translateX(0)']
+                }, {
+                    duration: 0.6,
+                    delay: i * 0.1,
+                    easing: [0.22, 0.61, 0.36, 1]
+                });
+            }
         }, { margin: "0px", amount: 0.1 });
     });
     
