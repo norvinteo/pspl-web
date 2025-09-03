@@ -58,7 +58,11 @@ async function processAnimationQueue() {
     
     isAnimating = true;
     const Motion = window.Motion;
-    const animate = Motion.animate || Motion.default?.animate || Motion;
+    if (!Motion || !Motion.animate) {
+        console.error('Motion.animate not available in processAnimationQueue');
+        return;
+    }
+    const animate = Motion.animate;
     
     while (animationQueue.length > 0) {
         const batch = animationQueue.splice(0, 5); // Process 5 at a time
@@ -174,7 +178,6 @@ function setupVisibilityFallback() {
 
 // Initialize counter animation
 function animateCounter(counter, target) {
-    const { animate } = window.Motion;
     const duration = 2000;
     const startTime = performance.now();
     
@@ -206,8 +209,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Motion object:', Motion);
     console.log('Motion properties:', Object.keys(Motion || {}));
     
-    // Check if animate exists
-    const animate = Motion.animate || Motion.default?.animate || Motion;
+    // Motion.animate is the correct function
+    if (!Motion || !Motion.animate) {
+        console.error('Motion.animate not found!', Motion);
+        return;
+    }
+    const animate = Motion.animate;
     
     // Check for reduced motion
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
