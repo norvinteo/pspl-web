@@ -403,7 +403,7 @@ nav.scrolled {
 }
 
 .premium-button:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px) !important;
     box-shadow: var(--shadow-xl), 0 10px 40px rgba(212, 165, 116, 0.3);
 }
 
@@ -429,7 +429,7 @@ nav.scrolled {
 
 .cta-primary:hover {
     box-shadow: 0 4px 30px rgba(212, 165, 116, 0.6);
-    transform: translateY(-2px);
+    transform: translateY(-2px) !important;
 }
 
 /* Card Enhancements */
@@ -456,7 +456,7 @@ nav.scrolled {
 }
 
 .card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -539,6 +539,10 @@ nav.scrolled {
     z-index: 1;
 }
 
+.portfolio-item:hover {
+    transform: translateY(-2px) !important;
+}
+
 .portfolio-item:hover::before {
     opacity: 1;
 }
@@ -589,6 +593,10 @@ nav.scrolled {
     transform: translate(-50%, -50%);
     transition: width 0.5s, height 0.5s;
     z-index: -1;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px) !important;
 }
 
 .filter-btn:hover::before,
@@ -673,7 +681,7 @@ nav.scrolled {
 }
 
 .service-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     background: rgba(212, 165, 116, 0.1);
     border-color: rgba(212, 165, 116, 0.3);
     box-shadow: 0 10px 40px rgba(212, 165, 116, 0.2);
@@ -719,7 +727,7 @@ nav.scrolled {
 }
 
 .core-value-item:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     background: rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -736,7 +744,7 @@ nav.scrolled {
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -760,7 +768,7 @@ nav.scrolled {
 .purpose-card:hover,
 .pillar-card:hover,
 .promise-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -782,7 +790,7 @@ nav.scrolled {
 }
 
 .fleet-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
@@ -812,7 +820,7 @@ nav.scrolled {
 }
 
 .stat-wrapper:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -844,7 +852,7 @@ nav.scrolled {
 
 .scroll-to-top:hover {
     background: var(--pspl-red);
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
 }
 
@@ -1569,9 +1577,7 @@ img.loaded {
 .testimonial-card,
 .service-card,
 .card {
-    /* Use transform3d for better GPU usage */
-    transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
+    /* GPU optimization without transform */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     /* Remove perspective as it can cause issues */
@@ -1616,8 +1622,19 @@ html {
     .portfolio-item:hover,
     .card:hover,
     .service-card:hover,
-    .testimonial-card:hover {
-        transform: none;
+    .testimonial-card:hover,
+    .filter-btn:hover,
+    .premium-button:hover,
+    .cta-primary:hover,
+    .fleet-card:hover,
+    .white-card:hover,
+    .purpose-card:hover,
+    .pillar-card:hover,
+    .promise-card:hover,
+    .featured-card:hover,
+    .core-value-item:hover,
+    .stat-wrapper:hover {
+        transform: none !important;
     }
     
     /* Keep standardized shadows on mobile for all cards */
@@ -1655,6 +1672,68 @@ html {
     transition: all var(--transition-base);
 }
 
+/* Reveal animation classes (replaces inline styles from JS) */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.reveal-hidden.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure hover works even with reveal animation */
+.reveal-hidden.revealed:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Portfolio item visibility (replaces inline styles) */
+.portfolio-item.portfolio-visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+.portfolio-item.portfolio-visible:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* Disable hover effects on headers */
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+    transform: none !important;
+}
+
+/* Disable hover translate on timeline items to preserve alignment */
+.timeline-item:hover {
+    transform: none !important;
+}
+
+/* Timeline items with animation classes should also not translate on hover */
+.timeline-item.animate-on-scroll.slide-left.in-view:hover {
+    transform: translateX(0) !important;
+}
+
+.timeline-item.animate-on-scroll.slide-right.in-view:hover {
+    transform: translateX(0) !important;
+}
+
+/* Override ALL animation transforms on hover - highest specificity */
+*:hover.card,
+*:hover.service-card,
+*:hover.portfolio-item,
+*:hover.fleet-card,
+*:hover.testimonial-card,
+*:hover.purpose-card,
+*:hover.pillar-card,
+*:hover.promise-card,
+*:hover.white-card,
+*:hover.stat-wrapper,
+*:hover.core-value-item,
+*:hover.featured-card {
+    transform: translateY(-2px) !important;
+}
+
 /* Featured Project Cards */
 .featured-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1662,7 +1741,7 @@ html {
 }
 
 .featured-card:hover {
-    transform: translateY(-5px) !important;
+    transform: translateY(-2px) !important;
     box-shadow: 0 10px 40px rgba(212, 165, 116, 0.2);
 }
 

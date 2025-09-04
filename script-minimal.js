@@ -139,8 +139,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const processEntries = () => {
         pendingEntries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                // Use classes instead of inline styles to avoid overriding hover effects
+                entry.target.classList.add('revealed');
                 observer.unobserve(entry.target);
             }
         });
@@ -157,9 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Observe reveal elements
     document.querySelectorAll('.reveal-on-scroll').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.8s ease';
+        // Add initial state class instead of inline styles
+        el.classList.add('reveal-hidden');
         observer.observe(el);
     });
     
@@ -213,10 +212,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     item.style.display = 'block';
                     item.classList.remove('hidden');
                     visibleCount++;
-                    // Add staggered animation
+                    // Add staggered animation with classes instead of inline styles
                     setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
+                        item.classList.add('portfolio-visible');
                     }, visibleCount * 50);
                 } else {
                     item.style.display = 'none';

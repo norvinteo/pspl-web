@@ -23,14 +23,51 @@
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Fade in and up (default) */
-.animate-on-scroll:not(.scale):not(.slide-left):not(.slide-right) {
+/* Fade in and up (default) - exclude headers from hover */
+.animate-on-scroll:not(.scale):not(.slide-left):not(.slide-right):not(:hover):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
     transform: translateY(30px);
+}
+
+/* Headers initial state (before in-view) */
+h1.animate-on-scroll:not(.in-view),
+h2.animate-on-scroll:not(.in-view),
+h3.animate-on-scroll:not(.in-view),
+h4.animate-on-scroll:not(.in-view),
+h5.animate-on-scroll:not(.in-view),
+h6.animate-on-scroll:not(.in-view) {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Headers on hover stay the same as non-hover */
+h1.animate-on-scroll:not(.in-view):hover,
+h2.animate-on-scroll:not(.in-view):hover,
+h3.animate-on-scroll:not(.in-view):hover,
+h4.animate-on-scroll:not(.in-view):hover,
+h5.animate-on-scroll:not(.in-view):hover,
+h6.animate-on-scroll:not(.in-view):hover {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.animate-on-scroll.in-view:not(:hover):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    opacity: 1 !important;
+    transform: translateY(0);
+}
+
+/* Headers always stay at translateY(0) when in view */
+h1.animate-on-scroll.in-view,
+h2.animate-on-scroll.in-view,
+h3.animate-on-scroll.in-view,
+h4.animate-on-scroll.in-view,
+h5.animate-on-scroll.in-view,
+h6.animate-on-scroll.in-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 .animate-on-scroll.in-view {
     opacity: 1 !important;
-    transform: translateY(0) !important;
 }
 
 /* Scale animations */
@@ -38,8 +75,8 @@
     transform: scale(0.9);
 }
 
-.animate-on-scroll.scale.in-view {
-    transform: scale(1) !important;
+.animate-on-scroll.scale.in-view:not(:hover) {
+    transform: scale(1);
 }
 
 /* Slide from left */
@@ -47,8 +84,8 @@
     transform: translateX(-50px);
 }
 
-.animate-on-scroll.slide-left.in-view {
-    transform: translateX(0) !important;
+.animate-on-scroll.slide-left.in-view:not(:hover) {
+    transform: translateX(0);
 }
 
 /* Slide from right */
@@ -56,8 +93,8 @@
     transform: translateX(50px);
 }
 
-.animate-on-scroll.slide-right.in-view {
-    transform: translateX(0) !important;
+.animate-on-scroll.slide-right.in-view:not(:hover) {
+    transform: translateX(0);
 }
 
 /* Staggered animations for groups */

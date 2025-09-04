@@ -19,16 +19,17 @@ const observer = new IntersectionObserver(
 
 // Observe all elements that should animate
 document.addEventListener('DOMContentLoaded', () => {
-    // Add animation classes to elements
-    document.querySelectorAll('h2:not(#heroTitle)').forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-    });
+    // DISABLED: Headers don't need animations/hover effects
+    // document.querySelectorAll('h2:not(#heroTitle)').forEach(el => {
+    //     el.classList.add('animate-on-scroll');
+    //     observer.observe(el);
+    // });
     
-    document.querySelectorAll('.purpose-card, .service-card, .pillar-card, .promise-card, .card:not(.purpose-card)').forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-    });
+    // Temporarily comment out card animations to fix hover issues
+    // document.querySelectorAll('.purpose-card, .service-card, .pillar-card, .promise-card, .card:not(.purpose-card)').forEach(el => {
+    //     el.classList.add('animate-on-scroll');
+    //     observer.observe(el);
+    // });
     
     document.querySelectorAll('.timeline-item:nth-child(odd)').forEach(el => {
         el.classList.add('animate-on-scroll', 'slide-left');
@@ -40,15 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
     
-    document.querySelectorAll('.portfolio-item, .stat-wrapper, .fleet-card').forEach(el => {
-        el.classList.add('animate-on-scroll', 'scale');
-        observer.observe(el);
-    });
+    // Temporarily comment out to fix hover issues
+    // document.querySelectorAll('.portfolio-item, .stat-wrapper, .fleet-card').forEach(el => {
+    //     el.classList.add('animate-on-scroll', 'scale');
+    //     observer.observe(el);
+    // });
     
-    document.querySelectorAll('.testimonial-card, .core-value-item').forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
-    });
+    // document.querySelectorAll('.testimonial-card, .core-value-item').forEach(el => {
+    //     el.classList.add('animate-on-scroll');
+    //     observer.observe(el);
+    // });
 });
 
 // Simple counter animation
