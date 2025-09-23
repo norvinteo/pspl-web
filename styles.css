@@ -1822,6 +1822,92 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
     transition-duration: 0.8s;
 } */
 
+/* Timeline Slide Animations */
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Timeline animation classes */
+.timeline-slide-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-slide-right {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-slide-left.timeline-animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-slide-right.timeline-animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Apply only on desktop */
+@media (min-width: 768px) {
+    .timeline-item {
+        overflow: visible;
+    }
+
+    /* Stagger the animations */
+    .timeline-item:nth-child(1) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(1) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(2) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(2) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(3) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(3) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(4) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(4) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(5) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(5) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(6) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(6) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(7) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(7) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(8) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(8) .timeline-slide-right { transition-delay: 0.2s; }
+    .timeline-item:nth-child(9) .timeline-slide-left { transition-delay: 0.1s; }
+    .timeline-item:nth-child(9) .timeline-slide-right { transition-delay: 0.2s; }
+}
+
+/* On mobile, just fade in */
+@media (max-width: 767px) {
+    .timeline-slide-left,
+    .timeline-slide-right {
+        transform: translateY(20px);
+    }
+
+    .timeline-slide-left.timeline-animated,
+    .timeline-slide-right.timeline-animated {
+        transform: translateY(0);
+    }
+}
+
 /* Glass Morphism Effects */
 .glass {
     background: rgba(255, 255, 255, 0.1);

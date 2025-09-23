@@ -1,9 +1,15 @@
 // Minimal JavaScript for essential functionality
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // Initialize Lucide icons
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
+    }
+
+    // Update copyright year dynamically
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
     }
     
     // Smooth scrolling for anchor links
@@ -131,11 +137,11 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     // Batch observer callbacks for better performance
     let pendingEntries = [];
     let rafId = null;
-    
+
     const processEntries = () => {
         pendingEntries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -147,23 +153,89 @@ document.addEventListener('DOMContentLoaded', function() {
         pendingEntries = [];
         rafId = null;
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         pendingEntries.push(...entries);
         if (!rafId) {
             rafId = requestAnimationFrame(processEntries);
         }
     }, observerOptions);
-    
+
     // Observe reveal elements
     document.querySelectorAll('.reveal-on-scroll').forEach(el => {
         // Add initial state class instead of inline styles
         el.classList.add('reveal-hidden');
         observer.observe(el);
     });
+
+    // Timeline slide animations
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Find all slide elements within this timeline item
+                const leftElements = entry.target.querySelectorAll('.timeline-slide-left');
+                const rightElements = entry.target.querySelectorAll('.timeline-slide-right');
+
+                // Animate left elements
+                leftElements.forEach(el => {
+                    el.classList.add('timeline-animated');
+                });
+
+                // Animate right elements
+                rightElements.forEach(el => {
+                    el.classList.add('timeline-animated');
+                });
+
+                timelineObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe timeline items
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        timelineObserver.observe(item);
+    });
     
-    // Simple counter animation
+    // Simple counter animation with year countdown support
     const counters = document.querySelectorAll('.counter[data-target]');
+    const yearCounters = document.querySelectorAll('.year-counter[data-target]');
+
+    // Handle year counter (counts down from current year to 1989)
+    const yearCounterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const currentYear = new Date().getFullYear();
+                let current = currentYear;
+                const decrement = (currentYear - target) / 50;
+
+                counter.textContent = current;
+
+                const timer = setInterval(() => {
+                    current -= decrement;
+                    if (current <= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 30);
+
+                yearCounterObserver.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    yearCounters.forEach(counter => {
+        const currentYear = new Date().getFullYear();
+        counter.textContent = currentYear;
+        yearCounterObserver.observe(counter);
+    });
+
+    // Handle regular counters (count up)
     const counterObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -171,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const target = parseInt(counter.getAttribute('data-target'));
                 let current = 0;
                 const increment = target / 50;
-                
+
                 const timer = setInterval(() => {
                     current += increment;
                     if (current >= target) {
@@ -180,12 +252,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     counter.textContent = Math.floor(current).toLocaleString();
                 }, 30);
-                
+
                 counterObserver.unobserve(counter);
             }
         });
     }, { threshold: 0.5 });
-    
+
     counters.forEach(counter => {
         counter.textContent = '0';
         counterObserver.observe(counter);
@@ -804,7 +876,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 }); // Close DOMContentLoaded
 
-// WhatsApp function
+// WhatsApp function with service selection
+let selectedService = null;
+
+function selectService(service) {
+    selectedService = service;
+
+    // Update button styles to show selected state
+    const buttons = document.querySelectorAll('.service-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-pspl-gold/20', 'border-pspl-gold');
+        btn.classList.add('border-pspl-gold/50');
+    });
+
+    // Highlight selected button
+    event.target.classList.remove('border-pspl-gold/50');
+    event.target.classList.add('bg-pspl-gold/20', 'border-pspl-gold');
+
+    // Update WhatsApp link with selected service
+    const whatsappLink = document.getElementById('whatsappLink');
+    if (whatsappLink) {
+        let message = `Hi PSPL, I'm interested in ${service} services. Please provide me with more information about your ${service.toLowerCase()} restoration and polishing services.`;
+        whatsappLink.href = `https://wa.me/6597677169?text=${encodeURIComponent(message)}`;
+    }
+}
+
 function openWhatsApp() {
     const message = "Hi PSPL, I'm interested in your stone and parquet restoration services.";
     const phone = "6597677169";
