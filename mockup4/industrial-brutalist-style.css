@@ -1,0 +1,1998 @@
+/* ===================================
+   PSPL - Industrial Brutalist Design System
+   Mockup 4: Raw Craftsmanship Theme
+   =================================== */
+
+/* ===================================
+   ROOT VARIABLES & DESIGN TOKENS
+   =================================== */
+:root {
+    /* Industrial Color Palette */
+    --concrete-gray: #4A4A4A;
+    --industrial-yellow: #FFB700;
+    --steel-blue: #34495E;
+    --warning-orange: #FF6B35;
+    --off-white: #F8F8F8;
+    --deep-charcoal: #1C1C1C;
+    --raw-metal: #7F8C8D;
+    --rust-red: #C0392B;
+    --safety-green: #27AE60;
+    
+    /* Typography Scale */
+    --font-display: 'Bebas Neue', Impact, sans-serif;
+    --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Source Code Pro', 'Courier New', monospace;
+    
+    /* Font Sizes - Industrial Scale */
+    --text-massive: clamp(3rem, 8vw, 6rem);
+    --text-huge: clamp(2.5rem, 6vw, 4rem);
+    --text-xxl: clamp(2rem, 4vw, 3rem);
+    --text-xl: clamp(1.5rem, 3vw, 2.25rem);
+    --text-lg: clamp(1.25rem, 2.5vw, 1.75rem);
+    --text-md: 1.125rem;
+    --text-base: 1rem;
+    --text-sm: 0.875rem;
+    --text-xs: 0.75rem;
+    
+    /* Spacing - Brutalist Grid */
+    --space-unit: 8px;
+    --space-xs: calc(var(--space-unit) * 1);
+    --space-sm: calc(var(--space-unit) * 2);
+    --space-md: calc(var(--space-unit) * 3);
+    --space-lg: calc(var(--space-unit) * 4);
+    --space-xl: calc(var(--space-unit) * 6);
+    --space-xxl: calc(var(--space-unit) * 8);
+    --space-xxxl: calc(var(--space-unit) * 12);
+    
+    /* Industrial Effects */
+    --shadow-brutal: 8px 8px 0px rgba(28, 28, 28, 0.9);
+    --shadow-lifted: 0 12px 24px rgba(28, 28, 28, 0.3);
+    --border-thick: 4px solid var(--deep-charcoal);
+    --border-warning: 4px solid var(--industrial-yellow);
+    
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===================================
+   GLOBAL RESET & BASE STYLES
+   =================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--deep-charcoal);
+    background-color: var(--off-white);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Concrete Texture Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(74, 74, 74, 0.03) 2px,
+            rgba(74, 74, 74, 0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===================================
+   TYPOGRAPHY - INDUSTRIAL STYLE
+   =================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+}
+
+h1 {
+    font-size: var(--text-massive);
+    letter-spacing: 0.04em;
+}
+
+h2 {
+    font-size: var(--text-huge);
+    letter-spacing: 0.03em;
+}
+
+h3 {
+    font-size: var(--text-xxl);
+}
+
+h4 {
+    font-size: var(--text-xl);
+}
+
+h5 {
+    font-size: var(--text-lg);
+}
+
+h6 {
+    font-size: var(--text-md);
+}
+
+p {
+    margin-bottom: var(--space-md);
+    font-weight: 400;
+}
+
+strong, b {
+    font-weight: 700;
+    color: var(--deep-charcoal);
+}
+
+/* Monospace Elements */
+.mono-text {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    background-color: var(--deep-charcoal);
+    color: var(--industrial-yellow);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+/* Ensure mono-text is visible in dark sections */
+.section-dark .mono-text,
+.section-concrete .mono-text {
+    background-color: rgba(255, 183, 0, 0.2);
+    color: var(--industrial-yellow);
+}
+
+/* ===================================
+   LAYOUT COMPONENTS
+   =================================== */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 2;
+}
+
+/* Industrial Grid System */
+.industrial-grid {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* ===================================
+   HEADER & NAVIGATION
+   =================================== */
+.industrial-header {
+    background-color: var(--deep-charcoal);
+    border-bottom: var(--border-thick);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-lifted);
+}
+
+.header-warning-stripe {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--industrial-yellow),
+        var(--industrial-yellow) 10px,
+        var(--deep-charcoal) 10px,
+        var(--deep-charcoal) 20px
+    );
+    height: 8px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.logo-mark {
+    width: 50px;
+    height: 50px;
+    background-color: var(--industrial-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--deep-charcoal);
+    font-weight: 900;
+    transform: rotate(-5deg);
+    box-shadow: var(--shadow-brutal);
+}
+
+.logo-text {
+    color: var(--off-white);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    letter-spacing: 0.05em;
+}
+
+/* Navigation Menu */
+.industrial-nav {
+    display: flex;
+    list-style: none;
+    gap: var(--space-xs);
+}
+
+.nav-link {
+    color: var(--off-white);
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    padding: var(--space-sm) var(--space-md);
+    background-color: transparent;
+    border: 2px solid transparent;
+    transition: var(--transition-fast);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-link:hover {
+    background-color: var(--industrial-yellow);
+    color: var(--deep-charcoal);
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0 var(--warning-orange);
+}
+
+.nav-link.active {
+    background-color: var(--warning-orange);
+    color: var(--off-white);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-sm);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: var(--industrial-yellow);
+    margin: 6px 0;
+    transition: var(--transition-fast);
+}
+
+/* ===================================
+   HERO SECTION - BRUTALIST STYLE
+   =================================== */
+.hero-industrial {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--concrete-gray);
+    position: relative;
+    overflow: hidden;
+    margin-top: 78px;
+    padding-top: var(--space-xl);
+}
+
+.hero-industrial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(45deg, rgba(255, 183, 0, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 183, 0, 0.1) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 183, 0, 0.1) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 183, 0, 0.1) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: var(--industrial-yellow);
+    color: var(--deep-charcoal);
+    padding: var(--space-xs) var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-lg);
+    transform: rotate(-2deg);
+    box-shadow: var(--shadow-brutal);
+}
+
+.hero-title {
+    color: var(--off-white);
+    margin-bottom: var(--space-lg);
+    position: relative;
+}
+
+.hero-title span {
+    display: block;
+    background-color: var(--deep-charcoal);
+    padding: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-sm);
+    box-shadow: var(--shadow-brutal);
+    transform: skewY(-2deg);
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    color: var(--off-white);
+    font-weight: 400;
+    margin-bottom: var(--space-xl);
+    text-transform: none;
+}
+
+/* ===================================
+   BUTTONS - INDUSTRIAL STYLE
+   =================================== */
+.btn {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    padding: var(--space-md) var(--space-xl);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    position: relative;
+    font-weight: 700;
+}
+
+.btn-industrial {
+    background-color: var(--industrial-yellow);
+    color: var(--deep-charcoal);
+    box-shadow: var(--shadow-brutal);
+}
+
+.btn-industrial:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px rgba(28, 28, 28, 0.9);
+}
+
+.btn-industrial:active {
+    transform: translate(0, 0);
+    box-shadow: 4px 4px 0px rgba(28, 28, 28, 0.9);
+}
+
+.btn-warning {
+    background-color: var(--warning-orange);
+    color: var(--off-white);
+    box-shadow: var(--shadow-brutal);
+}
+
+.btn-warning:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px rgba(28, 28, 28, 0.9);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--deep-charcoal);
+    border: var(--border-thick);
+}
+
+.btn-outline:hover {
+    background-color: var(--deep-charcoal);
+    color: var(--off-white);
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px var(--industrial-yellow);
+}
+
+/* Construction Tape CTA */
+.construction-cta {
+    display: inline-block;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--industrial-yellow),
+        var(--industrial-yellow) 20px,
+        var(--deep-charcoal) 20px,
+        var(--deep-charcoal) 40px
+    );
+    padding: var(--space-lg) var(--space-xxl);
+    transform: rotate(-1deg);
+    box-shadow: var(--shadow-lifted);
+    transition: var(--transition-base);
+}
+
+.construction-cta:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.construction-cta .btn {
+    background-color: var(--off-white);
+    color: var(--deep-charcoal);
+    box-shadow: none;
+}
+
+/* ===================================
+   CARDS & CONTAINERS
+   =================================== */
+.industrial-card {
+    background-color: var(--off-white);
+    border: var(--border-thick);
+    padding: var(--space-xl);
+    position: relative;
+    transition: var(--transition-base);
+    color: var(--deep-charcoal);
+}
+
+.industrial-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px var(--industrial-yellow);
+}
+
+/* Ensure proper text contrast in industrial cards */
+.industrial-card h3,
+.industrial-card h4,
+.industrial-card h5 {
+    color: var(--deep-charcoal);
+}
+
+.industrial-card p,
+.industrial-card ul,
+.industrial-card ol,
+.industrial-card li {
+    color: var(--deep-charcoal);
+}
+
+.industrial-card .mono-text {
+    background-color: var(--deep-charcoal);
+    color: var(--industrial-yellow);
+}
+
+/* Industrial cards in dark sections maintain their light background */
+.section-dark .industrial-card,
+.section-concrete .industrial-card {
+    background-color: var(--off-white);
+    color: var(--deep-charcoal);
+}
+
+/* Ensure all text in industrial cards is visible */
+.section-dark .industrial-card p,
+.section-dark .industrial-card ul,
+.section-dark .industrial-card ol,
+.section-dark .industrial-card li,
+.section-concrete .industrial-card p,
+.section-concrete .industrial-card ul,
+.section-concrete .industrial-card ol,
+.section-concrete .industrial-card li {
+    color: var(--deep-charcoal);
+}
+
+.card-number {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background-color: var(--warning-orange);
+    color: var(--off-white);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: 900;
+    transform: rotate(-10deg);
+}
+
+/* Blueprint Style Container */
+.blueprint-container {
+    background-color: #1e3a5f;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: var(--space-xxl);
+    border: 2px dashed var(--industrial-yellow);
+    position: relative;
+    color: var(--off-white);
+}
+
+.blueprint-title {
+    color: var(--off-white);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-lg);
+}
+
+/* Blueprint container specific text styles */
+.blueprint-container h3,
+.blueprint-container h4 {
+    color: var(--industrial-yellow);
+}
+
+.blueprint-container p,
+.blueprint-container ul,
+.blueprint-container ol {
+    color: var(--off-white);
+}
+
+.blueprint-container .mono-text {
+    background-color: transparent;
+    color: var(--industrial-yellow);
+    padding: 0;
+}
+
+/* Ensure all text elements in blueprint have proper contrast */
+.blueprint-container .text-sm {
+    color: var(--off-white);
+}
+
+/* Fix for mono-text lists in blueprint container */
+.blueprint-container .mono-text li {
+    color: var(--industrial-yellow) !important;
+    background-color: transparent !important;
+    padding: 2px 0;
+    list-style: none;
+}
+
+/* Additional fix for ul.mono-text in blueprint containers */
+.blueprint-container ul.mono-text li {
+    color: var(--industrial-yellow) !important;
+    background-color: transparent !important;
+    padding: 2px 0;
+    list-style: none;
+    display: list-item;
+}
+
+.blueprint-container .stat-number {
+    color: var(--industrial-yellow);
+}
+
+/* ===================================
+   SECTIONS & CONTENT BLOCKS
+   =================================== */
+.section-industrial {
+    padding: var(--space-xxxl) 0;
+    position: relative;
+}
+
+.section-dark {
+    background-color: var(--deep-charcoal);
+    color: var(--off-white);
+}
+
+.section-concrete {
+    background-color: var(--concrete-gray);
+    color: var(--off-white);
+}
+
+.section-warning {
+    background: repeating-linear-gradient(
+        -45deg,
+        var(--warning-orange),
+        var(--warning-orange) 20px,
+        var(--industrial-yellow) 20px,
+        var(--industrial-yellow) 40px
+    );
+    padding: var(--space-md) 0;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-xxl);
+}
+
+.section-badge {
+    display: inline-block;
+    background-color: var(--industrial-yellow);
+    color: var(--deep-charcoal);
+    padding: var(--space-xs) var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    margin-bottom: var(--space-md);
+    letter-spacing: 0.1em;
+}
+
+/* Ensure section titles are visible in dark sections */
+.section-dark .section-title,
+.section-concrete .section-title {
+    color: var(--off-white);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5,
+.section-dark h6,
+.section-concrete h1,
+.section-concrete h2,
+.section-concrete h3,
+.section-concrete h4,
+.section-concrete h5,
+.section-concrete h6 {
+    color: var(--off-white);
+}
+
+.section-dark p,
+.section-dark ul,
+.section-dark ol,
+.section-dark li,
+.section-concrete p,
+.section-concrete ul,
+.section-concrete ol,
+.section-concrete li {
+    color: var(--off-white);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::before,
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100px;
+    height: 4px;
+    background-color: var(--industrial-yellow);
+}
+
+.section-title::before {
+    right: calc(100% + var(--space-lg));
+}
+
+.section-title::after {
+    left: calc(100% + var(--space-lg));
+}
+
+/* ===================================
+   PORTFOLIO GRID - INDUSTRIAL
+   =================================== */
+.portfolio-industrial {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--space-xl);
+}
+
+.portfolio-item {
+    background-color: var(--off-white);
+    border: var(--border-thick);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.portfolio-item:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 10px 10px 0px var(--industrial-yellow);
+}
+
+.portfolio-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    background-color: var(--concrete-gray);
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.portfolio-item:hover .portfolio-image img {
+    transform: scale(1.1);
+}
+
+.portfolio-label {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    background-color: var(--warning-orange);
+    color: var(--off-white);
+    padding: var(--space-xs) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+}
+
+.portfolio-content {
+    padding: var(--space-lg);
+    background-color: var(--off-white);
+    color: var(--deep-charcoal);
+}
+
+.portfolio-content p {
+    color: var(--deep-charcoal) !important;
+}
+
+.portfolio-content h3 {
+    color: var(--deep-charcoal) !important;
+}
+
+.portfolio-content .portfolio-meta {
+    color: var(--deep-charcoal) !important;
+}
+
+.portfolio-content .portfolio-meta span {
+    color: var(--deep-charcoal) !important;
+}
+
+.portfolio-title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-sm);
+    color: var(--deep-charcoal) !important;
+}
+
+.portfolio-meta {
+    display: flex;
+    gap: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--deep-charcoal) !important;
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+/* ===================================
+   STATS & METRICS - INDUSTRIAL
+   =================================== */
+.stats-industrial {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-xxl) 0;
+}
+
+.stat-block {
+    background-color: var(--deep-charcoal);
+    padding: var(--space-xl);
+    text-align: center;
+    position: relative;
+    transform: skewY(-3deg);
+}
+
+.stat-block > * {
+    transform: skewY(3deg);
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: var(--text-massive);
+    color: var(--industrial-yellow);
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--off-white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* ===================================
+   TESTIMONIALS - INDUSTRIAL
+   =================================== */
+.testimonial-industrial {
+    background-color: var(--off-white);
+    border-left: 8px solid var(--industrial-yellow);
+    padding: var(--space-xl);
+    margin: var(--space-lg) 0;
+    position: relative;
+}
+
+.testimonial-industrial::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: var(--space-lg);
+    font-size: 120px;
+    font-family: var(--font-display);
+    color: var(--industrial-yellow);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.testimonial-text {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.author-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: var(--concrete-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--off-white);
+}
+
+.author-info {
+    font-family: var(--font-mono);
+}
+
+.author-name {
+    font-size: var(--text-md);
+    font-weight: 700;
+    color: var(--deep-charcoal);
+}
+
+.author-title {
+    font-size: var(--text-sm);
+    color: var(--steel-blue);
+}
+
+/* ===================================
+   FORMS - INDUSTRIAL STYLE
+   =================================== */
+.form-industrial {
+    background-color: var(--off-white);
+    border: var(--border-thick);
+    padding: var(--space-xxl);
+}
+
+.form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.form-label {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+    color: var(--deep-charcoal);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    background-color: var(--off-white);
+    border: 3px solid var(--concrete-gray);
+    transition: var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--industrial-yellow);
+    box-shadow: 0 0 0 3px rgba(255, 183, 0, 0.2);
+}
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* Checkbox and Radio - Industrial */
+.form-checkbox,
+.form-radio {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"],
+.form-radio input[type="radio"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* ===================================
+   FOOTER - INDUSTRIAL
+   =================================== */
+.footer-industrial {
+    background-color: var(--deep-charcoal);
+    color: var(--off-white);
+    padding: var(--space-xxl) 0 var(--space-lg);
+    border-top: 8px solid var(--industrial-yellow);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xxl);
+}
+
+.footer-section h4 {
+    color: var(--industrial-yellow);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: var(--space-sm);
+}
+
+.footer-links a {
+    color: var(--off-white);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: var(--industrial-yellow);
+    padding-left: var(--space-md);
+}
+
+.footer-links a:hover::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--industrial-yellow);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--space-xl);
+    border-top: 2px dashed var(--concrete-gray);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+}
+
+/* Emergency Contact Strip */
+.emergency-strip {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--warning-orange),
+        var(--warning-orange) 20px,
+        var(--industrial-yellow) 20px,
+        var(--industrial-yellow) 40px
+    );
+    padding: var(--space-md);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.emergency-text {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--deep-charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* ===================================
+   UTILITIES & HELPERS
+   =================================== */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-industrial { color: var(--industrial-yellow); }
+.text-warning { color: var(--warning-orange); }
+.text-steel { color: var(--steel-blue); }
+.text-concrete { color: var(--concrete-gray); }
+
+.bg-industrial { background-color: var(--industrial-yellow); }
+.bg-warning { background-color: var(--warning-orange); }
+.bg-steel { background-color: var(--steel-blue); }
+.bg-concrete { background-color: var(--concrete-gray); }
+.bg-charcoal { background-color: var(--deep-charcoal); }
+
+.rotate-slight { transform: rotate(-2deg); }
+.rotate-more { transform: rotate(-5deg); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mb-xxl { margin-bottom: var(--space-xxl); }
+
+.mt-0 { margin-top: 0; }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-xxl { margin-top: var(--space-xxl); }
+
+/* ASCII Art Decoration */
+.ascii-decoration {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--concrete-gray);
+    white-space: pre;
+    line-height: 1.2;
+    opacity: 0.9;
+}
+
+/* Loading Animation - Industrial */
+@keyframes industrial-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading-industrial {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--concrete-gray);
+    border-top-color: var(--industrial-yellow);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 1024px) {
+    :root {
+        --text-massive: clamp(2.5rem, 7vw, 4rem);
+        --text-huge: clamp(2rem, 5vw, 3rem);
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        width: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .menu-toggle {
+        display: block;
+    }
+    
+    .industrial-nav {
+        position: fixed;
+        top: 78px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 78px);
+        background-color: var(--deep-charcoal);
+        flex-direction: column;
+        padding: var(--space-xl);
+        transition: var(--transition-base);
+    }
+    
+    .industrial-nav.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        margin-bottom: var(--space-sm);
+    }
+    
+    /* Mobile Grid Adjustments */
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .portfolio-industrial {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Mobile Typography */
+    .hero-title span {
+        padding: var(--space-sm) var(--space-md);
+        font-size: var(--text-xxl);
+    }
+    
+    /* Mobile Sections */
+    .section-industrial {
+        padding: var(--space-xxl) 0;
+    }
+    
+    .section-title::before,
+    .section-title::after {
+        display: none;
+    }
+    
+    /* Mobile Stats */
+    .stats-industrial {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-number {
+        font-size: var(--text-xxl);
+    }
+    
+    /* Mobile Forms */
+    .form-industrial {
+        padding: var(--space-xl);
+    }
+    
+    /* Mobile Footer */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .footer-links a:hover {
+        padding-left: 0;
+    }
+    
+    .footer-links a:hover::before {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container,
+    .container-fluid {
+        padding: 0 var(--space-md);
+    }
+    
+    .hero-industrial {
+        min-height: 80vh;
+    }
+    
+    .stats-industrial {
+        grid-template-columns: 1fr;
+    }
+    
+    .construction-cta {
+        padding: var(--space-md) var(--space-lg);
+        transform: none;
+    }
+    
+    .portfolio-item:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0px var(--industrial-yellow);
+    }
+}
+
+/* ===================================
+   PORTFOLIO PAGE SPECIFIC STYLES
+   =================================== */
+/* Portfolio Cards (used in portfolio.html) */
+.portfolio-card {
+    background-color: var(--off-white);
+    border: var(--border-thick);
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.portfolio-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 10px 10px 0px var(--industrial-yellow);
+}
+
+/* Ensure all text in portfolio cards is visible */
+.portfolio-card .portfolio-content {
+    padding: var(--space-lg);
+    background-color: var(--off-white);
+    color: var(--deep-charcoal);
+}
+
+.portfolio-card .portfolio-title {
+    color: var(--deep-charcoal);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-sm);
+}
+
+.portfolio-card .portfolio-meta {
+    display: flex;
+    gap: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--deep-charcoal) !important;
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.portfolio-card .portfolio-meta span {
+    color: var(--deep-charcoal) !important;
+}
+
+.portfolio-card p {
+    color: var(--deep-charcoal) !important;
+    margin-bottom: var(--space-md);
+}
+
+/* Category tags on portfolio cards */
+.portfolio-card .category-tag {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    background-color: var(--warning-orange);
+    color: var(--off-white);
+    padding: var(--space-xs) var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+    z-index: 10;
+    font-weight: 700;
+}
+
+/* Slider handle styling */
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: var(--industrial-yellow);
+    cursor: ew-resize;
+    transform: translateX(-50%);
+}
+
+.slider-handle::before {
+    content: '◀ ▶';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--industrial-yellow);
+    color: var(--deep-charcoal);
+    padding: var(--space-xs) var(--space-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    white-space: nowrap;
+    font-weight: 700;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Filter buttons */
+.filter-btn {
+    background-color: var(--concrete-gray);
+    color: var(--off-white);
+    border: 2px solid var(--concrete-gray);
+    padding: var(--space-sm) var(--space-lg);
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--industrial-yellow);
+    color: var(--deep-charcoal);
+    border-color: var(--industrial-yellow);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--deep-charcoal);
+}
+
+/* Blueprint container text fixes */
+.portfolio-card .blueprint-container {
+    background-color: #1e3a5f;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: var(--space-md);
+    border: 2px dashed var(--industrial-yellow);
+    position: relative;
+    color: var(--off-white);
+}
+
+.portfolio-card .blueprint-container p {
+    color: var(--off-white);
+    margin-bottom: 0;
+}
+
+.portfolio-card .blueprint-container .mono-text {
+    background-color: transparent;
+    color: var(--industrial-yellow);
+    padding: 0;
+}
+
+/* ===================================
+   ENCYCLOPEDIA PAGE SPECIFIC FIXES
+   =================================== */
+/* Fix specs table contrast */
+.specs-table td:first-child {
+    color: var(--deep-charcoal) !important;
+    font-weight: 600;
+}
+
+.specs-table td:last-child {
+    color: var(--deep-charcoal) !important;
+    font-weight: 700;
+}
+
+/* Ensure stone card content has proper contrast */
+.stone-card .stone-content {
+    background-color: var(--off-white);
+    color: var(--deep-charcoal);
+}
+
+.stone-card .stone-content h3,
+.stone-card .stone-content h4,
+.stone-card .stone-content h5 {
+    color: var(--deep-charcoal);
+}
+
+.stone-card .stone-content p {
+    color: var(--deep-charcoal);
+}
+
+/* Fix search bar placeholder contrast */
+.search-bar::placeholder {
+    color: var(--raw-metal);
+    opacity: 0.8;
+}
+
+/* Ensure grade badges have proper contrast */
+.stone-grade {
+    background-color: var(--deep-charcoal);
+    color: var(--industrial-yellow);
+    font-weight: 700;
+}
+
+/* Fix mono-text in stone cards */
+.stone-card .mono-text {
+    background-color: transparent;
+    color: var(--steel-blue);
+    padding: 0;
+    font-weight: 600;
+}
+
+/* Ensure care tips maintain good contrast */
+.care-tips {
+    background-color: var(--deep-charcoal);
+    color: var(--off-white);
+}
+
+.care-tips h5 {
+    color: var(--industrial-yellow);
+    font-weight: 700;
+}
+
+.care-tips li {
+    color: var(--off-white);
+}
+
+/* Fix blueprint container tables in encyclopedia */
+.blueprint-container .specs-table td {
+    color: var(--off-white) !important;
+}
+
+.blueprint-container .specs-table td:first-child {
+    color: var(--industrial-yellow) !important;
+}
+
+/* ===================================
+   CONTACT PAGE SPECIFIC FIXES
+   =================================== */
+/* Emergency card text contrast fix */
+.emergency-card {
+    color: var(--deep-charcoal) !important;
+}
+
+.emergency-card h2 {
+    color: var(--deep-charcoal) !important;
+}
+
+.emergency-card p {
+    color: var(--deep-charcoal) !important;
+}
+
+.emergency-card .emergency-number {
+    color: var(--deep-charcoal) !important;
+    font-weight: 900;
+}
+
+/* Response blocks text contrast fix */
+.response-block {
+    background-color: rgba(28, 28, 28, 0.9) !important;
+    color: var(--off-white) !important;
+}
+
+.response-time {
+    color: var(--industrial-yellow) !important;
+    font-weight: 700;
+}
+
+.response-label {
+    color: var(--off-white) !important;
+    opacity: 1 !important;
+}
+
+/* Map placeholder text contrast fix */
+.map-placeholder {
+    background-color: var(--concrete-gray);
+    color: var(--off-white) !important;
+}
+
+.map-placeholder h3 {
+    color: var(--off-white) !important;
+}
+
+.map-placeholder .mono-text {
+    background-color: transparent;
+    color: var(--industrial-yellow) !important;
+    padding: 0;
+}
+
+.map-placeholder p {
+    color: var(--off-white) !important;
+}
+
+/* Form success message styling */
+.form-success {
+    background-color: var(--safety-green);
+    color: var(--off-white);
+    padding: var(--space-lg);
+    border: 3px solid var(--deep-charcoal);
+    font-family: var(--font-display);
+    text-align: center;
+}
+
+.form-success p {
+    color: var(--off-white) !important;
+    margin-bottom: var(--space-sm);
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .industrial-header,
+    .menu-toggle,
+    .hero-industrial::before,
+    .footer-industrial {
+        display: none;
+    }
+    
+    .container {
+        max-width: 100%;
+    }
+    
+    .btn {
+        border: 2px solid black;
+        text-decoration: underline;
+    }
+    
+    .industrial-card,
+    .portfolio-item {
+        break-inside: avoid;
+        border: 1px solid black;
+    }
+}
+
+/* ===================================
+   ADDITIONAL COLOR VISIBILITY FIXES
+   =================================== */
+
+/* Services page mono-text in blueprint containers */
+.blueprint-container ol.mono-text li {
+    color: var(--off-white) !important;
+}
+
+/* Hero subtitle contrast in dark sections */
+.section-concrete .hero-subtitle {
+    color: var(--off-white) !important;
+}
+
+/* ASCII decorations in dark sections */
+.section-concrete .ascii-decoration,
+.section-dark .ascii-decoration {
+    color: var(--industrial-yellow) !important;
+    opacity: 0.7;
+}
+
+/* Form labels in dark contexts */
+.section-dark .form-label,
+.section-concrete .form-label {
+    color: var(--off-white) !important;
+}
+
+/* Links in dark sections */
+.section-dark a:not(.btn):not(.nav-link),
+.section-concrete a:not(.btn):not(.nav-link) {
+    color: var(--industrial-yellow) !important;
+}
+
+.section-dark a:not(.btn):not(.nav-link):hover,
+.section-concrete a:not(.btn):not(.nav-link):hover {
+    color: var(--off-white) !important;
+    text-decoration: underline;
+}
+
+/* Industrial card links */
+.industrial-card a:visited {
+    color: var(--steel-blue) !important;
+}
+
+/* Enhanced emergency text shadow */
+.emergency-text {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    color: var(--deep-charcoal) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5),
+                 -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Portfolio meta visibility fix */
+.portfolio-meta {
+    display: flex;
+    gap: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--deep-charcoal) !important;
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+/* Response block enhanced contrast */
+.response-block {
+    background-color: rgba(28, 28, 28, 0.95) !important;
+    border: 2px solid var(--deep-charcoal);
+    color: var(--off-white) !important;
+}
+
+/* Table text in blueprint containers - enhanced */
+.blueprint-container .specs-table td {
+    color: var(--off-white) !important;
+    font-weight: 500;
+}
+
+/* Strong text elements in dark sections */
+.section-dark strong,
+.section-concrete strong {
+    color: var(--industrial-yellow) !important;
+}
+
+/* Image fallback styling */
+.portfolio-image img,
+.stone-image img {
+    background-color: var(--concrete-gray);
+    background-image: 
+        linear-gradient(45deg, rgba(255, 183, 0, 0.1) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(255, 183, 0, 0.1) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(255, 183, 0, 0.1) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(255, 183, 0, 0.1) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+}
+
+/* Fallback for broken images */
+.portfolio-image img[src=""],
+.stone-image img[src=""] {
+    background-color: var(--concrete-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--industrial-yellow);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-align: center;
+}
+
+.portfolio-image img[src=""]:before,
+.stone-image img[src=""]:before {
+    content: "// IMAGE UNAVAILABLE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--industrial-yellow);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    z-index: 10;
+}
+
+/* List items in dark sections */
+.section-dark ul li,
+.section-dark ol li,
+.section-concrete ul li,
+.section-concrete ol li {
+    color: var(--off-white) !important;
+}
+
+/* H1-H6 headings in dark sections */
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5,
+.section-dark h6,
+.section-concrete h1,
+.section-concrete h2,
+.section-concrete h3,
+.section-concrete h4,
+.section-concrete h5,
+.section-concrete h6 {
+    color: var(--off-white) !important;
+}
+
+/* Industrial card content in dark sections */
+.section-dark .industrial-card,
+.section-concrete .industrial-card {
+    background-color: var(--off-white) !important;
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .industrial-card h1,
+.section-dark .industrial-card h2,
+.section-dark .industrial-card h3,
+.section-dark .industrial-card h4,
+.section-dark .industrial-card h5,
+.section-dark .industrial-card h6,
+.section-concrete .industrial-card h1,
+.section-concrete .industrial-card h2,
+.section-concrete .industrial-card h3,
+.section-concrete .industrial-card h4,
+.section-concrete .industrial-card h5,
+.section-concrete .industrial-card h6 {
+    color: var(--deep-charcoal) !important;
+}
+
+/* Ensure paragraphs in dark sections are white */
+.section-dark p,
+.section-concrete p {
+    color: var(--off-white) !important;
+}
+
+/* But keep card paragraphs dark */
+.section-dark .industrial-card p,
+.section-concrete .industrial-card p {
+    color: var(--deep-charcoal) !important;
+}
+
+/* Special handling for blueprint container text */
+.blueprint-container h3,
+.blueprint-container h4,
+.blueprint-container h5,
+.blueprint-container p,
+.blueprint-container li {
+    color: var(--off-white) !important;
+}
+
+/* Mono-text in blueprint containers */
+.blueprint-container .mono-text {
+    background-color: transparent !important;
+    color: var(--industrial-yellow) !important;
+    padding: 2px 6px;
+}
+
+/* Force technical specifications section to be visible */
+.section-industrial .blueprint-container {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    background-color: var(--deep-charcoal) !important;
+}
+
+.section-industrial .blueprint-container ul.mono-text {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.section-industrial .blueprint-container ul.mono-text li {
+    display: list-item !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--industrial-yellow) !important;
+    background-color: transparent !important;
+    padding: 2px 0;
+    list-style: none;
+}
+
+/* Technical specifications headers in blueprint containers */
+.section-industrial .blueprint-container h4 {
+    color: var(--industrial-yellow) !important;
+    background-color: transparent !important;
+}
+
+/* Stats numbers in dark sections */
+.section-dark .stat-number,
+.section-concrete .stat-number {
+    color: var(--industrial-yellow) !important;
+}
+
+/* Stats labels in dark sections */
+.section-dark .stat-label,
+.section-concrete .stat-label {
+    color: var(--off-white) !important;
+}
+
+/* Footer text contrast */
+.footer-industrial {
+    color: var(--off-white) !important;
+}
+
+.footer-industrial h4 {
+    color: var(--industrial-yellow) !important;
+}
+
+.footer-industrial p {
+    color: var(--off-white) !important;
+}
+
+/* Ensure section badges are visible */
+.section-badge {
+    background-color: var(--industrial-yellow) !important;
+    color: var(--deep-charcoal) !important;
+}
+
+/* Ensure section titles are visible */
+.section-title {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .section-title,
+.section-concrete .section-title {
+    color: var(--off-white) !important;
+}
+
+/* Ensure hero subtitle is visible */
+.hero-subtitle {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .hero-subtitle,
+.section-concrete .hero-subtitle {
+    color: var(--off-white) !important;
+}
+
+/* Ensure testimonial text is visible */
+.testimonial-text {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .testimonial-text,
+.section-concrete .testimonial-text {
+    color: var(--off-white) !important;
+}
+
+/* Author information */
+.author-name {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .author-name,
+.section-concrete .author-name {
+    color: var(--off-white) !important;
+}
+
+.author-title {
+    color: var(--steel-blue) !important;
+}
+
+.section-dark .author-title,
+.section-concrete .author-title {
+    color: var(--off-white) !important;
+    opacity: 0.8;
+}
+
+/* Final catch-all for any remaining visibility issues */
+.section-dark *:not(.btn):not(.nav-link):not(.industrial-card):not(.industrial-card *):not(.portfolio-item):not(.portfolio-item *):not(.testimonial-industrial):not(.testimonial-industrial *):not(.stone-card):not(.stone-card *),
+.section-concrete *:not(.btn):not(.nav-link):not(.industrial-card):not(.industrial-card *):not(.portfolio-item):not(.portfolio-item *):not(.testimonial-industrial):not(.testimonial-industrial *):not(.stone-card):not(.stone-card *) {
+    color: var(--off-white) !important;
+}
+
+.section-dark .industrial-card *,
+.section-concrete .industrial-card * {
+    color: var(--deep-charcoal) !important;
+}
+
+/* Portfolio items override in concrete sections */
+.section-concrete .portfolio-item,
+.section-concrete .portfolio-item *,
+.section-concrete .portfolio-content,
+.section-concrete .portfolio-content *,
+.section-concrete .portfolio-title,
+.section-concrete .portfolio-meta,
+.section-concrete .portfolio-meta span {
+    color: var(--deep-charcoal) !important;
+}
+
+/* Testimonial items override in dark sections */
+.section-dark .testimonial-industrial,
+.section-dark .testimonial-industrial *,
+.section-concrete .testimonial-industrial,
+.section-concrete .testimonial-industrial * {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .testimonial-text,
+.section-concrete .testimonial-text {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .author-name,
+.section-concrete .author-name {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .author-title,
+.section-concrete .author-title {
+    color: var(--deep-charcoal) !important;
+}
+
+/* Stone cards override in dark sections */
+.section-dark .stone-card,
+.section-dark .stone-card *,
+.section-concrete .stone-card,
+.section-concrete .stone-card * {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .stone-content,
+.section-concrete .stone-content {
+    background-color: var(--off-white) !important;
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .stone-content h3,
+.section-dark .stone-content h4,
+.section-dark .stone-content h5,
+.section-dark .stone-content p,
+.section-concrete .stone-content h3,
+.section-concrete .stone-content h4,
+.section-concrete .stone-content h5,
+.section-concrete .stone-content p {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .specs-table,
+.section-dark .specs-table td,
+.section-concrete .specs-table,
+.section-concrete .specs-table td {
+    color: var(--deep-charcoal) !important;
+}
+
+.section-dark .care-tips,
+.section-concrete .care-tips {
+    background-color: var(--deep-charcoal) !important;
+    color: var(--off-white) !important;
+}
+
+.section-dark .care-tips h5,
+.section-concrete .care-tips h5 {
+    color: var(--industrial-yellow) !important;
+}
+
+.section-dark .care-tips ul,
+.section-dark .care-tips li,
+.section-concrete .care-tips ul,
+.section-concrete .care-tips li {
+    color: var(--off-white) !important;
+}
+
+/* Care tips styling for light sections */
+.section-industrial .care-tips {
+    background-color: var(--deep-charcoal) !important;
+    color: var(--off-white) !important;
+    border-left: 4px solid var(--industrial-yellow) !important;
+}
+
+.section-industrial .care-tips h5 {
+    color: var(--industrial-yellow) !important;
+}
+
+.section-industrial .care-tips ul,
+.section-industrial .care-tips li {
+    color: var(--off-white) !important;
+}
+
+.section-industrial .care-tips li::before {
+    content: "// ";
+    color: var(--industrial-yellow) !important;
+}
+
+/* Exception for special elements that need yellow */
+.section-dark .text-industrial,
+.section-concrete .text-industrial,
+.section-dark .mono-text,
+.section-concrete .mono-text,
+.section-dark .stat-number,
+.section-concrete .stat-number {
+    color: var(--industrial-yellow) !important;
+}

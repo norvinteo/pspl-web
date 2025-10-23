@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact PSPL - 24/7 Emergency Response & Corporate Consultations | Singapore Marble Experts</title>
+    <meta name="description" content="Contact Singapore's premier marble specialists. 24/7 emergency hotline: +65 9767 7169. Corporate consultations, expert testimony, and immediate damage response across Singapore.">
+    <meta name="keywords" content="marble emergency Singapore, contact marble specialists, corporate marble consultation, 24/7 marble repair">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Gulzar:wght@400&family=Dancing+Script:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Luxury CSS -->
+    <link rel="stylesheet" href="assets/css/luxury-hotel-style.css">
+    
+    <!-- GSAP for luxury animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    
+    <!-- Floating Luxury Navigation -->
+    <nav class="luxury-nav">
+        <div class="luxury-nav__container">
+            <a href="index.html" class="luxury-logo">
+                <img src="assets/images/pspl-logo.jpg" alt="PSPL Luxury Marble Artisans" width="40" height="40">
+            </a>
+            
+            <ul class="luxury-nav__menu" id="luxuryMenu">
+                <li><a href="index.html" class="luxury-nav__link">Home</a></li>
+                <li><a href="about.html" class="luxury-nav__link">About</a></li>
+                <li><a href="services.html" class="luxury-nav__link">Services</a></li>
+                <li><a href="portfolio.html" class="luxury-nav__link">Portfolio</a></li>
+                <li><a href="encyclopedia.html" class="luxury-nav__link">Encyclopedia</a></li>
+                <li><a href="contact.html" class="luxury-nav__link">Contact</a></li>
+            </ul>
+            
+            <button class="luxury-nav__toggle" id="luxuryToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="luxury-section luxury-section--hero luxury-hero">
+        <div class="luxury-container">
+            <div class="luxury-hero__content luxury-fade-in" style="text-align: center;">
+                <p class="luxury-hero__subtitle luxury-script">Always Here for You</p>
+                <h1 class="luxury-hero__title">
+                    Connect with Singapore's<br>
+                    <span class="text-luxury-gold">Marble Experts</span>
+                </h1>
+                <p class="luxury-hero__description">
+                    Every Surface Tells a Story - Let's Write Yours. From 24/7 emergency response 
+                    to executive consultations, we're here to ensure your marble surfaces reflect 
+                    your property's premium positioning.
+                </p>
+                
+                <!-- Contact Priority Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-lg); max-width: 1000px; margin: var(--space-luxury-2xl) auto;">
+                    <div style="text-align: center; padding: var(--space-luxury-lg); background: rgba(200,84,80,0.1); border-radius: var(--radius-luxury-xl); border: 2px solid var(--color-copper-rose);">
+                        <h3 style="color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">Emergency Response</h3>
+                        <p style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-md);">24/7 Immediate Service</p>
+                        <a href="tel:+6597677169" class="luxury-btn luxury-btn--secondary luxury-btn--full luxury-btn--equal-height" style="background: var(--color-copper-rose); max-width: 250px; margin: 0 auto;">
+                            Call: +65 9767 7169
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; padding: var(--space-luxury-lg); background: rgba(184,134,11,0.1); border-radius: var(--radius-luxury-xl); border: 2px solid var(--color-bronze-gold);">
+                        <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Corporate Inquiries</h3>
+                        <p style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-md);">Executive Presentations</p>
+                        <a href="#corporate" class="luxury-btn luxury-btn--primary luxury-btn--full luxury-btn--equal-height" style="max-width: 250px; margin: 0 auto;">
+                            Schedule Meeting
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; padding: var(--space-luxury-lg); background: rgba(10,10,10,0.05); border-radius: var(--radius-luxury-xl); border: 2px solid var(--color-obsidian);">
+                        <h3 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">Expert Consultation</h3>
+                        <p style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-md);">Technical Analysis</p>
+                        <a href="#general" class="luxury-btn luxury-btn--ghost luxury-btn--full luxury-btn--equal-height" style="max-width: 250px; margin: 0 auto;">
+                            Get Expert Advice
+                        </a>
+                    </div>
+                    
+                    <div style="text-align: center; padding: var(--space-luxury-lg); background: rgba(37,211,102,0.1); border-radius: var(--radius-luxury-xl); border: 2px solid #25D366;">
+                        <h3 style="color: #25D366; margin-bottom: var(--space-luxury-sm);">WhatsApp Direct</h3>
+                        <p style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-md);">Preferred Communication</p>
+                        <a href="https://wa.me/6597677169" target="_blank" class="luxury-btn luxury-btn--full luxury-btn--equal-height" style="background: #25D366; color: white; max-width: 250px; margin: 0 auto;">
+                            💬 Message WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Luxury Background Pattern -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(184,134,11,0.05), rgba(200,84,80,0.05)), url('data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27><defs><linearGradient id=%27contact-texture%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27><stop offset=%270%25%27 style=%27stop-color:rgba(247,243,233,0.9)%27/><stop offset=%27100%25%27 style=%27stop-color:rgba(232,232,227,0.7)%27/></linearGradient></defs><rect width=%27400%27 height=%27400%27 fill=%27url(%2523contact-texture)%27/><path d=%27M0,100 Q200,80 400,100 T800,100%27 stroke=%27rgba(184,134,11,0.15)%27 stroke-width=%272%27 fill=%27none%27/></svg>') center/cover; opacity: 0.4; z-index: 1;"></div>
+    </section>
+
+    <!-- Tier 1: Emergency Contact Section -->
+    <section class="luxury-section" style="background: rgba(200,84,80,0.05);">
+        <div class="luxury-container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="text-center mb-luxury-2xl luxury-fade-in">
+                    <div style="width: 80px; height: 80px; background: var(--color-copper-rose); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">🚨</div>
+                    <h2 style="color: var(--color-copper-rose);">Marble Emergency? We're Here 24/7</h2>
+                    <p class="lead">
+                        When damage occurs, every minute counts. Our emergency response team 
+                        is standing by to minimize damage and begin restoration immediately.
+                    </p>
+                </div>
+                
+                <div style="background: white; padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-medium);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-xl); margin-bottom: var(--space-luxury-2xl); text-align: center;">
+                        <div>
+                            <h3 style="color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">Emergency Hotline</h3>
+                            <p style="font-size: var(--text-luxury-2xl); font-weight: var(--font-weight-bold);">
+                                <a href="tel:+6597677169" style="color: var(--color-obsidian); text-decoration: none;">+65 9767 7169</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">WhatsApp Emergency</h3>
+                            <p style="font-size: var(--text-luxury-xl);">
+                                <a href="https://wa.me/6597677169" style="color: var(--color-obsidian); text-decoration: none;">wa.me/6597677169</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">Response Time</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">&lt;2 hours Singapore-wide</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">Available</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">365 days, 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: var(--space-luxury-lg);">Emergency Contact Form</h3>
+                    <form style="display: grid; gap: var(--space-luxury-lg);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Property Name/Address*</label>
+                                <input type="text" placeholder="Marina Bay Sands, Tower 3" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Emergency Type*</label>
+                                <select style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                                    <option value="">Select Emergency Type</option>
+                                    <option value="water">Water Damage</option>
+                                    <option value="stains">Severe Staining</option>
+                                    <option value="cracks">Cracks/Chips</option>
+                                    <option value="other">Other Emergency</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Contact Person*</label>
+                                <input type="text" placeholder="John Smith, Facilities Manager" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Direct Phone*</label>
+                                <input type="tel" placeholder="+65 9XXX XXXX" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Immediate Action Taken</label>
+                            <textarea rows="3" placeholder="Describe any immediate steps taken to minimize damage..." style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="luxury-btn luxury-btn--secondary luxury-btn--large" style="background: var(--color-copper-rose);">
+                            Submit Emergency Request
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier 2: Corporate Contact Section -->
+    <section class="luxury-section bg-luxury-champagne" id="corporate">
+        <div class="luxury-container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="text-center mb-luxury-2xl luxury-fade-in">
+                    <div style="width: 80px; height: 80px; background: var(--color-bronze-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">💼</div>
+                    <h2 style="color: var(--color-bronze-gold);">Corporate Partnership Inquiries</h2>
+                    <p class="lead">
+                        Schedule an executive consultation to discuss your property's 
+                        marble maintenance needs and custom service programs.
+                    </p>
+                </div>
+                
+                <div style="background: white; padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-medium);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-xl); margin-bottom: var(--space-luxury-2xl); text-align: center;">
+                        <div>
+                            <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Corporate Direct Line</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">+65 6896 1122</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Email</h3>
+                            <p style="font-size: var(--text-luxury-xl);">
+                                <a href="mailto:corporate@pspl.sg" style="color: var(--color-obsidian); text-decoration: none;">corporate@pspl.sg</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Response Time</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">&lt;4 business hours</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Meeting Availability</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">Mon-Fri, flexible</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: var(--space-luxury-lg);">Corporate Inquiry Form</h3>
+                    <form style="display: grid; gap: var(--space-luxury-lg);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Company Name*</label>
+                                <input type="text" placeholder="Marina Bay Sands Pte Ltd" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Industry*</label>
+                                <select style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                                    <option value="">Select Industry</option>
+                                    <option value="hotel">Hospitality</option>
+                                    <option value="office">Commercial Office</option>
+                                    <option value="retail">Retail</option>
+                                    <option value="government">Government</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Contact Person & Title*</label>
+                                <input type="text" placeholder="Jane Doe, Facilities Director" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Email*</label>
+                                <input type="email" placeholder="jane.doe@company.com" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Property Type & Size</label>
+                                <input type="text" placeholder="Hotel, 50,000 sqm marble surfaces" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Budget Range</label>
+                                <select style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);">
+                                    <option value="">Select Budget Range</option>
+                                    <option value="50-100">$50,000 - $100,000</option>
+                                    <option value="100-200">$100,000 - $200,000</option>
+                                    <option value="200-500">$200,000 - $500,000</option>
+                                    <option value="500+">$500,000+</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Current Marble Maintenance Approach</label>
+                            <textarea rows="3" placeholder="Describe your current maintenance provider and any challenges..." style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);"></textarea>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Preferred Meeting Format</label>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-luxury-md);">
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="radio" name="meeting" value="site" style="margin-right: var(--space-luxury-sm);">
+                                    <span>On-Site Visit</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="radio" name="meeting" value="office" style="margin-right: var(--space-luxury-sm);">
+                                    <span>Office Meeting</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="radio" name="meeting" value="virtual" style="margin-right: var(--space-luxury-sm);">
+                                    <span>Virtual Meeting</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="luxury-btn luxury-btn--primary luxury-btn--large luxury-btn--nowrap">
+                            Schedule Executive Consultation
+                        </button>
+                        
+                        <!-- Payment Policy Notice -->
+                        <div style="margin-top: var(--space-luxury-lg); padding: var(--space-luxury-md); background: rgba(184,134,11,0.1); border-radius: var(--radius-luxury-lg); border-left: 4px solid var(--color-bronze-gold);">
+                            <p style="font-size: var(--text-luxury-sm); color: rgba(10,10,10,0.8); margin: 0;">
+                                <strong>Payment Policy:</strong> PSPL requires 100% payment upfront. This ensures complete commitment and eliminates surprises—reflecting our confidence in exceptional results.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tier 3: General Contact Section -->
+    <section class="luxury-section" id="general">
+        <div class="luxury-container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="text-center mb-luxury-2xl luxury-fade-in">
+                    <div style="width: 80px; height: 80px; background: var(--color-obsidian); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">📞</div>
+                    <h2>General Information & Residential Services</h2>
+                    <p class="lead">
+                        Get expert advice for your marble care needs or schedule 
+                        a consultation for residential services.
+                    </p>
+                </div>
+                
+                <div style="background: white; padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-medium);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-xl); margin-bottom: var(--space-luxury-2xl); text-align: center;">
+                        <div>
+                            <h3 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">General Line</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">+65 6896 1100</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">Email</h3>
+                            <p style="font-size: var(--text-luxury-xl);">
+                                <a href="mailto:info@pspl.sg" style="color: var(--color-obsidian); text-decoration: none;">info@pspl.sg</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">Response Time</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">&lt;24 hours</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">Consultation</h3>
+                            <p style="font-size: var(--text-luxury-xl); font-weight: var(--font-weight-semibold);">By appointment</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: var(--space-luxury-lg);">General Contact Form</h3>
+                    <form style="display: grid; gap: var(--space-luxury-lg);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Name*</label>
+                                <input type="text" placeholder="Your Full Name" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Phone*</label>
+                                <input type="tel" placeholder="+65 9XXX XXXX" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);" required>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-lg);">
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Email</label>
+                                <input type="email" placeholder="your@email.com" style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Property Type</label>
+                                <select style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);">
+                                    <option value="">Select Property Type</option>
+                                    <option value="condo">Condominium</option>
+                                    <option value="landed">Landed Property</option>
+                                    <option value="penthouse">Penthouse</option>
+                                    <option value="commercial">Commercial</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Service Interest</label>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-luxury-md);">
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="checkbox" value="restoration" style="margin-right: var(--space-luxury-sm);">
+                                    <span>Marble Restoration</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="checkbox" value="maintenance" style="margin-right: var(--space-luxury-sm);">
+                                    <span>Regular Maintenance</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="checkbox" value="stain" style="margin-right: var(--space-luxury-sm);">
+                                    <span>Stain Removal</span>
+                                </label>
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="checkbox" value="consultation" style="margin-right: var(--space-luxury-sm);">
+                                    <span>Expert Consultation</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display: block; margin-bottom: var(--space-luxury-sm); font-weight: var(--font-weight-semibold);">Additional Information</label>
+                            <textarea rows="4" placeholder="Tell us about your marble surfaces and any specific concerns..." style="width: 100%; padding: var(--space-luxury-md); border: 2px solid #e0e0e0; border-radius: var(--radius-luxury-md); font-size: var(--text-luxury-base);"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="luxury-btn luxury-btn--ghost luxury-btn--large">
+                            Submit General Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Information & Map Section -->
+    <section class="luxury-section bg-luxury-marble">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl luxury-fade-in">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Visit Us</p>
+                <h2>Singapore Headquarters</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-2xl); align-items: start;">
+                <!-- Office Information -->
+                <div class="luxury-fade-in-left">
+                    <div style="background: white; padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-medium);">
+                        <h3 style="margin-bottom: var(--space-luxury-lg);">Polishing Specialist Private Limited</h3>
+                        
+                        <div style="margin-bottom: var(--space-luxury-xl);">
+                            <p style="font-size: var(--text-luxury-lg); margin-bottom: var(--space-luxury-sm);">
+                                18 Boon Lay Way #08-122<br>
+                                TradeHub 21, Singapore 609966
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: var(--space-luxury-xl);">
+                            <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Business Hours</h4>
+                            <p style="color: rgba(10,10,10,0.8); line-height: 1.8;">
+                                Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                Saturday: 9:00 AM - 1:00 PM<br>
+                                Sunday: Emergency Response Only
+                            </p>
+                        </div>
+                        
+                        <div style="margin-bottom: var(--space-luxury-xl);">
+                            <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Workshop Hours</h4>
+                            <p style="color: rgba(10,10,10,0.8); line-height: 1.8;">
+                                Monday - Saturday: 7:00 AM - 7:00 PM<br>
+                                Sunday: Emergency Projects Only
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Transportation</h4>
+                            <p style="color: rgba(10,10,10,0.8); line-height: 1.8;">
+                                🚇 Nearest MRT: Jurong East (10 min walk)<br>
+                                🚌 Bus: 51, 78, 79, 97, 143, 160, 506<br>
+                                🚗 Parking: Available on-site
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map Placeholder -->
+                <div class="luxury-fade-in-right">
+                    <div style="background: linear-gradient(135deg, var(--color-champagne), var(--color-marble-grey)); height: 500px; border-radius: var(--radius-luxury-2xl); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-luxury-medium);">
+                        <div style="text-align: center;">
+                            <p style="font-size: var(--text-luxury-xl); color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-lg);">Interactive Map</p>
+                            <a href="https://maps.google.com" target="_blank" class="luxury-btn luxury-btn--primary">
+                                View on Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Contact Directory -->
+    <section class="luxury-section">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl luxury-fade-in">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Direct Contacts</p>
+                <h2>Key Personnel Directory</h2>
+            </div>
+            
+            <div class="luxury-grid luxury-grid--3">
+                <!-- Aaron Ang -->
+                <div class="luxury-stagger-item">
+                    <div style="background: white; padding: var(--space-luxury-xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); text-align: center; height: 100%;">
+                        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--color-bronze-gold), #DAA520); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">👨‍💼</div>
+                        <h3 style="margin-bottom: var(--space-luxury-sm);">Aaron Ang</h3>
+                        <p style="color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-luxury-md);">Founder & CEO</p>
+                        <p style="color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg); font-size: var(--text-luxury-sm);">
+                            Corporate partnerships, expert testimony, complex projects
+                        </p>
+                        <div style="display: grid; gap: var(--space-luxury-sm);">
+                            <a href="tel:+6568961133" class="luxury-btn luxury-btn--ghost" style="font-size: var(--text-luxury-sm); padding: var(--space-luxury-sm) var(--space-luxury-md);">
+                                Direct: +65 6896 1133
+                            </a>
+                            <a href="mailto:aaron@pspl.sg" class="luxury-btn luxury-btn--ghost" style="font-size: var(--text-luxury-sm); padding: var(--space-luxury-sm) var(--space-luxury-md);">
+                                aaron@pspl.sg
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Emergency Response Team Leader -->
+                <div class="luxury-stagger-item">
+                    <div style="background: white; padding: var(--space-luxury-xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); text-align: center; height: 100%;">
+                        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--color-copper-rose), #A64440); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">🚨</div>
+                        <h3 style="margin-bottom: var(--space-luxury-sm);">Emergency Response</h3>
+                        <p style="color: var(--color-copper-rose); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-luxury-md);">Team Leader</p>
+                        <p style="color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg); font-size: var(--text-luxury-sm);">
+                            24/7 emergency dispatch, immediate damage assessment
+                        </p>
+                        <div style="display: grid; gap: var(--space-luxury-sm);">
+                            <a href="tel:+6597677169" class="luxury-btn luxury-btn--secondary" style="background: var(--color-copper-rose); font-size: var(--text-luxury-sm); padding: var(--space-luxury-sm) var(--space-luxury-md);">
+                                24/7: +65 9767 7169
+                            </a>
+                            <p style="font-size: var(--text-luxury-sm); color: rgba(10,10,10,0.6);">
+                                Available 365 days
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Corporate Account Manager -->
+                <div class="luxury-stagger-item">
+                    <div style="background: white; padding: var(--space-luxury-xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); text-align: center; height: 100%;">
+                        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--color-obsidian), var(--color-charcoal-mist)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">💼</div>
+                        <h3 style="margin-bottom: var(--space-luxury-sm);">Corporate Accounts</h3>
+                        <p style="color: var(--color-obsidian); font-weight: var(--font-weight-semibold); margin-bottom: var(--space-luxury-md);">Account Manager</p>
+                        <p style="color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg); font-size: var(--text-luxury-sm);">
+                            B2B relationships, maintenance programs, contracts
+                        </p>
+                        <div style="display: grid; gap: var(--space-luxury-sm);">
+                            <a href="tel:+6568961155" class="luxury-btn luxury-btn--ghost" style="font-size: var(--text-luxury-sm); padding: var(--space-luxury-sm) var(--space-luxury-md);">
+                                Direct: +65 6896 1155
+                            </a>
+                            <a href="mailto:corporate@pspl.sg" class="luxury-btn luxury-btn--ghost" style="font-size: var(--text-luxury-sm); padding: var(--space-luxury-sm) var(--space-luxury-md);">
+                                corporate@pspl.sg
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Time Commitments -->
+    <section class="luxury-section bg-luxury-champagne">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl luxury-fade-in">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Our Promise</p>
+                <h2>Service Level Guarantees</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: white; padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-medium);">
+                    <div style="display: grid; gap: var(--space-luxury-lg);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-luxury-md) 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <div>
+                                <h4 style="margin-bottom: var(--space-luxury-xs);">Emergency Response</h4>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">24/7 availability for urgent damage</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="font-size: var(--text-luxury-2xl); font-weight: var(--font-weight-bold); color: var(--color-copper-rose);">&lt;2 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-luxury-md) 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <div>
+                                <h4 style="margin-bottom: var(--space-luxury-xs);">Corporate Inquiries</h4>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">Executive-level response time</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="font-size: var(--text-luxury-2xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold);">&lt;4 hours</p>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">Business hours</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-luxury-md) 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <div>
+                                <h4 style="margin-bottom: var(--space-luxury-xs);">Email Responses</h4>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">All email communications</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="font-size: var(--text-luxury-2xl); font-weight: var(--font-weight-bold); color: var(--color-obsidian);">&lt;12 hours</p>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">Business hours</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-luxury-md) 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <div>
+                                <h4 style="margin-bottom: var(--space-luxury-xs);">Residential Quotes</h4>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">Detailed pricing proposals</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="font-size: var(--text-luxury-2xl); font-weight: var(--font-weight-bold); color: var(--color-obsidian);">&lt;24 hours</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-luxury-md) 0;">
+                            <div>
+                                <h4 style="margin-bottom: var(--space-luxury-xs);">Technical Consultations</h4>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm);">Expert analysis and recommendations</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <p style="font-size: var(--text-luxury-2xl); font-weight: var(--font-weight-bold); color: var(--color-obsidian);">&lt;48 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="luxury-section">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl luxury-fade-in">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Stay Connected</p>
+                <h2>Follow PSPL's Work</h2>
+                <p class="lead" style="max-width: 600px; margin: 0 auto;">
+                    See our latest transformations and marble care tips on social media
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-lg); max-width: 800px; margin: 0 auto;">
+                <a href="#" style="text-decoration: none;">
+                    <div style="background: white; padding: var(--space-luxury-lg); border-radius: var(--radius-luxury-xl); box-shadow: var(--shadow-luxury-soft); text-align: center; transition: all var(--transition-luxury-smooth);">
+                        <div style="font-size: var(--text-luxury-3xl); margin-bottom: var(--space-luxury-sm);">📘</div>
+                        <h4 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-xs);">Facebook</h4>
+                        <p style="color: var(--color-bronze-gold); font-size: var(--text-luxury-sm);">@marblepolishingspecialist</p>
+                    </div>
+                </a>
+                
+                <a href="#" style="text-decoration: none;">
+                    <div style="background: white; padding: var(--space-luxury-lg); border-radius: var(--radius-luxury-xl); box-shadow: var(--shadow-luxury-soft); text-align: center; transition: all var(--transition-luxury-smooth);">
+                        <div style="font-size: var(--text-luxury-3xl); margin-bottom: var(--space-luxury-sm);">📸</div>
+                        <h4 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-xs);">Instagram</h4>
+                        <p style="color: var(--color-bronze-gold); font-size: var(--text-luxury-sm);">@pspl_singapore</p>
+                    </div>
+                </a>
+                
+                <a href="#" style="text-decoration: none;">
+                    <div style="background: white; padding: var(--space-luxury-lg); border-radius: var(--radius-luxury-xl); box-shadow: var(--shadow-luxury-soft); text-align: center; transition: all var(--transition-luxury-smooth);">
+                        <div style="font-size: var(--text-luxury-3xl); margin-bottom: var(--space-luxury-sm);">🎥</div>
+                        <h4 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-xs);">TikTok</h4>
+                        <p style="color: var(--color-bronze-gold); font-size: var(--text-luxury-sm);">@pspl_marble_masters</p>
+                    </div>
+                </a>
+                
+                <a href="#" style="text-decoration: none;">
+                    <div style="background: white; padding: var(--space-luxury-lg); border-radius: var(--radius-luxury-xl); box-shadow: var(--shadow-luxury-soft); text-align: center; transition: all var(--transition-luxury-smooth);">
+                        <div style="font-size: var(--text-luxury-3xl); margin-bottom: var(--space-luxury-sm);">💼</div>
+                        <h4 style="color: var(--color-obsidian); margin-bottom: var(--space-luxury-xs);">LinkedIn</h4>
+                        <p style="color: var(--color-bronze-gold); font-size: var(--text-luxury-sm);">Polishing Specialist Pte Ltd</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--space-luxury-xl);">
+                <p style="color: rgba(10,10,10,0.7);">
+                    Share your marble transformation: 
+                    <span style="color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold);">#PSPLTransformation #SingaporeMarble</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer style="background: var(--color-obsidian); color: white; padding: var(--space-luxury-3xl) 0 var(--space-luxury-xl);">
+        <div class="luxury-container">
+            <div style="text-align: center; margin-bottom: var(--space-luxury-2xl);">
+                <h3 style="color: white; margin-bottom: var(--space-luxury-sm);">Polishing Specialist Private Limited</h3>
+                <p style="color: rgba(255,255,255,0.8); font-size: var(--text-luxury-lg);">
+                    Where Malaysian artistry meets Singapore's finest properties
+                </p>
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-top: var(--space-luxury-md);">
+                    Since 1989
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-luxury-xl); margin-bottom: var(--space-luxury-2xl);">
+                <div>
+                    <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Emergency Response</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-luxury-sm);">
+                        <strong>24/7 Hotline:</strong><br>
+                        <a href="tel:+6597677169" style="color: white; text-decoration: none;">+65 9767 7169</a>
+                    </p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: var(--text-luxury-sm);">
+                        Immediate response across Singapore
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Executive Contact</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-luxury-sm);">
+                        <strong>Aaron Ang, Founder:</strong><br>
+                        <a href="mailto:aaron@pspl.sg" style="color: white; text-decoration: none;">aaron@pspl.sg</a>
+                    </p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: var(--text-luxury-sm);">
+                        Corporate partnerships & consultations
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Services</h4>
+                    <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9);">
+                        <li style="margin-bottom: var(--space-luxury-xs);"><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Corporate Maintenance</a></li>
+                        <li style="margin-bottom: var(--space-luxury-xs);"><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Emergency Response</a></li>
+                        <li style="margin-bottom: var(--space-luxury-xs);"><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Heritage Restoration</a></li>
+                        <li><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Expert Consultancy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: var(--space-luxury-xl); border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">
+                    &copy; 2024 Polishing Specialist Private Limited. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/hotel-animations.js"></script>
+    
+    <!-- Form Validation Script -->
+    <script>
+        // Simple form validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form');
+            
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form type
+                    const formType = this.closest('section').querySelector('h2').textContent;
+                    
+                    // Show success message
+                    alert(`Thank you for your ${formType} inquiry. We will respond within our guaranteed timeframe.`);
+                    
+                    // Reset form
+                    this.reset();
+                });
+            });
+            
+            // Smooth scroll to sections
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>

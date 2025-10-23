@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSPL Portfolio - Singapore's Premier Marble Projects | Marina Bay Sands, Raffles Hotel</title>
+    <meta name="description" content="Explore PSPL's prestigious marble restoration projects including Marina Bay Sands, Raffles Hotel, and 150+ corporate properties. 35 years of excellence.">
+    <meta name="keywords" content="marble restoration portfolio Singapore, corporate marble projects, hotel marble restoration, commercial marble work">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Gulzar:wght@400&family=Dancing+Script:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Luxury CSS -->
+    <link rel="stylesheet" href="assets/css/luxury-hotel-style.css">
+    
+    <!-- GSAP for luxury animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    
+    <!-- Floating Luxury Navigation -->
+    <nav class="luxury-nav">
+        <div class="luxury-nav__container">
+            <a href="index.html" class="luxury-logo">
+                <img src="assets/images/pspl-logo.jpg" alt="PSPL Luxury Marble Artisans" width="40" height="40">
+            </a>
+            
+            <ul class="luxury-nav__menu" id="luxuryMenu">
+                <li><a href="index.html" class="luxury-nav__link">Home</a></li>
+                <li><a href="about.html" class="luxury-nav__link">About</a></li>
+                <li><a href="services.html" class="luxury-nav__link">Services</a></li>
+                <li><a href="portfolio.html" class="luxury-nav__link">Portfolio</a></li>
+                <li><a href="encyclopedia.html" class="luxury-nav__link">Encyclopedia</a></li>
+                <li><a href="contact.html" class="luxury-nav__link">Contact</a></li>
+            </ul>
+            
+            <button class="luxury-nav__toggle" id="luxuryToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="luxury-section luxury-section--hero luxury-hero">
+        <div class="luxury-container">
+            <div class="luxury-hero__content luxury-fade-in" style="text-align: center;">
+                <p class="luxury-hero__subtitle luxury-script">Our Work Speaks</p>
+                <h1 class="luxury-hero__title">
+                    Transforming Singapore's<br>
+                    <span class="text-luxury-gold">Most Prestigious Spaces</span>
+                </h1>
+                <p class="luxury-hero__description">
+                    From Marina Bay Sands' grand lobby to Raffles Hotel's heritage suites, 
+                    explore how PSPL has restored and maintained over 500,000 square meters 
+                    of Singapore's finest marble surfaces.
+                </p>
+                
+                <!-- Quick Stats -->
+                <div class="luxury-grid luxury-grid--2x2" style="gap: var(--space-luxury-lg); max-width: 600px; margin: var(--space-luxury-2xl) auto;">
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-luxury-3xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold);" class="counter" data-target="500000">0</div>
+                        <div style="color: rgba(10,10,10,0.7); font-size: var(--text-luxury-sm);">Square Meters Restored</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-luxury-3xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold);" class="counter" data-target="150">0</div>
+                        <div style="color: rgba(10,10,10,0.7); font-size: var(--text-luxury-sm);">Prestigious Properties</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-luxury-3xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold);" class="counter" data-target="2847">0</div>
+                        <div style="color: rgba(10,10,10,0.7); font-size: var(--text-luxury-sm);">Projects Completed</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-luxury-3xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold);" class="counter" data-target="35">0</div>
+                        <div style="color: rgba(10,10,10,0.7); font-size: var(--text-luxury-sm);">Years of Excellence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Luxury Background Pattern -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(184,134,11,0.05), rgba(200,84,80,0.05)), url('data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27><defs><linearGradient id=%27portfolio-texture%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27><stop offset=%270%25%27 style=%27stop-color:rgba(247,243,233,0.9)%27/><stop offset=%27100%25%27 style=%27stop-color:rgba(232,232,227,0.7)%27/></linearGradient></defs><rect width=%27400%27 height=%27400%27 fill=%27url(%2523portfolio-texture)%27/><path d=%27M0,100 Q200,80 400,100 T800,100%27 stroke=%27rgba(184,134,11,0.15)%27 stroke-width=%272%27 fill=%27none%27/></svg>') center/cover; opacity: 0.4; z-index: 1;"></div>
+    </section>
+
+    <!-- Portfolio Filter Section -->
+    <section class="luxury-section" style="padding-top: var(--space-luxury-2xl); padding-bottom: var(--space-luxury-xl);">
+        <div class="luxury-container">
+            <div style="background: white; padding: var(--space-luxury-lg); border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); margin-bottom: var(--space-luxury-2xl);">
+                <h3 style="margin-bottom: var(--space-luxury-lg); text-align: center;">Filter Our Projects</h3>
+                
+                <!-- Filter Buttons -->
+                <div class="luxury-grid luxury-grid--3x2" style="gap: var(--space-luxury-md); max-width: 800px; margin: 0 auto;">
+                    <button class="luxury-filter-btn active portfolio-filter" data-filter="all">All Projects</button>
+                    <button class="luxury-filter-btn portfolio-filter" data-filter="corporate">Corporate</button>
+                    <button class="luxury-filter-btn portfolio-filter" data-filter="hotel">Luxury Hotels</button>
+                    <button class="luxury-filter-btn portfolio-filter" data-filter="government">Government</button>
+                    <button class="luxury-filter-btn portfolio-filter" data-filter="residential">Residential</button>
+                    <button class="luxury-filter-btn luxury-filter-btn--emergency portfolio-filter" data-filter="emergency">Emergency</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Showcase Section -->
+    <section class="luxury-section" style="padding-top: 0;">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl luxury-fade-in">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Featured Projects</p>
+                <h2>Corporate Excellence Portfolio</h2>
+                <p class="lead" style="max-width: 700px; margin: 0 auto;">
+                    Singapore's Finest Properties Trust PSPL
+                </p>
+            </div>
+            
+            <!-- Featured Projects Grid -->
+            <div id="portfolioGrid" class="luxury-grid luxury-grid--2" style="gap: var(--space-luxury-xl);">
+                
+                <!-- Marina Bay Sands Project -->
+                <div class="portfolio-item luxury-stagger-item" data-category="corporate hotel emergency" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-champagne), var(--color-marble-grey)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Marina Bay Sands</h3>
+                                <p style="color: var(--color-obsidian);">Grand Lobby Restoration</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: var(--color-copper-rose); color: white; padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Emergency Response</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Project Value</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">$850,000</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Timeline</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">72-hour emergency</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Area</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">2,000 sqm</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Marble Type</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Carrara</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Water damage from roof leak affecting 2,000 sqm of Carrara marble during peak season. Required invisible repair with zero guest disruption.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Night-only work schedule, invisible repair techniques, upgraded protective systems. Completed in 2 weeks with zero event cancellations.
+                        </p>
+                        
+                        <div style="padding: var(--space-luxury-md); background: var(--color-champagne); border-radius: var(--radius-luxury-lg); margin-bottom: var(--space-luxury-lg);">
+                            <p style="font-style: italic; color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">
+                                "PSPL's emergency response saved our grand opening timeline. Their team worked miracles overnight."
+                            </p>
+                            <p style="font-size: var(--text-luxury-sm); color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold);">
+                                - Facilities Director, Marina Bay Sands
+                            </p>
+                        </div>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Raffles Hotel Project -->
+                <div class="portfolio-item luxury-stagger-item" data-category="hotel government" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-marble-grey), var(--color-platinum)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Raffles Hotel Singapore</h3>
+                                <p style="color: var(--color-obsidian);">Presidential Suite Heritage Restoration</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: var(--color-bronze-gold); color: white; padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Heritage Project</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Project Value</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">$1.2M</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Timeline</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">6 months</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Area</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">3,000 sqm</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Marble Type</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Calacatta Gold</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            100-year-old Calacatta Gold marble with historic significance required museum-quality restoration while maintaining historical integrity.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Traditional techniques combined with modern stabilization. Every repair documented for heritage authorities. Received URA preservation award.
+                        </p>
+                        
+                        <div style="padding: var(--space-luxury-md); background: var(--color-champagne); border-radius: var(--radius-luxury-lg); margin-bottom: var(--space-luxury-lg);">
+                            <p style="font-style: italic; color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">
+                                "PSPL understood the historical significance of every piece. Their work is museum quality."
+                            </p>
+                            <p style="font-size: var(--text-luxury-sm); color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold);">
+                                - General Manager, Raffles Hotel
+                            </p>
+                        </div>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- ION Orchard Project -->
+                <div class="portfolio-item luxury-stagger-item" data-category="corporate" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-platinum), var(--color-champagne)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">ION Orchard</h3>
+                                <p style="color: var(--color-obsidian);">Main Entrance High-Traffic Restoration</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: var(--color-obsidian); color: white; padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Commercial</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Project Value</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">$650,000</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Timeline</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">4 weeks phased</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Daily Traffic</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">50,000+ footfall</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Improvement</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">300% wear resistance</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            50,000+ daily footfall causing severe wear patterns. Required ultra-durable solution without closing entrance.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Ultra-durable protective coating system. Phased approach maintaining access. Zero maintenance issues in 3 years post-restoration.
+                        </p>
+                        
+                        <div style="padding: var(--space-luxury-md); background: var(--color-champagne); border-radius: var(--radius-luxury-lg); margin-bottom: var(--space-luxury-lg);">
+                            <p style="font-style: italic; color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">
+                                "The durability improvement is remarkable. What used to need monthly attention now looks perfect after years."
+                            </p>
+                            <p style="font-size: var(--text-luxury-sm); color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold);">
+                                - Operations Head, ION Orchard
+                            </p>
+                        </div>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CapitaLand Office Tower -->
+                <div class="portfolio-item luxury-stagger-item" data-category="corporate" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-marble-grey), var(--color-champagne)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">CapitaLand Tower</h3>
+                                <p style="color: var(--color-obsidian);">Executive Floors Maintenance Program</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: var(--color-bronze-gold); color: white; padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Maintenance Contract</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Contract Value</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">$150,000/year</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Duration</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">5-year contract</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Floors</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">20 executive floors</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Cost Reduction</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">40% savings</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Multiple marble types across 20 floors requiring different maintenance approaches. Need for predictive maintenance to reduce costs.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Predictive maintenance using surface monitoring. Customized care for each marble type. Contract expanded to 3 additional buildings.
+                        </p>
+                        
+                        <div style="padding: var(--space-luxury-md); background: var(--color-champagne); border-radius: var(--radius-luxury-lg); margin-bottom: var(--space-luxury-lg);">
+                            <p style="font-style: italic; color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">
+                                "PSPL's predictive maintenance approach reduced our replacement costs by 40%. They're now managing our entire portfolio."
+                            </p>
+                            <p style="font-size: var(--text-luxury-sm); color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold);">
+                                - Portfolio Manager, CapitaLand
+                            </p>
+                        </div>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Shangri-La Hotel Project -->
+                <div class="portfolio-item luxury-stagger-item" data-category="hotel emergency" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-champagne), var(--color-platinum)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Shangri-La Hotel</h3>
+                                <p style="color: var(--color-obsidian);">Ballroom Complex Emergency Restoration</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: var(--color-copper-rose); color: white; padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Emergency Response</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Project Value</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">$420,000</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Response Time</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">48 hours</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Area</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">800 sqm</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Marble Types</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">6 varieties</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Burst pipe damaged 800 sqm during wedding season. Required perfect color matching for 6 different marble types with zero event cancellations.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            48-hour emergency response, perfect pattern and color matching. Completed in 10 days with zero event cancellations.
+                        </p>
+                        
+                        <div style="padding: var(--space-luxury-md); background: var(--color-champagne); border-radius: var(--radius-luxury-lg); margin-bottom: var(--space-luxury-lg);">
+                            <p style="font-style: italic; color: var(--color-obsidian); margin-bottom: var(--space-luxury-sm);">
+                                "PSPL saved our wedding season. Their emergency response and quality are unmatched in Singapore."
+                            </p>
+                            <p style="font-size: var(--text-luxury-sm); color: var(--color-bronze-gold); font-weight: var(--font-weight-semibold);">
+                                - Director of Operations, Shangri-La
+                            </p>
+                        </div>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Supreme Court Project -->
+                <div class="portfolio-item luxury-stagger-item" data-category="government" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-obsidian), var(--color-charcoal-mist)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Supreme Court</h3>
+                                <p style="color: white;">Heritage Building Restoration</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: var(--color-bronze-gold); color: white; padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Government Heritage</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Project Scope</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Conservation-grade</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Timeline</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">8 months</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Historical Value</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">80-year heritage</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Compliance</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Full URA standards</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Historical accuracy required for 80-year-old marble. Strict preservation guidelines and documentation requirements.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Conservation-grade restoration techniques. Full documentation for heritage authorities. Perfect historical accuracy maintained.
+                        </p>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Luxury Residential Project -->
+                <div class="portfolio-item luxury-stagger-item" data-category="residential" style="background: white; border-radius: var(--radius-luxury-2xl); overflow: hidden; box-shadow: var(--shadow-luxury-medium); transition: all var(--transition-luxury-smooth);">
+                    <div style="position: relative; overflow: hidden; height: 300px;">
+                        <div style="background: linear-gradient(135deg, var(--color-copper-rose), #A64440); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <div style="text-align: center;">
+                                <h3 style="color: white; margin-bottom: var(--space-luxury-sm);">Sentosa Cove Villa</h3>
+                                <p style="color: rgba(255,255,255,0.9);">Complete Luxury Home Restoration</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: var(--space-luxury-md); right: var(--space-luxury-md); background: white; color: var(--color-copper-rose); padding: var(--space-luxury-xs) var(--space-luxury-md); border-radius: var(--radius-luxury-xl); font-size: var(--text-luxury-sm); font-weight: var(--font-weight-semibold);">Premium Residential</div>
+                    </div>
+                    <div style="padding: var(--space-luxury-xl);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-luxury-md); margin-bottom: var(--space-luxury-lg);">
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Property Type</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Luxury Villa</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Timeline</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">3 weeks</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Areas</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Indoor & Outdoor</p>
+                            </div>
+                            <div>
+                                <p style="color: rgba(10,10,10,0.6); font-size: var(--text-luxury-sm); margin-bottom: var(--space-luxury-xs);">Special Feature</p>
+                                <p style="font-weight: var(--font-weight-semibold); color: var(--color-obsidian);">Pool deck marble</p>
+                            </div>
+                        </div>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Challenge</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Weather-damaged outdoor marble, kitchen wear patterns, bathroom water stains. Required hotel-standard finish for private residence.
+                        </p>
+                        
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Our Solution</h4>
+                        <p style="font-size: var(--text-luxury-base); color: rgba(10,10,10,0.7); margin-bottom: var(--space-luxury-lg);">
+                            Weather-resistant treatments for outdoor areas. Kitchen-specific protective coatings. Spa-quality bathroom restoration.
+                        </p>
+                        
+                        <a href="#" class="luxury-btn luxury-btn--primary luxury-btn--full" >
+                            View Full Case Study
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Section -->
+    <section class="luxury-section bg-luxury-obsidian" style="background: var(--color-obsidian); color: white;">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Proven Results</p>
+                <h2 style="color: white;">Partnership Success Metrics</h2>
+            </div>
+            
+            <!-- Marina Bay Sands Partnership -->
+            <div style="background: rgba(255,255,255,0.05); padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl); margin-bottom: var(--space-luxury-xl);">
+                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-lg);">Marina Bay Sands Partnership</h3>
+                <p style="color: rgba(255,255,255,0.8); font-size: var(--text-luxury-lg); margin-bottom: var(--space-luxury-xl);">5 Years of Excellence</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-xl); text-align: center;">
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">15</div>
+                        <div style="color: rgba(255,255,255,0.9);">Emergency Responses</div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">90-min average response</div>
+                    </div>
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">24,000</div>
+                        <div style="color: rgba(255,255,255,0.9);">SQM Under Contract</div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">Across all properties</div>
+                    </div>
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">Zero</div>
+                        <div style="color: rgba(255,255,255,0.9);">Guest Complaints</div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">Related to marble condition</div>
+                    </div>
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-sm);">$2.4M</div>
+                        <div style="color: rgba(255,255,255,0.9);">Costs Avoided</div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">In replacement savings</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Client Retention -->
+            <div style="background: rgba(255,255,255,0.05); padding: var(--space-luxury-2xl); border-radius: var(--radius-luxury-2xl);">
+                <h3 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-lg);">Corporate Client Retention</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-luxury-xl); text-align: center;">
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">94%</div>
+                        <div style="color: rgba(255,255,255,0.9);">Client Retention Rate</div>
+                    </div>
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">8.5</div>
+                        <div style="color: rgba(255,255,255,0.9);">Years Average Relationship</div>
+                    </div>
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">67%</div>
+                        <div style="color: rgba(255,255,255,0.9);">Expand Services</div>
+                        <div style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">Within 2 years</div>
+                    </div>
+                    <div>
+                        <div style="font-size: var(--text-luxury-4xl); font-weight: var(--font-weight-bold); color: var(--color-copper-rose); margin-bottom: var(--space-luxury-sm);">$12M+</div>
+                        <div style="color: rgba(255,255,255,0.9);">Ongoing Contracts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards & Recognition -->
+    <section class="luxury-section bg-luxury-champagne">
+        <div class="luxury-container">
+            <div class="text-center mb-luxury-2xl luxury-fade-in">
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-bottom: var(--space-luxury-sm);">Industry Recognition</p>
+                <h2>Awards & Media Coverage</h2>
+            </div>
+            
+            <div class="luxury-grid luxury-grid--4">
+                <div class="luxury-stagger-item text-center">
+                    <div style="padding: var(--space-luxury-xl); background: white; border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); height: 100%;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-bronze-gold), #DAA520); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">🏆</div>
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">URA Heritage Award</h4>
+                        <p style="color: rgba(10,10,10,0.7);">Raffles Hotel Restoration</p>
+                    </div>
+                </div>
+                
+                <div class="luxury-stagger-item text-center">
+                    <div style="padding: var(--space-luxury-xl); background: white; border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); height: 100%;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-copper-rose), #A64440); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">⭐</div>
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">BCA Excellence</h4>
+                        <p style="color: rgba(10,10,10,0.7);">Marina Bay Sands Project</p>
+                    </div>
+                </div>
+                
+                <div class="luxury-stagger-item text-center">
+                    <div style="padding: var(--space-luxury-xl); background: white; border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); height: 100%;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-obsidian), var(--color-charcoal-mist)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">🎖️</div>
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Hotel Partnership</h4>
+                        <p style="color: rgba(10,10,10,0.7);">Singapore Hotel Association</p>
+                    </div>
+                </div>
+                
+                <div class="luxury-stagger-item text-center">
+                    <div style="padding: var(--space-luxury-xl); background: white; border-radius: var(--radius-luxury-2xl); box-shadow: var(--shadow-luxury-soft); height: 100%;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--color-bronze-gold), var(--color-copper-rose)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-luxury-lg); color: white; font-size: var(--text-luxury-2xl);">📰</div>
+                        <h4 style="margin-bottom: var(--space-luxury-sm);">Media Features</h4>
+                        <p style="color: rgba(10,10,10,0.7);">Straits Times & AD Asia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="luxury-section">
+        <div class="luxury-container">
+            <div style="background: linear-gradient(135deg, var(--color-obsidian), var(--color-charcoal-mist)); padding: var(--space-luxury-3xl); border-radius: var(--radius-luxury-3xl); text-align: center; color: white;">
+                <h2 style="color: white; margin-bottom: var(--space-luxury-lg);">Ready to Join Singapore's Most Prestigious Properties?</h2>
+                <p style="font-size: var(--text-luxury-xl); color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto var(--space-luxury-2xl);">
+                    Let's discuss how PSPL can transform and maintain your marble surfaces 
+                    to the highest standards.
+                </p>
+                
+                <div style="display: flex; gap: var(--space-luxury-lg); justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="luxury-btn luxury-btn--primary luxury-btn--large luxury-btn--nowrap">
+                        Request Project Consultation
+                    </a>
+                    <a href="#" class="luxury-btn luxury-btn--ghost luxury-btn--large luxury-btn--nowrap" style="border-color: white; color: white;">
+                        Download Portfolio Brochure
+                    </a>
+                    <a href="tel:+6597677169" class="luxury-btn luxury-btn--secondary luxury-btn--large luxury-btn--nowrap" style="background: var(--color-copper-rose);">
+                        24/7 Emergency: +65 9767 7169
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer style="background: var(--color-obsidian); color: white; padding: var(--space-luxury-3xl) 0 var(--space-luxury-xl);">
+        <div class="luxury-container">
+            <div style="text-align: center; margin-bottom: var(--space-luxury-2xl);">
+                <h3 style="color: white; margin-bottom: var(--space-luxury-sm);">Polishing Specialist Private Limited</h3>
+                <p style="color: rgba(255,255,255,0.8); font-size: var(--text-luxury-lg);">
+                    Where Malaysian artistry meets Singapore's finest properties
+                </p>
+                <p class="luxury-script text-luxury-gold" style="font-size: var(--text-luxury-xl); margin-top: var(--space-luxury-md);">
+                    Since 1989
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-luxury-xl); margin-bottom: var(--space-luxury-2xl);">
+                <div>
+                    <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Emergency Response</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-luxury-sm);">
+                        <strong>24/7 Hotline:</strong><br>
+                        <a href="tel:+6597677169" style="color: white; text-decoration: none;">+65 9767 7169</a>
+                    </p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: var(--text-luxury-sm);">
+                        Immediate response across Singapore
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Executive Contact</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-luxury-sm);">
+                        <strong>Aaron Ang, Founder:</strong><br>
+                        <a href="mailto:aaron@pspl.sg" style="color: white; text-decoration: none;">aaron@pspl.sg</a>
+                    </p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: var(--text-luxury-sm);">
+                        Corporate partnerships & consultations
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: var(--color-bronze-gold); margin-bottom: var(--space-luxury-md);">Services</h4>
+                    <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9);">
+                        <li style="margin-bottom: var(--space-luxury-xs);"><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Corporate Maintenance</a></li>
+                        <li style="margin-bottom: var(--space-luxury-xs);"><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Emergency Response</a></li>
+                        <li style="margin-bottom: var(--space-luxury-xs);"><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Heritage Restoration</a></li>
+                        <li><a href="services.html" style="color: rgba(255,255,255,0.9); text-decoration: none;">Expert Consultancy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; padding-top: var(--space-luxury-xl); border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: rgba(255,255,255,0.6); font-size: var(--text-luxury-sm);">
+                    &copy; 2024 Polishing Specialist Private Limited. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/hotel-animations.js"></script>
+    
+    <!-- Portfolio Filtering Script -->
+    <script>
+        // Portfolio filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.portfolio-filter');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => {
+                        btn.style.background = 'white';
+                        btn.style.color = 'var(--color-obsidian)';
+                        btn.style.border = '2px solid var(--color-obsidian)';
+                    });
+                    
+                    this.style.background = 'var(--color-bronze-gold)';
+                    this.style.color = 'white';
+                    this.style.border = '2px solid var(--color-bronze-gold)';
+                    
+                    // Filter items
+                    portfolioItems.forEach(item => {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        
+                        if (filter === 'all' || categories.includes(filter)) {
+                            gsap.to(item, {
+                                opacity: 1,
+                                scale: 1,
+                                duration: 0.4,
+                                display: 'block'
+                            });
+                        } else {
+                            gsap.to(item, {
+                                opacity: 0,
+                                scale: 0.95,
+                                duration: 0.4,
+                                onComplete: function() {
+                                    item.style.display = 'none';
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+            
+            // Initialize with all items visible
+            portfolioItems.forEach(item => {
+                item.style.display = 'block';
+            });
+        });
+    </script>
+    
+</body>
+</html>

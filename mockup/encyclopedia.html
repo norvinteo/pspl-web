@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marble Encyclopedia Singapore | Complete Natural Stone Guide | PSPL</title>
+    <meta name="description" content="Singapore's most comprehensive marble guide. 67+ marble types, care instructions, and expert advice from PSPL's 35 years of experience.">
+    <meta name="keywords" content="marble types Singapore, natural stone guide, marble care instructions">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/pspl-logo.jpg" alt="PSPL Logo" width="40" height="40">
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                    <li><a href="encyclopedia.html" class="nav__link">Encyclopedia</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-emergency">
+                <span>Emergency:</span>
+                <strong>+65 9767 7169</strong>
+            </div>
+            
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section section--hero hero">
+        <div class="container">
+            <div class="hero__content text-center fade-in">
+                <h1 class="hero__headline">
+                    Singapore's Most Comprehensive<br>
+                    <span class="text-coral">Natural Stone Encyclopedia</span>
+                </h1>
+                <p class="hero__subheadline">
+                    Your Complete Guide to Marble Types, Care, and Restoration
+                </p>
+                
+                <div class="trust-badges mb-8">
+                    <div class="trust-badge">67 Marble Types Documented</div>
+                    <div class="trust-badge">50+ Care Guides Available</div>
+                    <div class="trust-badge">12 Video Tutorials</div>
+                    <div class="trust-badge">500+ Technical Specifications</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Interface -->
+    <section class="section bg-grey">
+        <div class="container">
+            <div class="search-interface fade-in">
+                <div class="search-main">
+                    <h2 class="text-center mb-6">Find Your Perfect Marble</h2>
+                    <div class="search-bar-container">
+                        <input type="text" class="marble-search" placeholder="Search marble types, origins, or applications..." id="marbleSearch">
+                        <button class="search-btn">
+                            <img src="assets/images/icons/search.svg" alt="Search" width="16" height="16">
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="search-filters mt-6">
+                    <div class="filter-group">
+                        <label>Origin:</label>
+                        <select class="filter-select" data-filter="origin">
+                            <option value="">All Origins</option>
+                            <option value="italy">Italy</option>
+                            <option value="greece">Greece</option>
+                            <option value="spain">Spain</option>
+                            <option value="turkey">Turkey</option>
+                            <option value="asia">Asia</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Tier:</label>
+                        <select class="filter-select" data-filter="price">
+                            <option value="">All Prices</option>
+                            <option value="premium">Premium ($$$$)</option>
+                            <option value="high">High ($$$ )</option>
+                            <option value="moderate">Moderate ($$ )</option>
+                            <option value="standard">Standard ($ )</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Application:</label>
+                        <select class="filter-select" data-filter="application">
+                            <option value="">All Applications</option>
+                            <option value="corporate">Corporate Spaces</option>
+                            <option value="hotel">Hotels</option>
+                            <option value="residential">Residential</option>
+                            <option value="heritage">Heritage Buildings</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Color:</label>
+                        <select class="filter-select" data-filter="color">
+                            <option value="">All Colors</option>
+                            <option value="white">White</option>
+                            <option value="grey">Grey</option>
+                            <option value="black">Black</option>
+                            <option value="beige">Beige/Cream</option>
+                            <option value="brown">Brown</option>
+                            <option value="colored">Colored</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Marble Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2>Featured Marble Collections</h2>
+                <p class="lead">Explore our curated selections</p>
+            </div>
+            
+            <div class="grid grid--4">
+                <div class="marble-category-card stagger-item">
+                    <div class="category-icon">
+                        <img src="assets/images/icons/building.svg" alt="Commercial" width="24" height="24">
+                    </div>
+                    <h3>Corporate Favorites</h3>
+                    <p>Most popular in commercial spaces and luxury hotels</p>
+                    <ul class="marble-list">
+                        <li>Carrara White</li>
+                        <li>Calacatta Gold</li>
+                        <li>Statuario</li>
+                        <li>Emperador Dark</li>
+                    </ul>
+                    <a href="#corporate-marbles" class="btn btn--outline btn--small">Explore Collection</a>
+                </div>
+                
+                <div class="marble-category-card stagger-item">
+                    <div class="category-icon">
+                        <img src="assets/images/icons/landmark.svg" alt="Heritage" width="24" height="24">
+                    </div>
+                    <h3>Heritage Stones</h3>
+                    <p>Historical significance in Singapore's architecture</p>
+                    <ul class="marble-list">
+                        <li>Thassos White</li>
+                        <li>Pentelicon</li>
+                        <li>Roman Travertine</li>
+                        <li>Crema Marfil</li>
+                    </ul>
+                    <a href="#heritage-marbles" class="btn btn--outline btn--small">Explore Collection</a>
+                </div>
+                
+                <div class="marble-category-card stagger-item">
+                    <div class="category-icon">
+                        <img src="assets/images/icons/star.svg" alt="Premium" width="24" height="24">
+                    </div>
+                    <h3>Trending Choices</h3>
+                    <p>Currently popular selections in modern projects</p>
+                    <ul class="marble-list">
+                        <li>Calacatta Viola</li>
+                        <li>Nero Marquina</li>
+                        <li>Volakas</li>
+                        <li>Afyon White</li>
+                    </ul>
+                    <a href="#trending-marbles" class="btn btn--outline btn--small">Explore Collection</a>
+                </div>
+                
+                <div class="marble-category-card stagger-item">
+                    <div class="category-icon">🎯</div>
+                    <h3>PSPL Specialties</h3>
+                    <p>Marbles we're expert in restoring and maintaining</p>
+                    <ul class="marble-list">
+                        <li>Italian Varieties</li>
+                        <li>Heritage Restorations</li>
+                        <li>High-Traffic Solutions</li>
+                        <li>Emergency Repairs</li>
+                    </ul>
+                    <a href="#pspl-specialties" class="btn btn--primary btn--small">Our Expertise</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marble Directory -->
+    <section class="section bg-grey">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2>Complete Marble Directory</h2>
+                <p class="lead">Comprehensive database of natural stone varieties</p>
+            </div>
+            
+            <div class="marble-directory">
+                <!-- Italian Marbles -->
+                <div class="marble-section fade-in">
+                    <h3 class="section-title">🇮🇹 Italian Marbles (Premium Tier)</h3>
+                    <div class="marble-grid">
+                        <div class="marble-card" data-origin="italy" data-price="premium" data-color="white" data-application="corporate">
+                            <div class="marble-image">
+                                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400&h=300&fit=crop" alt="Carrara White Marble" loading="lazy">
+                                <div class="marble-rating">
+                                    <span class="corporate-rating">★★★★★</span>
+                                    <span class="rating-label">Corporate</span>
+                                </div>
+                            </div>
+                            <div class="marble-info">
+                                <h4>Carrara White</h4>
+                                <p class="marble-origin">Carrara, Tuscany, Italy</p>
+                                <div class="marble-specs">
+                                    <span class="spec">Density: 2.71 g/cm³</span>
+                                    <span class="spec">Absorption: 0.12%</span>
+                                </div>
+                                <div class="marble-tags">
+                                    <span class="tag tag--premium">Premium</span>
+                                    <span class="tag tag--corporate">Corporate</span>
+                                </div>
+                                <p class="marble-description">
+                                    Premium Italian marble with distinctive grey veining. 
+                                    Preferred choice for Singapore's prestigious corporate spaces.
+                                </p>
+                                <div class="marble-actions">
+                                    <a href="#carrara-detail" class="btn btn--outline btn--small">Learn More</a>
+                                    <a href="contact.html" class="btn btn--primary btn--small">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marble-card" data-origin="italy" data-price="premium" data-color="white" data-application="hotel">
+                            <div class="marble-image">
+                                <img src="https://images.unsplash.com/photo-1615880670851-538d6a5b8c7e?w=400&h=300&fit=crop" alt="Calacatta Gold Marble" loading="lazy">
+                                <div class="marble-rating">
+                                    <span class="corporate-rating">★★★★★</span>
+                                    <span class="rating-label">Luxury</span>
+                                </div>
+                            </div>
+                            <div class="marble-info">
+                                <h4>Calacatta Gold</h4>
+                                <p class="marble-origin">Carrara, Tuscany, Italy</p>
+                                <div class="marble-specs">
+                                    <span class="spec">Density: 2.73 g/cm³</span>
+                                    <span class="spec">Absorption: 0.10%</span>
+                                </div>
+                                <div class="marble-tags">
+                                    <span class="tag tag--premium">Ultra-Premium</span>
+                                    <span class="tag tag--hotel">Hotel</span>
+                                </div>
+                                <p class="marble-description">
+                                    White marble with dramatic gold veining. 
+                                    Ultimate luxury choice for presidential suites and high-end spaces.
+                                </p>
+                                <div class="marble-actions">
+                                    <a href="#calacatta-detail" class="btn btn--outline btn--small">Learn More</a>
+                                    <a href="contact.html" class="btn btn--primary btn--small">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marble-card" data-origin="italy" data-price="premium" data-color="brown" data-application="corporate">
+                            <div class="marble-image">
+                                <img src="https://images.unsplash.com/photo-1615880487838-7bb8af7e2fe5?w=400&h=300&fit=crop" alt="Emperador Dark Marble" loading="lazy">
+                                <div class="marble-rating">
+                                    <span class="corporate-rating">★★★★☆</span>
+                                    <span class="rating-label">Corporate</span>
+                                </div>
+                            </div>
+                            <div class="marble-info">
+                                <h4>Emperador Dark</h4>
+                                <p class="marble-origin">Spain (Popular in Italy)</p>
+                                <div class="marble-specs">
+                                    <span class="spec">Density: 2.72 g/cm³</span>
+                                    <span class="spec">Absorption: 0.15%</span>
+                                </div>
+                                <div class="marble-tags">
+                                    <span class="tag tag--premium">Premium</span>
+                                    <span class="tag tag--corporate">Corporate</span>
+                                </div>
+                                <p class="marble-description">
+                                    Rich brown marble with white veining. 
+                                    Popular for executive offices and luxury commercial spaces.
+                                </p>
+                                <div class="marble-actions">
+                                    <a href="#emperador-detail" class="btn btn--outline btn--small">Learn More</a>
+                                    <a href="contact.html" class="btn btn--primary btn--small">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marble-card" data-origin="italy" data-price="premium" data-color="black" data-application="hotel">
+                            <div class="marble-image">
+                                <img src="https://images.unsplash.com/photo-1618221210802-3ff9038cee55?w=400&h=300&fit=crop" alt="Nero Marquina Marble" loading="lazy">
+                                <div class="marble-rating">
+                                    <span class="corporate-rating">★★★★☆</span>
+                                    <span class="rating-label">Dramatic</span>
+                                </div>
+                            </div>
+                            <div class="marble-info">
+                                <h4>Nero Marquina</h4>
+                                <p class="marble-origin">Spain/Italy</p>
+                                <div class="marble-specs">
+                                    <span class="spec">Density: 2.70 g/cm³</span>
+                                    <span class="spec">Absorption: 0.18%</span>
+                                </div>
+                                <div class="marble-tags">
+                                    <span class="tag tag--premium">Premium</span>
+                                    <span class="tag tag--hotel">Luxury</span>
+                                </div>
+                                <p class="marble-description">
+                                    Dramatic black marble with white veining. 
+                                    Perfect for creating striking accent features.
+                                </p>
+                                <div class="marble-actions">
+                                    <a href="#nero-detail" class="btn btn--outline btn--small">Learn More</a>
+                                    <a href="contact.html" class="btn btn--primary btn--small">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Greek Marbles -->
+                <div class="marble-section fade-in">
+                    <h3 class="section-title">🇬🇷 Greek Marbles (Premium Tier)</h3>
+                    <div class="marble-grid">
+                        <div class="marble-card" data-origin="greece" data-price="premium" data-color="white" data-application="heritage">
+                            <div class="marble-image">
+                                <img src="https://images.unsplash.com/photo-1618221366501-b5c88c52e269?w=400&h=300&fit=crop" alt="Thassos White Marble" loading="lazy">
+                                <div class="marble-rating">
+                                    <span class="corporate-rating">★★★★★</span>
+                                    <span class="rating-label">Pure</span>
+                                </div>
+                            </div>
+                            <div class="marble-info">
+                                <h4>Thassos White</h4>
+                                <p class="marble-origin">Thassos Island, Greece</p>
+                                <div class="marble-specs">
+                                    <span class="spec">Density: 2.69 g/cm³</span>
+                                    <span class="spec">Absorption: 0.08%</span>
+                                </div>
+                                <div class="marble-tags">
+                                    <span class="tag tag--premium">Premium</span>
+                                    <span class="tag tag--heritage">Heritage</span>
+                                </div>
+                                <p class="marble-description">
+                                    Pure white marble with no veining. 
+                                    Classic choice for heritage buildings and timeless elegance.
+                                </p>
+                                <div class="marble-actions">
+                                    <a href="#thassos-detail" class="btn btn--outline btn--small">Learn More</a>
+                                    <a href="contact.html" class="btn btn--primary btn--small">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="marble-card" data-origin="greece" data-price="high" data-color="white" data-application="corporate">
+                            <div class="marble-image">
+                                <img src="https://images.unsplash.com/photo-1615880487838-7bb8af7e2fe5?w=400&h=300&fit=crop" alt="Volakas Marble" loading="lazy">
+                                <div class="marble-rating">
+                                    <span class="corporate-rating">★★★★☆</span>
+                                    <span class="rating-label">Dramatic</span>
+                                </div>
+                            </div>
+                            <div class="marble-info">
+                                <h4>Volakas</h4>
+                                <p class="marble-origin">Drama, Greece</p>
+                                <div class="marble-specs">
+                                    <span class="spec">Density: 2.70 g/cm³</span>
+                                    <span class="spec">Absorption: 0.14%</span>
+                                </div>
+                                <div class="marble-tags">
+                                    <span class="tag tag--high">High-End</span>
+                                    <span class="tag tag--corporate">Corporate</span>
+                                </div>
+                                <p class="marble-description">
+                                    White marble with dramatic grey veining. 
+                                    Popular alternative to Carrara with bold patterns.
+                                </p>
+                                <div class="marble-actions">
+                                    <a href="#volakas-detail" class="btn btn--outline btn--small">Learn More</a>
+                                    <a href="contact.html" class="btn btn--primary btn--small">Get Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Tools Section -->
+                <div class="marble-section fade-in">
+                    <h3 class="section-title">
+                        <img src="assets/images/icons/wrench.svg" alt="Tools" width="20" height="20" style="display: inline; vertical-align: middle; margin-right: 8px;"> Interactive Marble Tools
+                    </h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-icon">📱</div>
+                            <h4>Marble Identifier</h4>
+                            <p>Upload a photo and our AI will identify the marble type</p>
+                            <button class="btn btn--primary btn--small">Upload Photo</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <img src="assets/images/icons/scales.svg" alt="Calculator" width="24" height="24">
+                            </div>
+                            <h4>Comparison Tool</h4>
+                            <p>Compare up to 3 marble types side by side</p>
+                            <button class="btn btn--outline btn--small">Start Comparison</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">💰</div>
+                            <h4>Cost Calculator</h4>
+                            <p>Get instant estimates for your marble project</p>
+                            <button class="btn btn--outline btn--small">Calculate Cost</button>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-icon">📅</div>
+                            <h4>Maintenance Schedule</h4>
+                            <p>Generate custom care plans for your marble type</p>
+                            <button class="btn btn--outline btn--small">Create Schedule</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Resources -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2>Educational Resources</h2>
+                <p class="lead">Learn from Singapore's marble experts</p>
+            </div>
+            
+            <div class="grid grid--3">
+                <div class="resource-card stagger-item">
+                    <div class="resource-icon">📖</div>
+                    <h3>Care Guides</h3>
+                    <p>Comprehensive maintenance instructions for each marble type</p>
+                    <ul class="resource-list">
+                        <li>Daily maintenance procedures</li>
+                        <li>Stain removal techniques</li>
+                        <li>Seasonal care adjustments</li>
+                        <li>Emergency response protocols</li>
+                    </ul>
+                    <a href="#care-guides" class="btn btn--outline">Access Guides</a>
+                </div>
+                
+                <div class="resource-card stagger-item">
+                    <div class="resource-icon">🎥</div>
+                    <h3>Video Tutorials</h3>
+                    <p>Professional demonstrations of marble care techniques</p>
+                    <ul class="resource-list">
+                        <li>Basic marble care (5 min)</li>
+                        <li>Stain prevention (7 min)</li>
+                        <li>Professional techniques (15 min)</li>
+                        <li>Emergency procedures (12 min)</li>
+                    </ul>
+                    <a href="#video-library" class="btn btn--outline">Watch Videos</a>
+                </div>
+                
+                <div class="resource-card stagger-item">
+                    <div class="resource-icon">
+                        <img src="assets/images/icons/bar-chart.svg" alt="Resources" width="24" height="24">
+                    </div>
+                    <h3>Technical Data</h3>
+                    <p>Detailed specifications and performance metrics</p>
+                    <ul class="resource-list">
+                        <li>Absorption rates and density</li>
+                        <li>Compressive strength data</li>
+                        <li>Thermal expansion coefficients</li>
+                        <li>Industry standard comparisons</li>
+                    </ul>
+                    <a href="#technical-data" class="btn btn--primary">View Data</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Consultation CTA -->
+    <section class="section bg-coral">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 style="color: white;">Need Expert Marble Advice?</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-8);">
+                    Our specialists are here to help you choose the perfect marble for your project
+                </p>
+                
+                <div class="grid grid--3" style="max-width: 900px; margin: 0 auto;">
+                    <div class="text-center">
+                        <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">
+                            <img src="assets/images/icons/phone.svg" alt="Phone" width="24" height="24">
+                        </div>
+                        <h4 style="color: white;">Free Consultation</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                            Speak with our marble specialists
+                        </p>
+                        <a href="contact.html" class="btn btn--outline" style="border-color: white; color: white;">
+                            Book Meeting
+                        </a>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">📧</div>
+                        <h4 style="color: white;">Email Expert</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                            Get detailed written advice
+                        </p>
+                        <a href="mailto:expert@pspl.sg" class="btn btn--outline" style="border-color: white; color: white;">
+                            Email Us
+                        </a>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">
+                            <img src="assets/images/icons/alert-triangle.svg" alt="Emergency" width="24" height="24">
+                        </div>
+                        <h4 style="color: white;">Emergency Help</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                            24/7 marble emergency support
+                        </p>
+                        <a href="tel:+6597677169" class="btn btn--emergency">
+                            Call Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h4>Polishing Specialist Pte Ltd</h4>
+                    <p>Singapore's premier marble restoration specialists since 1989. Trusted by luxury hotels, Grade A offices, and Singapore's finest properties.</p>
+                    <div class="mt-4">
+                        <strong>Emergency 24/7:</strong><br>
+                        <a href="tel:+6597677169">+65 9767 7169</a>
+                    </div>
+                </div>
+                
+                <div class="footer__section">
+                    <h4>Marble Types</h4>
+                    <ul class="footer__links">
+                        <li><a href="#carrara">Carrara White</a></li>
+                        <li><a href="#calacatta">Calacatta Gold</a></li>
+                        <li><a href="#emperador">Emperador Dark</a></li>
+                        <li><a href="#thassos">Thassos White</a></li>
+                        <li><a href="#nero">Nero Marquina</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4>Resources</h4>
+                    <ul class="footer__links">
+                        <li><a href="#care-guides">Care Guides</a></li>
+                        <li><a href="#video-tutorials">Video Tutorials</a></li>
+                        <li><a href="#tools">Interactive Tools</a></li>
+                        <li><a href="#technical-data">Technical Data</a></li>
+                        <li><a href="#maintenance">Maintenance Schedules</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4>Contact Info</h4>
+                    <ul class="footer__links">
+                        <li><strong>Main Office:</strong><br>+65 XXXX XXXX</li>
+                        <li><strong>Emergency:</strong><br>+65 9767 7169</li>
+                        <li><strong>Email:</strong><br>info@pspl.sg</li>
+                        <li><strong>Expert:</strong><br>expert@pspl.sg</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Polishing Specialist Private Limited. All rights reserved. | 
+                <a href="#privacy">Privacy Policy</a> | 
+                <a href="#terms">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/encyclopedia.js"></script>
+    
+</body>
+</html>

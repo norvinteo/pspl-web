@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSPL Portfolio - Singapore's Premier Marble Projects | Marina Bay Sands, Raffles Hotel</title>
+    <meta name="description" content="Explore PSPL's prestigious marble restoration projects including Marina Bay Sands, Raffles Hotel, and 150+ corporate properties. 35 years of excellence.">
+    <meta name="keywords" content="marble restoration portfolio Singapore, corporate marble projects, hotel marble restoration, commercial marble work">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/pspl-logo.jpg" alt="PSPL Logo" width="40" height="40">
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Home</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                    <li><a href="services.html" class="nav__link">Services</a></li>
+                    <li><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                    <li><a href="encyclopedia.html" class="nav__link">Encyclopedia</a></li>
+                    <li><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-emergency">
+                <span>Emergency:</span>
+                <strong>+65 9767 7169</strong>
+            </div>
+            
+            <button class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="section section--hero hero">
+        <div class="container">
+            <div class="hero__content text-center fade-in">
+                <h1 class="hero__headline">
+                    Transforming Singapore's Most<br>
+                    <span class="text-coral">Prestigious Spaces</span>
+                </h1>
+                <p class="hero__subheadline">
+                    From Marina Bay Sands' grand lobby to Raffles Hotel's heritage suites, 
+                    explore how PSPL has restored and maintained over 500,000 square meters 
+                    of Singapore's finest marble surfaces.
+                </p>
+                
+                <div class="trust-badges mb-8">
+                    <div class="trust-badge">500,000+ Square Meters Restored</div>
+                    <div class="trust-badge">150+ Prestigious Properties</div>
+                    <div class="trust-badge">2,847 Projects Completed</div>
+                    <div class="trust-badge">35 Years of Excellence</div>
+                </div>
+                
+                <div class="hero__cta">
+                    <a href="#corporate" class="btn btn--primary btn--large">View Corporate Projects</a>
+                    <a href="#download" class="btn btn--outline btn--large">Download Portfolio Brochure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter -->
+    <section class="section bg-grey">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2>Explore Our Portfolio</h2>
+                <p class="lead">Filter by project type, property, or scope</p>
+            </div>
+            
+            <div class="portfolio-filters">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="corporate">Corporate</button>
+                    <button class="filter-btn" data-filter="hotel">Hotels</button>
+                    <button class="filter-btn" data-filter="government">Government</button>
+                    <button class="filter-btn" data-filter="residential">Residential</button>
+                    <button class="filter-btn" data-filter="emergency">Emergency</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Showcase -->
+    <section class="section" id="corporate">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2>Corporate Excellence Portfolio</h2>
+                <p class="lead">Singapore's Finest Properties Trust PSPL</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Marina Bay Sands -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="corporate hotel">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=400&fit=crop" alt="Marina Bay Sands Grand Lobby Restoration" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>Marina Bay Sands</h4>
+                                <p>Grand Lobby Restoration</p>
+                                <span class="portfolio-value">$850,000 Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">Marina Bay Sands - Grand Lobby</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--emergency">Emergency Response</span>
+                            <span class="tag tag--scale">2,000 sqm</span>
+                            <span class="tag tag--marble">Carrara White</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            72-hour emergency response for water damage affecting 2,000 sqm of Carrara marble. 
+                            Night-only work to avoid guest disruption, invisible repair with upgraded protective systems.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Timeline:</strong> 2 weeks
+                            </div>
+                            <div class="stat-item">
+                                <strong>Challenge:</strong> Zero guest disruption
+                            </div>
+                            <div class="stat-item">
+                                <strong>Result:</strong> Invisible repair
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Raffles Hotel -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="hotel government">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="Raffles Hotel Presidential Suite Restoration" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>Raffles Hotel Singapore</h4>
+                                <p>Presidential Suite Heritage Restoration</p>
+                                <span class="portfolio-value">$1.2M Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">Raffles Hotel - Presidential Suite</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--heritage">Heritage</span>
+                            <span class="tag tag--premium">Premium</span>
+                            <span class="tag tag--marble">Calacatta Gold</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            Museum-quality restoration of 100-year-old Calacatta Gold marble with historic significance. 
+                            Traditional techniques with modern stabilization, maintaining historical integrity.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Timeline:</strong> 6 months
+                            </div>
+                            <div class="stat-item">
+                                <strong>Award:</strong> URA Heritage Preservation
+                            </div>
+                            <div class="stat-item">
+                                <strong>Age:</strong> 100+ years
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- ION Orchard -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="corporate">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=400&fit=crop" alt="ION Orchard Main Entrance Restoration" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>ION Orchard</h4>
+                                <p>Main Entrance High-Traffic Restoration</p>
+                                <span class="portfolio-value">$650,000 Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">ION Orchard - Main Entrance</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--traffic">High Traffic</span>
+                            <span class="tag tag--innovation">Innovation</span>
+                            <span class="tag tag--retail">Retail</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            50,000+ daily footfall restoration with ultra-durable protective coating system. 
+                            Phased approach over 4 weeks achieving 300% improvement in wear resistance.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Traffic:</strong> 50,000+ daily
+                            </div>
+                            <div class="stat-item">
+                                <strong>Improvement:</strong> 300% wear resistance
+                            </div>
+                            <div class="stat-item">
+                                <strong>Warranty:</strong> Zero issues 3+ years
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- CapitaLand -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="corporate">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="CapitaLand Office Tower Executive Floors" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>CapitaLand Office Tower</h4>
+                                <p>Executive Floors Maintenance Program</p>
+                                <span class="portfolio-value">$150,000 Annual</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">CapitaLand - Executive Floors</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--maintenance">Maintenance</span>
+                            <span class="tag tag--corporate">Corporate</span>
+                            <span class="tag tag--ongoing">5-Year Contract</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            Ongoing maintenance program across 20 floors with multiple marble types. 
+                            Predictive maintenance using surface monitoring achieving 40% reduction in replacement costs.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Scope:</strong> 20 floors
+                            </div>
+                            <div class="stat-item">
+                                <strong>Savings:</strong> 40% cost reduction
+                            </div>
+                            <div class="stat-item">
+                                <strong>Expansion:</strong> 3 additional buildings
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Shangri-La Hotel -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="hotel emergency">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f29e8e3ebd?w=600&h=400&fit=crop" alt="Shangri-La Hotel Ballroom Emergency Restoration" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>Shangri-La Hotel</h4>
+                                <p>Ballroom Emergency Water Damage</p>
+                                <span class="portfolio-value">$420,000 Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">Shangri-La - Ballroom Complex</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--emergency">Emergency</span>
+                            <span class="tag tag--complex">Multi-Type Marble</span>
+                            <span class="tag tag--hotel">Hotel</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            48-hour emergency response for burst pipe damage affecting 800 sqm during wedding season. 
+                            Perfect color-matching for 6 different marble types with zero event cancellations.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Response:</strong> 48 hours
+                            </div>
+                            <div class="stat-item">
+                                <strong>Marble Types:</strong> 6 different
+                            </div>
+                            <div class="stat-item">
+                                <strong>Impact:</strong> Zero cancellations
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Government Building -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="government">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="Supreme Court Building Marble Restoration" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>Supreme Court of Singapore</h4>
+                                <p>Heritage Building Restoration</p>
+                                <span class="portfolio-value">Confidential</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">Supreme Court Building</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--government">Government</span>
+                            <span class="tag tag--heritage">Heritage</span>
+                            <span class="tag tag--precision">High Precision</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            Heritage building marble restoration requiring absolute perfection for Singapore's highest court. 
+                            Conservation-grade techniques with complete documentation for heritage authorities.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Standard:</strong> Museum quality
+                            </div>
+                            <div class="stat-item">
+                                <strong>Compliance:</strong> Full heritage approval
+                            </div>
+                            <div class="stat-item">
+                                <strong>Security:</strong> Highest clearance
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Luxury Residential -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="residential">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Luxury Residential Marble Installation" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>Premium Residential</h4>
+                                <p>Whole Home Marble Care</p>
+                                <span class="portfolio-value">Private Client</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">Luxury Landed Property</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--residential">Residential</span>
+                            <span class="tag tag--luxury">Ultra-Luxury</span>
+                            <span class="tag tag--comprehensive">Full Home</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            Complete marble care for luxury landed property including kitchens, bathrooms, and living spaces. 
+                            Hotel-standard maintenance bringing commercial expertise to residential luxury.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Scope:</strong> Whole home
+                            </div>
+                            <div class="stat-item">
+                                <strong>Standard:</strong> Hotel grade
+                            </div>
+                            <div class="stat-item">
+                                <strong>Service:</strong> Ongoing care
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Heritage Project -->
+                <div class="portfolio-item hover-lift stagger-item" data-category="government heritage">
+                    <div class="portfolio-item__image">
+                        <img src="https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=600&h=400&fit=crop" alt="National Gallery Marble Installation" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-overlay__content">
+                                <h4>National Gallery Singapore</h4>
+                                <p>Modern Art Space Marble</p>
+                                <span class="portfolio-value">$2.1M Project</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item__content">
+                        <h3 class="portfolio-item__title">National Gallery Singapore</h3>
+                        <div class="portfolio-tags">
+                            <span class="tag tag--cultural">Cultural</span>
+                            <span class="tag tag--precision">High Precision</span>
+                            <span class="tag tag--innovation">Innovation</span>
+                        </div>
+                        <p class="portfolio-item__description">
+                            Modern art space marble installation requiring museum-quality standards. 
+                            Integration of heritage preservation with contemporary art display requirements.
+                        </p>
+                        <div class="portfolio-stats">
+                            <div class="stat-item">
+                                <strong>Standard:</strong> Museum quality
+                            </div>
+                            <div class="stat-item">
+                                <strong>Integration:</strong> Heritage + Modern
+                            </div>
+                            <div class="stat-item">
+                                <strong>Precision:</strong> Art-grade requirements
+                            </div>
+                        </div>
+                        <a href="#project-detail" class="btn btn--outline btn--small">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="section bg-corporate-charcoal">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2 style="color: white;">Success Stories by the Numbers</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">Quantifiable results from our partnerships</p>
+            </div>
+            
+            <div class="grid grid--3">
+                <div class="card fade-in">
+                    <h3 class="text-coral mb-4">Marina Bay Sands Partnership</h3>
+                    <p class="small text-gold mb-3">5 Years of Excellence</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="mb-2">• 15 Emergency Responses (90-min avg)</li>
+                        <li class="mb-2">• 24,000 sqm Under Maintenance</li>
+                        <li class="mb-2">• Zero Guest Complaints</li>
+                        <li class="mb-2">• $2.4M in Avoided Replacement Costs</li>
+                        <li class="mb-2">• 99.8% Uptime During Maintenance</li>
+                    </ul>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3 class="text-coral mb-4">Raffles Hotel Transformation</h3>
+                    <p class="small text-gold mb-3">Heritage Restoration Excellence</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="mb-2">• 3,000 sqm of 100-Year-Old Marble</li>
+                        <li class="mb-2">• 6 Different Historical Types Matched</li>
+                        <li class="mb-2">• Zero Historical Accuracy Compromises</li>
+                        <li class="mb-2">• URA Heritage Preservation Award</li>
+                        <li class="mb-2">• Featured in Architectural Digest Asia</li>
+                    </ul>
+                </div>
+                
+                <div class="card fade-in">
+                    <h3 class="text-coral mb-4">Corporate Client Retention</h3>
+                    <p class="small text-gold mb-3">Long-Term Partnership Success</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="mb-2">• 94% Client Retention Rate</li>
+                        <li class="mb-2">• Average Relationship: 8.5 Years</li>
+                        <li class="mb-2">• 67% Expand Services Within 2 Years</li>
+                        <li class="mb-2">• 89% Would Recommend PSPL</li>
+                        <li class="mb-2">• $12M+ in Ongoing Contracts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="section bg-grey">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2>What Our Clients Say</h2>
+                <p class="lead">Hear from Singapore's most prestigious properties</p>
+            </div>
+            
+            <div class="grid grid--2">
+                <div class="testimonial fade-in">
+                    <blockquote class="testimonial__quote">
+                        "PSPL's emergency response saved our grand opening timeline. Their night-only work 
+                        approach meant zero disruption to our guests, and the restoration is completely invisible."
+                    </blockquote>
+                    <cite class="testimonial__author">Marina Bay Sands</cite>
+                    <p class="testimonial__role">Facilities Director</p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <blockquote class="testimonial__quote">
+                        "The restoration of our Presidential Suite marble was nothing short of miraculous. 
+                        PSPL maintained every detail of our heritage while improving durability."
+                    </blockquote>
+                    <cite class="testimonial__author">Raffles Hotel Singapore</cite>
+                    <p class="testimonial__role">General Manager</p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <blockquote class="testimonial__quote">
+                        "Three years later, our high-traffic entrance marble still looks perfect. 
+                        PSPL's protective coating innovation exceeded all our expectations."
+                    </blockquote>
+                    <cite class="testimonial__author">ION Orchard</cite>
+                    <p class="testimonial__role">Operations Head</p>
+                </div>
+                
+                <div class="testimonial fade-in">
+                    <blockquote class="testimonial__quote">
+                        "PSPL's predictive maintenance program has saved us hundreds of thousands 
+                        in replacement costs across our portfolio."
+                    </blockquote>
+                    <cite class="testimonial__author">CapitaLand</cite>
+                    <p class="testimonial__role">Portfolio Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section bg-coral">
+        <div class="container">
+            <div class="text-center mb-8 fade-in">
+                <h2 style="color: white;">Ready to Join Singapore's Most Prestigious Properties?</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">Experience the PSPL difference</p>
+            </div>
+            
+            <div class="grid grid--4">
+                <div class="text-center stagger-item">
+                    <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">
+                        <img src="assets/images/icons/phone.svg" alt="Phone" width="24" height="24">
+                    </div>
+                    <h4 style="color: white;">Project Consultation</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                        Schedule a comprehensive assessment for your property
+                    </p>
+                    <a href="contact.html" class="btn btn--outline" style="border-color: white; color: white;">
+                        Book Meeting
+                    </a>
+                </div>
+                
+                <div class="text-center stagger-item">
+                    <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">
+                        <img src="assets/images/icons/clipboard.svg" alt="Report" width="24" height="24">
+                    </div>
+                    <h4 style="color: white;">Portfolio Brochure</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                        Download our complete corporate portfolio
+                    </p>
+                    <a href="#download" class="btn btn--outline" style="border-color: white; color: white;">
+                        Download PDF
+                    </a>
+                </div>
+                
+                <div class="text-center stagger-item">
+                    <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">
+                        <img src="assets/images/icons/alert-triangle.svg" alt="Emergency" width="24" height="24">
+                    </div>
+                    <h4 style="color: white;">Emergency Response</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                        24/7 immediate response for marble emergencies
+                    </p>
+                    <a href="tel:+6597677169" class="btn btn--emergency">
+                        Call Now
+                    </a>
+                </div>
+                
+                <div class="text-center stagger-item">
+                    <div class="card__icon mb-4" style="background: white; color: var(--color-coral);">
+                        <img src="assets/images/icons/briefcase.svg" alt="Business" width="24" height="24">
+                    </div>
+                    <h4 style="color: white;">Executive Presentation</h4>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: var(--space-4);">
+                        Custom presentation for your property team
+                    </p>
+                    <a href="contact.html" class="btn btn--outline" style="border-color: white; color: white;">
+                        Request Presentation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h4>Polishing Specialist Pte Ltd</h4>
+                    <p>Singapore's premier marble restoration specialists since 1989. Trusted by luxury hotels, Grade A offices, and Singapore's finest properties.</p>
+                    <div class="mt-4">
+                        <strong>Emergency 24/7:</strong><br>
+                        <a href="tel:+6597677169">+65 9767 7169</a>
+                    </div>
+                </div>
+                
+                <div class="footer__section">
+                    <h4>Featured Projects</h4>
+                    <ul class="footer__links">
+                        <li><a href="#marina-bay-sands">Marina Bay Sands</a></li>
+                        <li><a href="#raffles-hotel">Raffles Hotel Singapore</a></li>
+                        <li><a href="#ion-orchard">ION Orchard</a></li>
+                        <li><a href="#capitaland">CapitaLand Properties</a></li>
+                        <li><a href="#government">Government Buildings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4>Project Types</h4>
+                    <ul class="footer__links">
+                        <li><a href="#corporate">Corporate Projects</a></li>
+                        <li><a href="#emergency">Emergency Response</a></li>
+                        <li><a href="#heritage">Heritage Restoration</a></li>
+                        <li><a href="#maintenance">Maintenance Programs</a></li>
+                        <li><a href="#residential">Luxury Residential</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4>Contact Info</h4>
+                    <ul class="footer__links">
+                        <li><strong>Main Office:</strong><br>+65 XXXX XXXX</li>
+                        <li><strong>Emergency:</strong><br>+65 9767 7169</li>
+                        <li><strong>Email:</strong><br>info@pspl.sg</li>
+                        <li><strong>Corporate:</strong><br>corporate@pspl.sg</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 Polishing Specialist Private Limited. All rights reserved. | 
+                <a href="#privacy">Privacy Policy</a> | 
+                <a href="#terms">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/portfolio.js"></script>
+    
+</body>
+</html>
